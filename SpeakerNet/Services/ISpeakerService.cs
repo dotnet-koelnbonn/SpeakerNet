@@ -11,5 +11,6 @@ namespace SpeakerNet.Services
         IEnumerable<SpeakerListModel> GetSpeakerList();
         bool CreateSpeaker(CreateSpeakerModel model);
         Speaker GetSpeaker(Guid id);
+        void Update();
     }
 }

@@ -1,0 +1,2120 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WikiPlex</name>
+    </assembly>
+    <members>
+        <member name="T:WikiPlex.Common.Dimensions">
+            <summary>
+            Defines a height and width dimension used for images, videos, and silverlight applications.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Common.Dimensions.ToString">
+            <summary>
+            Overrides the ToString method to output the html height / width attributes.
+            </summary>
+            <returns>The height / width attributes string.</returns>
+        </member>
+        <member name="P:WikiPlex.Common.Dimensions.Height">
+            <summary>
+            Gets or sets the height.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Common.Dimensions.Width">
+            <summary>
+            Gets or sets the width.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Common.ImagePart">
+            <summary>
+             Defines the image url, text, link url, and dimensions for an image.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Common.ImagePart.#ctor(System.String,System.String,System.String,WikiPlex.Common.Dimensions)">
+            <summary>
+            Instantiates a new instance of <see cref="T:WikiPlex.Common.ImagePart"/>.
+            </summary>
+            <param name="imageUrl">The url to the image.</param>
+            <param name="text">The text.</param>
+            <param name="linkUrl">The url to the link.</param>
+            <param name="dimensions">The dimensions of the image.</param>
+        </member>
+        <member name="P:WikiPlex.Common.ImagePart.Text">
+            <summary>
+            Gets the text of the image.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Common.ImagePart.ImageUrl">
+            <summary>
+            Gets the url of the image.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Common.ImagePart.LinkUrl">
+            <summary>
+            Gets the url of the link.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Common.ImagePart.Dimensions">
+            <summary>
+            Gets the dimensions of the text.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Common.ImagePartExtras">
+            <summary>
+            Contains the image part extras that should be extracted.
+            </summary>
+        </member>
+        <member name="F:WikiPlex.Common.ImagePartExtras.None">
+            <summary>
+            Default. This indicates no extras should be extracted.
+            </summary>
+        </member>
+        <member name="F:WikiPlex.Common.ImagePartExtras.ContainsText">
+            <summary>
+            Indicates the input contains text.
+            </summary>
+        </member>
+        <member name="F:WikiPlex.Common.ImagePartExtras.ContainsLink">
+            <summary>
+            Indicates the input contains a link.
+            </summary>
+        </member>
+        <member name="F:WikiPlex.Common.ImagePartExtras.All">
+            <summary>
+            Indicates that the input contains both text and link.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Common.RenderException">
+            <summary>
+            The exception that is thrown for any generic rendering exceptions.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Common.RenderException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WikiPlex.Common.RenderException"/> class.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Common.RenderException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WikiPlex.Common.RenderException"/> class.
+            </summary>
+            <param name="message">The message that should be displayed.</param>
+        </member>
+        <member name="T:WikiPlex.Compilation.Macros.IndentationMacro">
+            <summary>
+            This macro will indent text.
+            </summary>
+            <example><code language="none">
+            Single line indentation
+            : First Level Indentation
+            :: Second Level Indentation
+            
+            or Multi-line indentation
+            
+            :{
+            {code:c#}
+            public class Foo {
+            }
+            {code:c#}
+            :}
+            
+            ::{
+            ||header||header||
+            |cell|cell|
+            ::}
+            </code></example>
+        </member>
+        <member name="T:WikiPlex.Compilation.Macros.IMacro">
+            <summary>
+            Defines the fields necessary for a macro.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.IMacro.Id">
+            <summary>
+            Gets the id of the macro.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.IMacro.Rules">
+            <summary>
+            Gets the list of rules for the macro.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.IndentationMacro.Id">
+            <summary>
+            Gets the id of the macro.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.IndentationMacro.Rules">
+            <summary>
+            Gets the list of rules.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Compilation.Macros.ListMacro">
+            <summary>
+            This macro will will consume either an ordered or an unordered list.
+            </summary>
+            <example><code language="none">
+            * item 1
+            * item 2
+            ## item 2.1
+            ## item 2.2
+            *** item 2.2.1
+            </code></example>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.ListMacro.Id">
+            <summary>
+            Gets the id of the macro.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.ListMacro.Rules">
+            <summary>
+            Gets the list of rules for the macro.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.EscapeRegexPatterns">
+            <summary>
+            Exposes commonly used regex escape patterns.
+            </summary>
+        </member>
+        <member name="F:WikiPlex.EscapeRegexPatterns.CurlyBraceEscape">
+            <summary>
+            The regex pattern for escaping content within double curly brace code blocks.
+            </summary>
+        </member>
+        <member name="F:WikiPlex.EscapeRegexPatterns.FullEscape">
+            <summary>
+            The regex pattern for escaping content within all code blocks.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Common.TextPart">
+            <summary>
+            Defines a text and friendly text part.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Common.TextPart.#ctor(System.String,System.String)">
+            <summary>
+            Instantiates a new instance of <see cref="T:WikiPlex.Common.TextPart"/>.
+            </summary>
+            <param name="text">The text.</param>
+            <param name="friendlyText">The friendly text.</param>
+        </member>
+        <member name="P:WikiPlex.Common.TextPart.Text">
+            <summary>
+            Gets the text.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Common.TextPart.FriendlyText">
+            <summary>
+            Gets the friendly text.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Common.Utility">
+            <summary>
+            The static utility class containing useful common methods.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Common.Utility.IsDefinedOnEnum``1(System.Object)">
+            <summary>
+            Determines if the input is defined on an enumeration.
+            </summary>
+            <typeparam name="T">The type of the enumeration.</typeparam>
+            <param name="input">The input to check.</param>
+            <returns>A boolean value indicating if the input is defined on the enumeration.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when the type T is not an enum.</exception>
+        </member>
+        <member name="M:WikiPlex.Common.Utility.ExtractTextParts(System.String)">
+            <summary>
+            Will extract the text single or pair text parts of a string, separated by a |.
+            </summary>
+            <param name="input">The input to inspect.</param>
+            <returns>A new <see cref="T:WikiPlex.Common.TextPart"/>.</returns>
+            <remarks>If there are 2 parts, the first is the text, and the second is the friendly text. Otherwise, only the text is set.</remarks>
+            <exception cref="T:System.ArgumentNullException">Thrown when the input is null.</exception>
+            <exception cref="T:System.ArgumentException">
+            Thrown when the input is empty.
+            
+            -- or --
+            
+            Thrown when there are more than 2 parts found.
+            </exception>
+        </member>
+        <member name="M:WikiPlex.Common.Utility.ExtractImageParts(System.String,WikiPlex.Common.ImagePartExtras)">
+            <summary>
+            Will extract the single text or pair text parts of a string, separated by a |, including the dimensions for the text part.
+            </summary>
+            <param name="input">The input to inspect.</param>
+            <param name="partExtras">The image part extras to extract.</param>
+            <returns>A new <see cref="T:WikiPlex.Common.ImagePart"/>.</returns>
+            <remarks>If there are 2 parts, the first is the text, and the second is the friendly text. Otherwise, only the text is set. Also, should the text contain dimensions, they will be set.</remarks>
+            <exception cref="T:System.ArgumentNullException">Thrown when the input is null.</exception>
+            <exception cref="T:System.ArgumentException">
+            Thrown when the input is empty.
+            
+            -- or --
+            
+            Thrown when there are more than 2 parts found.
+            
+            -- or --
+            
+            Thrown if the height/width is not a valid unit.
+            
+            -- or --
+            
+            Thrown when the height/width is less than or equal to zero.
+            </exception>
+        </member>
+        <member name="M:WikiPlex.Common.Utility.CountChars(System.Char,System.String)">
+            <summary>
+            Will count the number of occurences a character is in an string.
+            </summary>
+            <param name="toFind">The character to find.</param>
+            <param name="input">The input string.</param>
+            <returns>The number of occurrances.</returns>
+        </member>
+        <member name="M:WikiPlex.Common.Utility.ExtractFragment(System.Text.RegularExpressions.Regex,System.String)">
+            <summary>
+            Will extract the first group fragment from an input based on a regular expression.
+            </summary>
+            <param name="regex">The regex to use.</param>
+            <param name="input">The input to inspect.</param>
+            <returns>The extracted fragment, empty string if not found.</returns>
+        </member>
+        <member name="T:WikiPlex.Common.Guard">
+            <summary>
+            Contains common methods that guard parameter inputs.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Common.Guard.NotNull``1(``0,System.String)">
+            <summary>
+            Ensures that the object is not null.
+            </summary>
+            <typeparam name="T">The object type.</typeparam>
+            <param name="object">The object to check.</param>
+            <param name="paramName">The parameter name.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if the object is null</exception>
+        </member>
+        <member name="M:WikiPlex.Common.Guard.NotNull``1(``0,System.String,System.String)">
+            <summary>
+            Ensures that the object is not null.
+            </summary>
+            <typeparam name="T">The object type.</typeparam>
+            <param name="object">The object to check.</param>
+            <param name="paramName">The parameter name.</param>
+            <param name="message">The message for the exception.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if the object is null</exception>
+        </member>
+        <member name="M:WikiPlex.Common.Guard.NotNullOrEmpty(System.String,System.String)">
+            <summary>
+            Ensures that the string is not null or empty.
+            </summary>
+            <param name="object">The object to check.</param>
+            <param name="paramName">The parameter name.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if the object is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if the object is empty.</exception>
+        </member>
+        <member name="M:WikiPlex.Common.Guard.NotNullOrEmpty(System.String,System.String,System.String)">
+            <summary>
+            Ensures that the string is not null or empty.
+            </summary>
+            <param name="object">The object to check.</param>
+            <param name="paramName">The parameter name.</param>
+            <param name="message">The message for the exception.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if the object is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if the object is empty.</exception>
+        </member>
+        <member name="M:WikiPlex.Common.Guard.NotNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            Ensures that the enumerable collection is not null or empty.
+            </summary>
+            <param name="object">The enumerable collection to check.</param>
+            <param name="paramName">The parameter name.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if the object is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if the object is empty.</exception>
+        </member>
+        <member name="M:WikiPlex.Common.Guard.NotNullOrEmpty``1(System.Collections.Generic.IList{``0},System.String,System.String)">
+            <summary>
+            Ensures that the enumerable collection is not null or empty.
+            </summary>
+            <param name="object">The enumerable collection to check.</param>
+            <param name="paramName">The parameter name.</param>
+            <param name="message">The message for the exception.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if the object is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if the object is empty.</exception>
+        </member>
+        <member name="M:WikiPlex.Common.Guard.NotEqual``1(``0,``0,System.String)">
+            <summary>
+            Ensures that two objects do not equal each other.
+            </summary>
+            <typeparam name="T">The type of the object.</typeparam>
+            <param name="compareTo">The object to compare to.</param>
+            <param name="object">The object to compare against.</param>
+            <param name="paramName">The parameter name.</param>
+            <exception cref="T:System.ArgumentException">Thrown if the objects are not equal.</exception>
+        </member>
+        <member name="T:WikiPlex.Formatting.Renderers.IndentationRenderer">
+            <summary>
+            This will render the indentation scopes.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Formatting.Renderers.Renderer">
+            <summary>
+            The base class for a <see cref="T:WikiPlex.Formatting.Renderers.IRenderer"/>.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Formatting.Renderers.IRenderer">
+            <summary>
+            Defines the fields necessary for a renderer.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Formatting.Renderers.IRenderer.CanExpand(System.String)">
+            <summary>
+            Determines if this renderer can expand the given scope name.
+            </summary>
+            <param name="scopeName">The scope name to check.</param>
+            <returns>A boolean value indicating if the renderer can or cannot expand the macro.</returns>
+        </member>
+        <member name="M:WikiPlex.Formatting.Renderers.IRenderer.Expand(System.String,System.String,System.Func{System.String,System.String},System.Func{System.String,System.String})">
+            <summary>
+            Will expand the input into the appropriate content based on scope.
+            </summary>
+            <param name="scopeName">The scope name.</param>
+            <param name="input">The input to be expanded.</param>
+            <param name="htmlEncode">Function that will html encode the output.</param>
+            <param name="attributeEncode">Function that will html attribute encode the output.</param>
+            <returns>The expanded content.</returns>
+        </member>
+        <member name="P:WikiPlex.Formatting.Renderers.IRenderer.Id">
+            <summary>
+            Gets the id of a renderer.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Formatting.Renderers.Renderer.CanExpand(System.String)">
+            <summary>
+            Determines if this renderer can expand the given scope name.
+            </summary>
+            <param name="scopeName">The scope name to check.</param>
+            <returns>A boolean value indicating if the renderer can or cannot expand the macro.</returns>
+        </member>
+        <member name="M:WikiPlex.Formatting.Renderers.Renderer.Expand(System.String,System.String,System.Func{System.String,System.String},System.Func{System.String,System.String})">
+            <summary>
+            Will expand the input into the appropriate content based on scope.
+            </summary>
+            <param name="scopeName">The scope name.</param>
+            <param name="input">The input to be expanded.</param>
+            <param name="htmlEncode">Function that will html encode the output.</param>
+            <param name="attributeEncode">Function that will html attribute encode the output.</param>
+            <returns>The expanded content.</returns>
+        </member>
+        <member name="M:WikiPlex.Formatting.Renderers.Renderer.PerformExpand(System.String,System.String,System.Func{System.String,System.String},System.Func{System.String,System.String})">
+            <summary>
+            Will expand the input into the appropriate content based on scope for the derived types.
+            </summary>
+            <param name="scopeName">The scope name.</param>
+            <param name="input">The input to be expanded.</param>
+            <param name="htmlEncode">Function that will html encode the output.</param>
+            <param name="attributeEncode">Function that will html attribute encode the output.</param>
+            <returns>The expanded content.</returns>
+        </member>
+        <member name="P:WikiPlex.Formatting.Renderers.Renderer.Id">
+            <summary>
+            Gets the id of a renderer.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Formatting.Renderers.Renderer.ScopeNames">
+            <summary>
+            Gets the collection of scope names for this <see cref="T:WikiPlex.Formatting.Renderers.IRenderer"/>.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Formatting.Renderers.Renderer.InvalidMacroError">
+            <summary>
+            Gets the invalid macro error text.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Formatting.Renderers.Renderer.InvalidArgumentError">
+            <summary>
+            Gets the invalid argument error text.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Formatting.Renderers.IndentationRenderer.PerformExpand(System.String,System.String,System.Func{System.String,System.String},System.Func{System.String,System.String})">
+            <summary>
+            Will expand the input into the appropriate content based on scope.
+            </summary>
+            <param name="scopeName">The scope name.</param>
+            <param name="input">The input to be expanded.</param>
+            <param name="htmlEncode">Function that will html encode the output.</param>
+            <param name="attributeEncode">Function that will html attribute encode the output.</param>
+            <returns>The expanded content.</returns>
+        </member>
+        <member name="P:WikiPlex.Formatting.Renderers.IndentationRenderer.ScopeNames">
+            <summary>
+            Gets the collection of scope names for this <see cref="T:WikiPlex.Formatting.Renderers.IRenderer"/>.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Common.Parameters">
+            <summary>
+            The static class to handle parameter extraction that is used across many renderers.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Common.Parameters.ExtractUrl(System.Collections.Generic.ICollection{System.String})">
+            <summary>
+            This will extract a url.
+            </summary>
+            <param name="parameters">The collection of parameters.</param>
+            <returns>The extracted url.</returns>
+            <exception cref="T:System.ArgumentException">
+            Thrown when the url cannot be validated.
+            
+            -- or --
+            
+            Thrown if the url contains codeplex.com
+            </exception>
+        </member>
+        <member name="M:WikiPlex.Common.Parameters.ExtractUrl(System.Collections.Generic.ICollection{System.String},System.Boolean)">
+            <summary>
+            This will extract a url.
+            </summary>
+            <param name="parameters">The collection of parameters.</param>
+            <param name="validateDomain">Will validate the domain not allowing codeplex.com</param>
+            <returns>The extracted url.</returns>
+            <exception cref="T:System.ArgumentException">
+            Thrown when the url cannot be validated.
+            
+            -- or --
+            
+            Thrown if the url contains codeplex.com and validateDomain is true.
+            </exception>
+        </member>
+        <member name="M:WikiPlex.Common.Parameters.ExtractAlign(System.Collections.Generic.ICollection{System.String},System.Web.UI.WebControls.HorizontalAlign)">
+            <summary>
+            This will extract the horizontal alignment parameter.
+            </summary>
+            <param name="parameters">The collection of parameters.</param>
+            <param name="defaultValue">The default value.</param>
+            <returns>The <see cref="T:System.Web.UI.WebControls.HorizontalAlign"/> value.</returns>
+            <exception cref="T:System.ArgumentException">
+            Thrown if the alignment value is not a valid enum value.
+            
+            -- or --
+            
+            Thrown if the alignment is not Center, Left, or Right
+            </exception>
+        </member>
+        <member name="M:WikiPlex.Common.Parameters.ExtractBool(System.Collections.Generic.IEnumerable{System.String},System.String,System.Boolean)">
+            <summary>
+            Will extract a boolean parameter.
+            </summary>
+            <param name="parameters">The collection of parameters.</param>
+            <param name="paramName">The parameter name to extract.</param>
+            <param name="defaultValue">The default value to use if the parameter is not found.</param>
+            <returns>The parameter value.</returns>
+            <exception cref="T:System.ArgumentException">Thrown if the value is not a valid boolean.</exception>
+        </member>
+        <member name="M:WikiPlex.Common.Parameters.ExtractDimensions(System.Collections.Generic.ICollection{System.String})">
+            <summary>
+            This will extract the height and width dimensions parameters.
+            </summary>
+            <param name="parameters">The colleciton of parameters.</param>
+            <returns>The <see cref="T:WikiPlex.Common.Dimensions"/> contained in the parameters.</returns>
+            <exception cref="T:System.ArgumentException">
+            Thrown if the height/width is not a valid unit.
+            
+            -- or --
+            
+            Thrown if the height/width is less than or equal to zero.
+            </exception>
+        </member>
+        <member name="M:WikiPlex.Common.Parameters.ExtractDimensions(System.Collections.Generic.ICollection{System.String},System.Nullable{System.Web.UI.WebControls.Unit},System.Nullable{System.Web.UI.WebControls.Unit})">
+            <summary>
+            This will extract the height and width dimensions parameters.
+            </summary>
+            <param name="parameters">The colleciton of parameters.</param>
+            <param name="defaultHeight">The default height.</param>
+            <param name="defaultWidth">The default width.</param>
+            <returns>The <see cref="T:WikiPlex.Common.Dimensions"/> contained in the parameters.</returns>
+            <exception cref="T:System.ArgumentException">
+            Thrown if the height/width is not a valid unit.
+            
+            -- or --
+            
+            Thrown if the height/width is less than or equal to zero.
+            </exception>
+        </member>
+        <member name="M:WikiPlex.Common.Parameters.GetValue(System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+            Will get the parameter value.
+            </summary>
+            <param name="parameters">The collection of parameters.</param>
+            <param name="paramName">The parameter name to extract.</param>
+            <returns>The parameter value.</returns>
+            <exception cref="T:System.ArgumentException">Thrown if the paramName is not present in the collection of parameters.</exception>
+        </member>
+        <member name="M:WikiPlex.Common.Parameters.TryGetValue(System.Collections.Generic.IEnumerable{System.String},System.String,System.String@)">
+            <summary>
+            Will get the parameter value.
+            </summary>
+            <param name="parameters">The collection of parameters.</param>
+            <param name="paramName">The parameter name to extract.</param>
+            <param name="value">The output value of the parameter name.</param>
+            <returns>A boolean value indicating if the value was found or not.</returns>
+        </member>
+        <member name="T:WikiPlex.Parsing.IndentationScopeAugmenter">
+            <summary>
+            Handles augmenting the scopes for the <see cref="T:WikiPlex.Compilation.Macros.IndentationMacro"/>.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Parsing.IScopeAugmenter">
+            <summary>
+            Defines the methods necessary for a scope augmenter.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Parsing.IScopeAugmenter.Augment(WikiPlex.Compilation.Macros.IMacro,System.Collections.Generic.IList{WikiPlex.Parsing.Scope},System.String)">
+            <summary>
+            This will insert new, remove, or re-order scopes.
+            </summary>
+            <param name="macro">The current macro.</param>
+            <param name="capturedScopes">The list of captured scopes.</param>
+            <param name="content">The wiki content being parsed.</param>
+            <returns>A new list of augmented scopes.</returns>
+        </member>
+        <member name="M:WikiPlex.Parsing.IndentationScopeAugmenter.Augment(WikiPlex.Compilation.Macros.IMacro,System.Collections.Generic.IList{WikiPlex.Parsing.Scope},System.String)">
+            <summary>
+            This will insert new, remove, or re-order scopes.
+            </summary>
+            <param name="macro">The current macro.</param>
+            <param name="capturedScopes">The list of captured scopes.</param>
+            <param name="content">The wiki content being parsed.</param>
+            <returns>A new list of augmented scopes.</returns>
+        </member>
+        <member name="T:WikiPlex.Syndication.IXmlDocumentReader">
+            <summary>
+            Defines the <see cref="T:WikiPlex.Syndication.XmlDocumentReaderWrapper"/> contract.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Syndication.IXmlDocumentReader.Read(System.String)">
+            <summary>
+            Will read an <see cref="T:System.Xml.XmlDocument"/> from the specified path.
+            </summary>
+            <param name="path">The path to read the document from.</param>
+            <returns>The loaded <see cref="T:System.Xml.XmlDocument"/> or null if any exception occurs during loading.</returns>
+        </member>
+        <member name="T:WikiPlex.Syndication.XmlDocumentReaderWrapper">
+            <summary>
+            Encapsulates reading an xml document from a path.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Syndication.XmlDocumentReaderWrapper.Read(System.String)">
+            <summary>
+            Will read an <see cref="T:System.Xml.XmlDocument"/> from the specified path.
+            </summary>
+            <param name="path">The path to read the document from.</param>
+            <returns>The loaded <see cref="T:System.Xml.XmlDocument"/> or null if any exception occurs during loading.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when path is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when path is empty.</exception>
+        </member>
+        <member name="T:WikiPlex.Compilation.CompiledMacro">
+            <summary>
+            Will hold a compiled macro that is generated from the <see cref="T:WikiPlex.Compilation.MacroCompiler"/>.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Compilation.CompiledMacro.#ctor(System.String,System.Text.RegularExpressions.Regex,System.Collections.Generic.IList{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WikiPlex.Compilation.CompiledMacro"/> class.
+            </summary>
+            <param name="id">The id.</param>
+            <param name="regex">The regular expression.</param>
+            <param name="captures">The list of captures.</param>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown when id is null.
+            
+            -- or --
+            
+            Thrown when regex is null.
+            
+            -- or --
+            
+            Thrown when captures is null.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            Thrown when id is empty.
+            
+            -- or --
+            
+            Thrown when captures is empty.
+            </exception>
+        </member>
+        <member name="P:WikiPlex.Compilation.CompiledMacro.Id">
+            <summary>
+            Gets the id.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Compilation.CompiledMacro.Regex">
+            <summary>
+            Gets the regular expression.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Compilation.CompiledMacro.Captures">
+            <summary>
+            Gets the list of captures.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Compilation.MacroCompiler">
+            <summary>
+            Handles compiling and caching a <see cref="T:WikiPlex.Compilation.Macros.IMacro"/>. Compilation includes normalizing all rules into a single regular expression.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Compilation.MacroCompiler.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WikiPlex.Compilation.MacroCompiler"/> class.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Compilation.MacroCompiler.Compile(WikiPlex.Compilation.Macros.IMacro)">
+            <summary>
+            Will compile a new <see cref="T:WikiPlex.Compilation.Macros.IMacro"/> or return a previously cached <see cref="T:WikiPlex.Compilation.CompiledMacro"/>.
+            </summary>
+            <param name="macro">The macro to compile.</param>
+            <returns>The compiled macro.</returns>
+        </member>
+        <member name="M:WikiPlex.Compilation.MacroCompiler.Flush">
+            <summary>
+             This will flush all compiled macros from the cache.
+            </summary>
+             <remarks>It is not recommended to use this method as compilation of macros is an expensive operation.</remarks>
+        </member>
+        <member name="T:WikiPlex.Compilation.Macros.BoldMacro">
+            <summary>
+            This macro will display text as bolded.
+            </summary>
+            <example><code language="none">
+            *i am bolded*
+            </code></example>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.BoldMacro.Id">
+            <summary>
+            Gets the id of the macro.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.BoldMacro.Rules">
+            <summary>
+            Gets the list of rules for the macro.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Compilation.Macros.ContentRightAlignmentMacro">
+            <summary>
+            This macro will display text as aligned to the right.
+            </summary>
+            <example><code language="none">
+            >{I am right aligned}>
+            </code></example>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.ContentRightAlignmentMacro.Id">
+            <summary>
+            Gets the id of the macro.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.ContentRightAlignmentMacro.Rules">
+            <summary>
+            Gets the list of rules for the macro.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Compilation.Macros.EscapedMarkupMacro">
+            <summary>
+            This macro will escape all other macros that are contained between {" and "}.
+            </summary>
+            <example><code language="none">
+            {" *I will not bold* "}
+            </code></example>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.EscapedMarkupMacro.Id">
+            <summary>
+            Gets the id of the macro.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.EscapedMarkupMacro.Rules">
+            <summary>
+            Gets the list of rules.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Compilation.Macros.HorizontalLineMacro">
+            <summary>
+            This macro will output a horizontal line.
+            </summary>
+            <example><code language="none">
+            Content above
+            ----
+            Content below
+            </code></example>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.HorizontalLineMacro.Id">
+            <summary>
+            Gets the id of the macro
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.HorizontalLineMacro.Rules">
+            <summary>
+            Gets the list of rules for the macro.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Compilation.Macros.ImageMacro">
+            <summary>
+            This macro will render images.
+            </summary>
+            <example><code language="none">
+            [image:http://www.foo.com/bar.jpg]
+            </code></example>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.ImageMacro.Id">
+            <summary>
+            Gets the id of the macro.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.ImageMacro.Rules">
+            <summary>
+            Gets the list of rules for the macro.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Compilation.Macros.ItalicsMacro">
+            <summary>
+            This macro will display text in italics.
+            </summary>
+            <example><code language="none">
+            _i am italics_
+            </code></example>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.ItalicsMacro.Id">
+            <summary>
+            Gets the id of the macro.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.ItalicsMacro.Rules">
+            <summary>
+            Gets the list of rules for the macro.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Compilation.Macros.LinkMacro">
+            <summary>
+            This macro will render links.
+            </summary>
+            <example><code language="none">
+            [url:http://www.foo.com]
+            [url:Go Here|http://www.foo.com]
+            </code></example>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.LinkMacro.Id">
+            <summary>
+            Gets the id of the macro.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.LinkMacro.Rules">
+            <summary>
+            Gets the list of rules for the macro.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Compilation.Macros.SyndicatedFeedMacro">
+            <summary>
+            This macro will display a syndicated feed.
+            </summary>
+            <example><code language="none">
+            {rss:url=http://www.foo.com/rss}
+            {atom:url=http://www.foo.com/atom}
+            {feed:url=http://www.foo.com/rss}
+            </code></example>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.SyndicatedFeedMacro.Id">
+            <summary>
+            Gets the id of the macro.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.SyndicatedFeedMacro.Rules">
+            <summary>
+            Gets the list of rules for the macro.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Compilation.Macros.SilverlightMacro">
+            <summary>
+            This macro will embed a silverlight application.
+            </summary>
+            <example><code language="none">
+            {silverlight:url=http://www.foo.com}
+            </code></example>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.SilverlightMacro.Id">
+            <summary>
+            Gets the id of the macro.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.SilverlightMacro.Rules">
+            <summary>
+            Gets the list of rules for the macro.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Compilation.Macros.SourceCodeMacro">
+            <summary>
+            Will output source code rendered as plain text or as syntax highighted for certain languages.
+            </summary>
+            <example><code language="none">
+            {{this is a single-line example}}
+            {{
+            this is a multi-line example with no syntax highlighting
+            }}
+            {code:aspx c#} ASPX C# {code:aspx c#}
+            {code:aspx vb.net} ASPX VB.Net {code:aspx vb.net}
+            {code:ashx} ASHX {code:ashx}
+            {code:c++} C++ {code:c++}
+            {code:c#} C# {code:c#}
+            {code:vb.net} VB.Net {code:vb.net}
+            {code:html} HTML {code:html}
+            {code:sql} SQL {code:sql}
+            {code:java} Java {code:java}
+            {code:javascript} Javascript {code:javascript}
+            {code:xml} XML {code:xml}
+            {code:php} PHP {code:php}
+            {code:css} CSS {code:css}
+            {code:powershell} Powershell {code:powershell}
+            </code></example>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.SourceCodeMacro.Id">
+            <summary>
+            Gets the id of the macro.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.SourceCodeMacro.Rules">
+            <summary>
+            Gets the list of rules for the macro.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Compilation.Macros.StrikethroughMacro">
+            <summary>
+            This macro will display text with a strikethrough.
+            </summary>
+            <example><code language="none">
+            --i have a line through me--
+            </code></example>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.StrikethroughMacro.Id">
+            <summary>
+            Gets the id of the macro.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.StrikethroughMacro.Rules">
+            <summary>
+            Gets the list of rules for the macro.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Compilation.Macros.SubscriptMacro">
+            <summary>
+            This macro will display text as subscript.
+            </summary>
+            <example><code language="none">
+            I am normal,,but I am subscript,,
+            </code></example>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.SubscriptMacro.Id">
+            <summary>
+            Gets the id of the macro.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.SubscriptMacro.Rules">
+            <summary>
+            Gets the list of rules for the macro.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Compilation.Macros.SuperscriptMacro">
+            <summary>
+            This macro will display text as superscript.
+            </summary>
+            <example><code language="none">
+            I am normal^^but I am subscript^^
+            </code></example>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.SuperscriptMacro.Id">
+            <summary>
+            Gets the id of the macro.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.SuperscriptMacro.Rules">
+            <summary>
+            Gets the list of rules for the macro.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Compilation.Macros.TableMacro">
+            <summary>
+            This macro will output a table with defined headers and rows.
+            </summary>
+            <example><code language="none">
+            || header 1 || header 2 ||
+            | cell 1 | cell 2 |
+            | cell 3 | cell 4 |
+            </code></example>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.TableMacro.Id">
+            <summary>
+            Gets the ide of the macro.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.TableMacro.Rules">
+            <summary>
+            Gets the list of rules for the macro.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Compilation.Macros.ContentLeftAlignmentMacro">
+            <summary>
+            This macro will left align content.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.ContentLeftAlignmentMacro.Id">
+            <summary>
+            Gets the id of the macro.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.ContentLeftAlignmentMacro.Rules">
+            <summary>
+            Gets the list of rules for the macro.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Compilation.Macros.UnderlineMacro">
+            <summary>
+            This macro will display text as underlined.
+            </summary>
+            <example><code language="none">
+            +I am underlined+
+            </code></example>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.UnderlineMacro.Id">
+            <summary>
+            Gets the id of the macro.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.UnderlineMacro.Rules">
+            <summary>
+            Gets the list of rules for the macro.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Compilation.Macros.VideoMacro">
+            <summary>
+            This macro will embed a video.
+            </summary>
+            <example><code language="none">
+            {video:url=http://www.foo.com,type=Flash}
+            {video:url=http://www.foo.com,type=QuickTime}
+            {video:url=http://www.foo.com,type=Real}
+            {video:url=http://www.foo.com,type=Windows}
+            {video:url=http://www.foo.com,type=YouTube}
+            {video:url=http://www.foo.com,type=Channel9}
+            {video:url=http://www.foo.com,type=Vimeo}
+            </code></example>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.VideoMacro.Id">
+            <summary>
+            Gets the id of the macro.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.VideoMacro.Rules">
+            <summary>
+            Gets the list of rules for the macro.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Formatting.Renderers.ContentAlignmentRenderer">
+            <summary>
+            This will render the content alignment scopes.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Formatting.Renderers.ContentAlignmentRenderer.PerformExpand(System.String,System.String,System.Func{System.String,System.String},System.Func{System.String,System.String})">
+            <summary>
+            Will expand the input into the appropriate content based on scope.
+            </summary>
+            <param name="scopeName">The scope name.</param>
+            <param name="input">The input to be expanded.</param>
+            <param name="htmlEncode">Function that will html encode the output.</param>
+            <param name="attributeEncode">Function that will html attribute encode the output.</param>
+            <returns>The expanded content.</returns>
+        </member>
+        <member name="P:WikiPlex.Formatting.Renderers.ContentAlignmentRenderer.ScopeNames">
+            <summary>
+            Gets the collection of scope names for this <see cref="T:WikiPlex.Formatting.Renderers.IRenderer"/>.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Formatting.RenderedScopeEventArgs">
+            <summary>
+            The event arguments used when a scope is rendered.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Formatting.RenderedScopeEventArgs.#ctor(WikiPlex.Parsing.Scope,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WikiPlex.Formatting.RenderedScopeEventArgs"/> class.
+            </summary>
+            <param name="scope">The scope name.</param>
+            <param name="content">The content.</param>
+            <param name="renderedContent">The rendered content.</param>
+        </member>
+        <member name="P:WikiPlex.Formatting.RenderedScopeEventArgs.Content">
+            <summary>
+            Gets the content.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Formatting.RenderedScopeEventArgs.RenderedContent">
+            <summary>
+            Gets the rendered content.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Formatting.RenderedScopeEventArgs.Scope">
+            <summary>
+            Gets the scope.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Formatting.Renderers.SyndicatedFeedRenderer">
+            <summary>
+            Will render the syndicated feed scopes.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Formatting.Renderers.SyndicatedFeedRenderer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WikiPlex.Formatting.Renderers.SyndicatedFeedRenderer"/>.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Formatting.Renderers.SyndicatedFeedRenderer.#ctor(WikiPlex.Syndication.IXmlDocumentReader,WikiPlex.Syndication.ISyndicationReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WikiPlex.Formatting.Renderers.SyndicatedFeedRenderer"/>.
+            </summary>
+            <param name="xmlDocumentReader">The xml document reader.</param>
+            <param name="syndicationReader">The syndication reader.</param>
+        </member>
+        <member name="M:WikiPlex.Formatting.Renderers.SyndicatedFeedRenderer.PerformExpand(System.String,System.String,System.Func{System.String,System.String},System.Func{System.String,System.String})">
+            <summary>
+            Will expand the input into the appropriate content based on scope.
+            </summary>
+            <param name="scopeName">The scope name.</param>
+            <param name="input">The input to be expanded.</param>
+            <param name="htmlEncode">Function that will html encode the output.</param>
+            <param name="attributeEncode">Function that will html attribute encode the output.</param>
+            <returns>The expanded content.</returns>
+        </member>
+        <member name="M:WikiPlex.Formatting.Renderers.SyndicatedFeedRenderer.RenderFeed(System.String,System.Boolean,System.Int32,System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Handles rendering a feed.
+            </summary>
+            <param name="url">The url to read the feed from.</param>
+            <param name="titlesOnly">Indicates if only titles should be displayed.</param>
+            <param name="max">The maximum number of entries to display.</param>
+            <param name="writer">The text writer to write to.</param>
+        </member>
+        <member name="M:WikiPlex.Formatting.Renderers.SyndicatedFeedRenderer.RenderAccentBar(System.Web.UI.HtmlTextWriter,System.String)">
+            <summary>
+            Handles rendering the accent bar.
+            </summary>
+            <param name="writer">The text writer to write to.</param>
+            <param name="title">The title to write.</param>
+        </member>
+        <member name="P:WikiPlex.Formatting.Renderers.SyndicatedFeedRenderer.ScopeNames">
+            <summary>
+            Gets the collection of scope names for this <see cref="T:WikiPlex.Formatting.Renderers.IRenderer"/>.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Formatting.Renderers.SyndicatedFeedRenderer.InvalidArgumentError">
+            <summary>
+            Gets the invalid argument error text.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Formatting.Renderers.SilverlightRenderer">
+            <summary>
+            Will render the silverlight scopes.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Formatting.Renderers.SilverlightRenderer.PerformExpand(System.String,System.String,System.Func{System.String,System.String},System.Func{System.String,System.String})">
+            <summary>
+            Will expand the input into the appropriate content based on scope.
+            </summary>
+            <param name="scopeName">The scope name.</param>
+            <param name="input">The input to be expanded.</param>
+            <param name="htmlEncode">Function that will html encode the output.</param>
+            <param name="attributeEncode">Function that will html attribute encode the output.</param>
+            <returns>The expanded content.</returns>
+        </member>
+        <member name="P:WikiPlex.Formatting.Renderers.SilverlightRenderer.ScopeNames">
+            <summary>
+            Gets the collection of scope names for this <see cref="T:WikiPlex.Formatting.Renderers.IRenderer"/>.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Formatting.Renderers.SilverlightRenderer.InvalidArgumentError">
+            <summary>
+            Gets the invalid argument error text.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Formatting.Renderers.TableRenderer">
+            <summary>
+            Will render all table based scopes.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Formatting.Renderers.TableRenderer.PerformExpand(System.String,System.String,System.Func{System.String,System.String},System.Func{System.String,System.String})">
+            <summary>
+            Will expand the input into the appropriate content based on scope.
+            </summary>
+            <param name="scopeName">The scope name.</param>
+            <param name="input">The input to be expanded.</param>
+            <param name="htmlEncode">Function that will html encode the output.</param>
+            <param name="attributeEncode">Function that will html attribute encode the output.</param>
+            <returns>The expanded content.</returns>
+        </member>
+        <member name="P:WikiPlex.Formatting.Renderers.TableRenderer.ScopeNames">
+            <summary>
+            Gets the collection of scope names for this <see cref="T:WikiPlex.Formatting.Renderers.IRenderer"/>.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Formatting.Renderers.VideoRenderer">
+            <summary>
+            Will render all the video scopes.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Formatting.Renderers.VideoRenderer.PerformExpand(System.String,System.String,System.Func{System.String,System.String},System.Func{System.String,System.String})">
+            <summary>
+            Will expand the input into the appropriate content based on scope.
+            </summary>
+            <param name="scopeName">The scope name.</param>
+            <param name="input">The input to be expanded.</param>
+            <param name="htmlEncode">Function that will html encode the output.</param>
+            <param name="attributeEncode">Function that will html attribute encode the output.</param>
+            <returns>The expanded content.</returns>
+        </member>
+        <member name="P:WikiPlex.Formatting.Renderers.VideoRenderer.ScopeNames">
+            <summary>
+            Gets the collection of scope names for this <see cref="T:WikiPlex.Formatting.Renderers.IRenderer"/>.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Formatting.Renderers.VideoRenderer.InvalidArgumentError">
+            <summary>
+            Gets the invalid argument error text.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.IWikiEngine">
+            <summary>
+            Defines the <see cref="T:WikiPlex.WikiEngine"/> contract.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.IWikiEngine.Render(System.String)">
+            <summary>
+            Renders the wiki content using the statically registered macros and renderers.
+            </summary>
+            <param name="wikiContent">The wiki content to be rendered.</param>
+            <returns>The rendered html content.</returns>
+        </member>
+        <member name="M:WikiPlex.IWikiEngine.Render(System.String,WikiPlex.Formatting.Formatter)">
+            <summary>
+            Renders the wiki content using the a custom formatter with statically registered macros.
+            </summary>
+            <param name="wikiContent">The wiki content to be rendered.</param>
+            <param name="formatter">The custom formatter used when rendering.</param>
+            <returns>The rendered html content.</returns>
+        </member>
+        <member name="M:WikiPlex.IWikiEngine.Render(System.String,System.Collections.Generic.IEnumerable{WikiPlex.Compilation.Macros.IMacro})">
+            <summary>
+            Renders the wiki content using the specified macros and statically registered renderers.
+            </summary>
+            <param name="wikiContent">The wiki content to be rendered.</param>
+            <param name="macros">A collection of macros to be used when rendering.</param>
+            <returns>The rendered html content.</returns>
+        </member>
+        <member name="M:WikiPlex.IWikiEngine.Render(System.String,System.Collections.Generic.IEnumerable{WikiPlex.Formatting.Renderers.IRenderer})">
+            <summary>
+            Renders the wiki content using the specified renderers with statically registered macros.
+            </summary>
+            <param name="wikiContent">The wiki content to be rendered.</param>
+            <param name="renderers">A collection of renderers to be used when rendering.</param>
+            <returns>The rendered html content.</returns>
+        </member>
+        <member name="M:WikiPlex.IWikiEngine.Render(System.String,System.Collections.Generic.IEnumerable{WikiPlex.Compilation.Macros.IMacro},System.Collections.Generic.IEnumerable{WikiPlex.Formatting.Renderers.IRenderer})">
+            <summary>
+            Renders the wiki content using the specified macros and renderers.
+            </summary>
+            <param name="wikiContent">The wiki content to be rendered.</param>
+            <param name="macros">A collection of macros to be used when rendering.</param>
+            <param name="renderers">A collection of renderers to be used when rendering.</param>
+            <returns>The rendered html content.</returns>
+        </member>
+        <member name="M:WikiPlex.IWikiEngine.Render(System.String,System.Collections.Generic.IEnumerable{WikiPlex.Compilation.Macros.IMacro},WikiPlex.Formatting.Formatter)">
+            <summary>
+            Renders the wiki content using the specified macros and custom formatter.
+            </summary>
+            <param name="wikiContent">The wiki content to be rendered.</param>
+            <param name="macros">A collection of macros to be used when rendering.</param>
+            <param name="formatter">The custom formatter used when rendering.</param>
+            <returns>The rendered html content.</returns>
+        </member>
+        <member name="T:WikiPlex.Parsing.ListScopeAugmenter">
+            <summary>
+            Handles augmenting the scopes for the <see cref="T:WikiPlex.Compilation.Macros.ListMacro"/>.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Parsing.ListScopeAugmenter.Augment(WikiPlex.Compilation.Macros.IMacro,System.Collections.Generic.IList{WikiPlex.Parsing.Scope},System.String)">
+            <summary>
+            This will insert new, remove, or re-order scopes.
+            </summary>
+            <param name="macro">The current macro.</param>
+            <param name="capturedScopes">The list of captured scopes.</param>
+            <param name="content">The wiki content being parsed.</param>
+            <returns>A new list of augmented scopes.</returns>
+        </member>
+        <member name="T:WikiPlex.Parsing.TableScopeAugmenter">
+            <summary>
+            Handles augmenting the scopes for the <see cref="T:WikiPlex.Compilation.Macros.TableMacro"/>.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Parsing.TableScopeAugmenter.Augment(WikiPlex.Compilation.Macros.IMacro,System.Collections.Generic.IList{WikiPlex.Parsing.Scope},System.String)">
+            <summary>
+            This will insert new, remove, or re-order scopes.
+            </summary>
+            <param name="macro">The current macro.</param>
+            <param name="capturedScopes">The list of captured scopes.</param>
+            <param name="content">The wiki content being parsed.</param>
+            <returns>A new list of augmented scopes.</returns>
+        </member>
+        <member name="T:WikiPlex.ScopeAugmenters">
+            <summary>
+            The static entry point for registering <see cref="T:WikiPlex.Parsing.IScopeAugmenter"/>s for all instances of a <see cref="T:WikiPlex.IWikiEngine"/>.
+            </summary>
+            <remarks>For convienience, all <see cref="T:WikiPlex.Parsing.IScopeAugmenter"/>s that are shipped with WikiPlex are already registered.</remarks>
+        </member>
+        <member name="M:WikiPlex.ScopeAugmenters.Register``2">
+            <summary>
+            Registers a new <see cref="T:WikiPlex.Parsing.IScopeAugmenter"/> that is paired with a <see cref="T:WikiPlex.Compilation.Macros.IMacro"/>.
+            </summary>
+            <typeparam name="TMacro">The <see cref="T:WikiPlex.Compilation.Macros.IMacro"/> type the <see cref="T:WikiPlex.Parsing.IScopeAugmenter"/> is paired with. Must have a parameterless constructor.</typeparam>
+            <typeparam name="TAugmenter">The <see cref="T:WikiPlex.Parsing.IScopeAugmenter"/> to register. Must have a parameterless constructor.</typeparam>
+        </member>
+        <member name="M:WikiPlex.ScopeAugmenters.Register``1(WikiPlex.Parsing.IScopeAugmenter)">
+            <summary>
+            Registers a new <see cref="T:WikiPlex.Parsing.IScopeAugmenter"/> that is paired with a <see cref="T:WikiPlex.Compilation.Macros.IMacro"/>.
+            </summary>
+            <typeparam name="TMacro">The <see cref="T:WikiPlex.Compilation.Macros.IMacro"/> type the <see cref="T:WikiPlex.Parsing.IScopeAugmenter"/> is paired with. Must have a parameterless constructor.</typeparam>
+            <param name="augmenter">The scope augmenter to register.</param>
+            <remarks>This augmenter needs to be thread safe.</remarks>
+            <exception cref="T:System.ArgumentNullException">Thrown when the augmenter is null.</exception>
+        </member>
+        <member name="M:WikiPlex.ScopeAugmenters.Unregister``1">
+            <summary>
+            Un-registers a <see cref="T:WikiPlex.Parsing.IScopeAugmenter"/> based on it's paired <see cref="T:WikiPlex.Compilation.Macros.IMacro"/>.
+            </summary>
+            <typeparam name="TMacro">The <see cref="T:WikiPlex.Compilation.Macros.IMacro"/> type to un-register the <see cref="T:WikiPlex.Parsing.IScopeAugmenter"/> for.</typeparam>
+        </member>
+        <member name="M:WikiPlex.ScopeAugmenters.FindByMacro``1(System.Collections.Generic.IDictionary{System.String,WikiPlex.Parsing.IScopeAugmenter})">
+            <summary>
+            This extends a dictionary of scope augmenters to find a <see cref="T:WikiPlex.Parsing.IScopeAugmenter"/> based on a <see cref="T:WikiPlex.Compilation.Macros.IMacro"/>.
+            </summary>
+            <typeparam name="TMacro">The <see cref="T:WikiPlex.Compilation.Macros.IMacro"/> to search for the <see cref="T:WikiPlex.Parsing.IScopeAugmenter"/> by.</typeparam>
+            <param name="augmenters">The list of augmenters to search.</param>
+            <returns>The found <see cref="T:WikiPlex.Parsing.IScopeAugmenter"/>. Null is returned if not found.</returns>
+        </member>
+        <member name="M:WikiPlex.ScopeAugmenters.FindByMacro``1(System.Collections.Generic.IDictionary{System.String,WikiPlex.Parsing.IScopeAugmenter},``0)">
+            <summary>
+            This extends a dictionary of scope augmenters to find a <see cref="T:WikiPlex.Parsing.IScopeAugmenter"/> based on a <see cref="T:WikiPlex.Compilation.Macros.IMacro"/>.
+            </summary>
+            <typeparam name="TMacro">The <see cref="T:WikiPlex.Compilation.Macros.IMacro"/> to search for the <see cref="T:WikiPlex.Parsing.IScopeAugmenter"/> by.</typeparam>
+            <param name="augmenters">The list of augmenters to search.</param>
+            <param name="macro">The <see cref="T:WikiPlex.Compilation.Macros.IMacro"/> to search by.</param>
+            <returns>The found <see cref="T:WikiPlex.Parsing.IScopeAugmenter"/>. Null is returned if not found.</returns>
+        </member>
+        <member name="P:WikiPlex.ScopeAugmenters.All">
+            <summary>
+            Gets the entire list of currently registered scope augmenters.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Syndication.FeedReader">
+            <summary>
+            Defines the abstract base class for all feed readers.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Syndication.IFeedReader">
+            <summary>
+            Defines the <see cref="T:WikiPlex.Syndication.FeedReader"/> contract.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Syndication.IFeedReader.Read">
+            <summary>
+            Will read the feed.
+            </summary>
+            <returns>The read syndicated feed.</returns>
+        </member>
+        <member name="M:WikiPlex.Syndication.FeedReader.#ctor(System.Xml.XmlDocument)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WikiPlex.Syndication.FeedReader"/> class.
+            </summary>
+            <param name="xmlFeed"></param>
+        </member>
+        <member name="M:WikiPlex.Syndication.FeedReader.Read">
+            <summary>
+            Will read the feed.
+            </summary>
+            <returns>The read syndicated feed.</returns>
+        </member>
+        <member name="M:WikiPlex.Syndication.FeedReader.GetRoot">
+            <summary>
+            Gets the root of the feed.
+            </summary>
+            <returns>The root node.</returns>
+        </member>
+        <member name="M:WikiPlex.Syndication.FeedReader.GetItems(System.Xml.XmlNode)">
+            <summary>
+            Gets all of the items in the feed.
+            </summary>
+            <param name="root">The root node of the feed.</param>
+            <returns>The list of items.</returns>
+        </member>
+        <member name="M:WikiPlex.Syndication.FeedReader.CreateFeed(System.Xml.XmlNode)">
+            <summary>
+            Creates a new <see cref="T:WikiPlex.Syndication.SyndicationFeed"/> object.
+            </summary>
+            <param name="root">The root node of the feed.</param>
+            <returns>The new <see cref="T:WikiPlex.Syndication.SyndicationFeed"/> object.</returns>
+        </member>
+        <member name="M:WikiPlex.Syndication.FeedReader.CreateFeedItem(System.Xml.XmlNode)">
+            <summary>
+            Creates a new <see cref="T:WikiPlex.Syndication.SyndicationItem"/>.
+            </summary>
+            <param name="item">The xml node to create the item from.</param>
+            <returns>The created <see cref="T:WikiPlex.Syndication.SyndicationItem"/>.</returns>
+        </member>
+        <member name="M:WikiPlex.Syndication.FeedReader.GetValue(System.Xml.XmlNode,System.String)">
+            <summary>
+            Will get a value of an xml node based on an xpath query.
+            </summary>
+            <param name="parent">The parent xml node to search from.</param>
+            <param name="xpath">The xpath query.</param>
+            <returns>The value if found, null otherwise.</returns>
+        </member>
+        <member name="P:WikiPlex.Syndication.FeedReader.XmlFeed">
+            <summary>
+            Gets the xml feed.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Syndication.FeedReader.Namespaces">
+            <summary>
+            Gets the xml namespaces.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Syndication.FeedReader.NamespacePrefix">
+            <summary>
+            Gets the namespace prefix.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Syndication.GoogleAtomFeedReader">
+            <summary>
+            Handles reading the Google specific ATOM feeds.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Syndication.AtomFeedReader">
+            <summary>
+            Handles reading ATOM feeds.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Syndication.AtomFeedReader.#ctor(System.Xml.XmlDocument)">
+            <summary>
+            Initializes a new <see cref="T:WikiPlex.Syndication.AtomFeedReader"/> class.
+            </summary>
+            <param name="xmlFeed">The xml feed to read.</param>
+        </member>
+        <member name="M:WikiPlex.Syndication.AtomFeedReader.GetRoot">
+            <summary>
+            Overidden. Gets the root of the feed.
+            </summary>
+            <returns>The root node.</returns>
+        </member>
+        <member name="M:WikiPlex.Syndication.AtomFeedReader.GetItems(System.Xml.XmlNode)">
+            <summary>
+            Overridden. Gets all of the items in the feed.
+            </summary>
+            <param name="root">The root node of the feed.</param>
+            <returns>The list of items.</returns>
+        </member>
+        <member name="M:WikiPlex.Syndication.AtomFeedReader.CreateFeed(System.Xml.XmlNode)">
+            <summary>
+            Overidden. Will create a new <see cref="T:WikiPlex.Syndication.SyndicationFeed"/> from the xml feed.
+            </summary>
+            <param name="root">The root element.</param>
+            <returns>The created <see cref="T:WikiPlex.Syndication.SyndicationFeed"/>.</returns>
+        </member>
+        <member name="M:WikiPlex.Syndication.AtomFeedReader.CreateFeedItem(System.Xml.XmlNode)">
+            <summary>
+            Overidden. Creates a new <see cref="T:WikiPlex.Syndication.SyndicationFeed"/> object.
+            </summary>
+            <param name="item">The root node of the feed.</param>
+            <returns>The new <see cref="T:WikiPlex.Syndication.SyndicationFeed"/> object.</returns>
+        </member>
+        <member name="M:WikiPlex.Syndication.AtomFeedReader.GetItemLink(System.Xml.XmlNode)">
+            <summary>
+            Overidden. Creates a new <see cref="T:WikiPlex.Syndication.SyndicationItem"/>.
+            </summary>
+            <param name="item">The xml node to create the item from.</param>
+            <returns>The created <see cref="T:WikiPlex.Syndication.SyndicationItem"/>.</returns>
+        </member>
+        <member name="M:WikiPlex.Syndication.AtomFeedReader.GetItemDate(System.Xml.XmlNode)">
+            <summary>
+            Will get the date for a feed node.
+            </summary>
+            <param name="item">The item to search.</param>
+            <returns>The item date value.</returns>
+        </member>
+        <member name="P:WikiPlex.Syndication.AtomFeedReader.NamespacePrefix">
+            <summary>
+            Overidden. Gets the namespace prefix.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Syndication.GoogleAtomFeedReader.#ctor(System.Xml.XmlDocument)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WikiPlex.Syndication.GoogleAtomFeedReader"/> class.
+            </summary>
+            <param name="xmlFeed">The xml feed to read.</param>
+        </member>
+        <member name="M:WikiPlex.Syndication.GoogleAtomFeedReader.GetItemDate(System.Xml.XmlNode)">
+            <summary>
+            Overidden. Gets the item date.
+            </summary>
+            <param name="item">The xml node to get the date from.</param>
+            <returns>The read date.</returns>
+        </member>
+        <member name="T:WikiPlex.Syndication.ISyndicationReader">
+            <summary>
+            Defines the <see cref="T:WikiPlex.Syndication.SyndicationReader"/> contract.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Syndication.ISyndicationReader.Read(System.Xml.XmlDocument)">
+            <summary>
+            Will read an <see cref="T:System.Xml.XmlDocument"/> and convert it into a <see cref="T:WikiPlex.Syndication.SyndicationFeed"/> based on the syndication type.
+            </summary>
+            <param name="xmlDocument">The xml document to read.</param>
+            <returns>The created syndication feed.</returns>
+        </member>
+        <member name="T:WikiPlex.Syndication.RssFeedReader">
+            <summary>
+            Handles reading RSS feeds.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Syndication.RssFeedReader.#ctor(System.Xml.XmlDocument)">
+            <summary>
+            Initializes a new <see cref="T:WikiPlex.Syndication.RssFeedReader"/> class.
+            </summary>
+            <param name="xmlFeed">The xml feed to read.</param>
+        </member>
+        <member name="M:WikiPlex.Syndication.RssFeedReader.GetRoot">
+            <summary>
+            Overidden. Gets the root of the feed.
+            </summary>
+            <returns>The root node.</returns>
+        </member>
+        <member name="M:WikiPlex.Syndication.RssFeedReader.GetItems(System.Xml.XmlNode)">
+            <summary>
+            Overridden. Gets all of the items in the feed.
+            </summary>
+            <param name="root">The root node of the feed.</param>
+            <returns>The list of items.</returns>
+        </member>
+        <member name="M:WikiPlex.Syndication.RssFeedReader.CreateFeed(System.Xml.XmlNode)">
+            <summary>
+            Overidden. Creates a new <see cref="T:WikiPlex.Syndication.SyndicationFeed"/> object.
+            </summary>
+            <param name="root">The root node of the feed.</param>
+            <returns>The new <see cref="T:WikiPlex.Syndication.SyndicationFeed"/> object.</returns>
+        </member>
+        <member name="M:WikiPlex.Syndication.RssFeedReader.CreateFeedItem(System.Xml.XmlNode)">
+            <summary>
+            Overidden. Creates a new <see cref="T:WikiPlex.Syndication.SyndicationItem"/>.
+            </summary>
+            <param name="item">The xml node to create the item from.</param>
+            <returns>The created <see cref="T:WikiPlex.Syndication.SyndicationItem"/>.</returns>
+        </member>
+        <member name="P:WikiPlex.Syndication.RssFeedReader.NamespacePrefix">
+            <summary>
+            Overidden. Gets the namespace prefix.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Syndication.SyndicationDate">
+            <summary>
+            The syndication date, which is necessary in case the date cannot be parsed as a <see cref="T:System.DateTime"/>.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Syndication.SyndicationDate.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WikiPlex.Syndication.SyndicationDate"/> class.
+            </summary>
+            <param name="value">The value of the date.</param>
+        </member>
+        <member name="M:WikiPlex.Syndication.SyndicationDate.ToString">
+            <summary>
+            Overidden. Will attemp to convert the date and return its representation.
+            </summary>
+            <returns>The long date format of successfully parsed date, or the raw date value if it cannot be parsed.</returns>
+        </member>
+        <member name="P:WikiPlex.Syndication.SyndicationDate.Value">
+            <summary>
+            Gets the raw value of date.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Syndication.SyndicationFeed">
+            <summary>
+            This holds the syndicated feeds information.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Syndication.SyndicationFeed.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WikiPlex.Syndication.SyndicationFeed"/> class.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Syndication.SyndicationFeed.Title">
+            <summary>
+            Gets or sets the title.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Syndication.SyndicationFeed.Items">
+            <summary>
+            Gets the list of <see cref="T:WikiPlex.Syndication.SyndicationItem"/>s.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Syndication.SyndicationReader">
+            <summary>
+            This class is used for converting an <see cref="T:System.Xml.XmlDocument"/> into a <see cref="T:WikiPlex.Syndication.SyndicationFeed"/> based on the feed type.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Syndication.SyndicationReader.Read(System.Xml.XmlDocument)">
+            <summary>
+            Will read an <see cref="T:System.Xml.XmlDocument"/> and convert it into a <see cref="T:WikiPlex.Syndication.SyndicationFeed"/> based on the syndication type.
+            </summary>
+            <param name="xmlDocument">The xml document to read.</param>
+            <returns>The created syndication feed.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when the xmlDocument is null.</exception>
+        </member>
+        <member name="T:WikiPlex.Syndication.SyndicationItem">
+            <summary>
+            This holds a syndicated feed item's content.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Syndication.SyndicationItem.Title">
+            <summary>
+            Gets or sets the title.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Syndication.SyndicationItem.Description">
+            <summary>
+            Gets or sets the description.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Syndication.SyndicationItem.Link">
+            <summary>
+            Gets or sets the link.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Syndication.SyndicationItem.Date">
+            <summary>
+            Gets or sets the date.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.WikiEngine">
+            <summary>
+            The public entry point for the wiki engine.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.WikiEngine.#ctor">
+            <summary>
+            Instantiates a new instance of the <see cref="T:WikiPlex.WikiEngine"/>.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.WikiEngine.#ctor(WikiPlex.Parsing.Parser)">
+            <summary>
+            Instantiates a new instance of the <see cref="T:WikiPlex.WikiEngine"/>.
+            </summary>
+            <param name="parser">The macro parser to use.</param>
+        </member>
+        <member name="M:WikiPlex.WikiEngine.Render(System.String)">
+            <summary>
+            Renders the wiki content using the statically registered macros and renderers.
+            </summary>
+            <param name="wikiContent">The wiki content to be rendered.</param>
+            <returns>The rendered html content.</returns>
+        </member>
+        <member name="M:WikiPlex.WikiEngine.Render(System.String,WikiPlex.Formatting.Formatter)">
+            <summary>
+            Renders the wiki content using the a custom formatter with statically registered macros.
+            </summary>
+            <param name="wikiContent">The wiki content to be rendered.</param>
+            <param name="formatter">The custom formatter used when rendering.</param>
+            <returns>The rendered html content.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when formatter is null.</exception>
+        </member>
+        <member name="M:WikiPlex.WikiEngine.Render(System.String,System.Collections.Generic.IEnumerable{WikiPlex.Compilation.Macros.IMacro})">
+            <summary>
+            Renders the wiki content using the specified macros and statically registered renderers.
+            </summary>
+            <param name="wikiContent">The wiki content to be rendered.</param>
+            <param name="macros">A collection of macros to be used when rendering.</param>
+            <returns>The rendered html content.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when macros is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when macros is an empty enumerable.</exception>
+        </member>
+        <member name="M:WikiPlex.WikiEngine.Render(System.String,System.Collections.Generic.IEnumerable{WikiPlex.Formatting.Renderers.IRenderer})">
+            <summary>
+            Renders the wiki content using the specified renderers with statically registered macros.
+            </summary>
+            <param name="wikiContent">The wiki content to be rendered.</param>
+            <param name="renderers">A collection of renderers to be used when rendering.</param>
+            <returns>The rendered html content.</returns>
+        </member>
+        <member name="M:WikiPlex.WikiEngine.Render(System.String,System.Collections.Generic.IEnumerable{WikiPlex.Compilation.Macros.IMacro},System.Collections.Generic.IEnumerable{WikiPlex.Formatting.Renderers.IRenderer})">
+            <summary>
+            Renders the wiki content using the specified macros and renderers.
+            </summary>
+            <param name="wikiContent">The wiki content to be rendered.</param>
+            <param name="macros">A collection of macros to be used when rendering.</param>
+            <param name="renderers">A collection of renderers to be used when rendering.</param>
+            <returns>The rendered html content.</returns>
+        </member>
+        <member name="M:WikiPlex.WikiEngine.Render(System.String,System.Collections.Generic.IEnumerable{WikiPlex.Compilation.Macros.IMacro},WikiPlex.Formatting.Formatter)">
+            <summary>
+            Renders the wiki content using the specified macros and custom formatter.
+            </summary>
+            <param name="wikiContent">The wiki content to be rendered.</param>
+            <param name="macros">A collection of macros to be used when rendering.</param>
+            <param name="formatter">The custom formatter used when rendering.</param>
+            <returns>The rendered html content.</returns>
+            <exception cref="T:System.ArgumentNullException">
+            <para>Thrown when macros is null.</para>
+            <para>- or -</para>
+            <para>Thrown when formatter is null.</para>
+            </exception>
+            <exception cref="T:System.ArgumentException">Thrown when macros is an empty enumerable.</exception>
+        </member>
+        <member name="T:WikiPlex.Formatting.Renderers.ImageRenderer">
+            <summary>
+            Will render the image scopes.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Formatting.Renderers.ImageRenderer.PerformExpand(System.String,System.String,System.Func{System.String,System.String},System.Func{System.String,System.String})">
+            <summary>
+            Will expand the input into the appropriate content based on scope.
+            </summary>
+            <param name="scopeName">The scope name.</param>
+            <param name="input">The input to be expanded.</param>
+            <param name="htmlEncode">Function that will html encode the output.</param>
+            <param name="attributeEncode">Function that will html attribute encode the output.</param>
+            <returns>The expanded content.</returns>
+        </member>
+        <member name="P:WikiPlex.Formatting.Renderers.ImageRenderer.ScopeNames">
+            <summary>
+            Gets the collection of scope names for this <see cref="T:WikiPlex.Formatting.Renderers.IRenderer"/>.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Formatting.Renderers.ImageRenderer.InvalidMacroError">
+            <summary>
+            Gets the invalid macro error text.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Formatting.Renderers.LinkRenderer">
+            <summary>
+            Will render all link based scopes.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Formatting.Renderers.LinkRenderer.PerformExpand(System.String,System.String,System.Func{System.String,System.String},System.Func{System.String,System.String})">
+            <summary>
+            Will expand the input into the appropriate content based on scope.
+            </summary>
+            <param name="scopeName">The scope name.</param>
+            <param name="input">The input to be expanded.</param>
+            <param name="htmlEncode">Function that will html encode the output.</param>
+            <param name="attributeEncode">Function that will html attribute encode the output.</param>
+            <returns>The expanded content.</returns>
+        </member>
+        <member name="P:WikiPlex.Formatting.Renderers.LinkRenderer.ScopeNames">
+            <summary>
+            Gets the collection of scope names for this <see cref="T:WikiPlex.Formatting.Renderers.IRenderer"/>.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Formatting.Renderers.LinkRenderer.InvalidMacroError">
+            <summary>
+            Gets the invalid macro error text.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Formatting.Formatter">
+            <summary>
+            Handles formatting wiki content based on recorded scopes.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Formatting.Formatter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WikiPlex.Formatting.Formatter"/> class.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Formatting.Formatter.#ctor(System.Collections.Generic.IEnumerable{WikiPlex.Formatting.Renderers.IRenderer})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WikiPlex.Formatting.Formatter"/> class.
+            </summary>
+            <param name="renderers">The renderers to use when formatting.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when renderers is null.</exception>
+        </member>
+        <member name="M:WikiPlex.Formatting.Formatter.RecordParse(System.Collections.Generic.IList{WikiPlex.Parsing.Scope})">
+            <summary>
+            Will record the parsing of scopes.
+            </summary>
+            <param name="scopes">The parsed scopes.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when scopes is null.</exception>
+        </member>
+        <member name="M:WikiPlex.Formatting.Formatter.Format(System.String)">
+            <summary>
+            Will format the wiki content based on the recorded scopes and output the content to the writer.
+            </summary>
+            <param name="wikiContent">The wiki content to format.</param>
+            <returns>The formatted wiki content.</returns>
+        </member>
+        <member name="M:WikiPlex.Formatting.Formatter.EncodeContent(System.String)">
+            <summary>
+            Method used to encode content during formatting.
+            </summary>
+            <param name="input">The input to encode.</param>
+            <returns>The encoded output.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when input is null.</exception>
+        </member>
+        <member name="M:WikiPlex.Formatting.Formatter.EncodeAttributeContent(System.String)">
+            <summary>
+            Method used to encode attributes during formatting.
+            </summary>
+            <param name="input">The input to encode.</param>
+            <returns>The encoded output.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when input is null.</exception>
+        </member>
+        <member name="M:WikiPlex.Formatting.Formatter.OnScopeRendered(WikiPlex.Formatting.RenderedScopeEventArgs)">
+            <summary>
+            Handles raising the ScopeRendered event.
+            </summary>
+            <param name="e">The event arguments.</param>
+        </member>
+        <member name="E:WikiPlex.Formatting.Formatter.ScopeRendered">
+            <summary>
+            Event that is raised when a scope is rendered.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.ScopeName">
+            <summary>
+            The collection of scope names used during parsing and rendering.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Compilation.MacroRule">
+            <summary>
+            This will hold a regex and all associated captures that will be used for compilation of a macro.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Compilation.MacroRule.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WikiPlex.Compilation.MacroRule"/> class.
+            </summary>
+            <param name="regex">The regular expression.</param>
+            <remarks>This will contain no captures.</remarks>
+            <exception cref="T:System.ArgumentNullException">Thrown when regex is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when regex is empty.</exception>
+        </member>
+        <member name="M:WikiPlex.Compilation.MacroRule.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WikiPlex.Compilation.MacroRule"/> class.
+            </summary>
+            <param name="regex">The regular expression</param>
+            <param name="firstScopeCapture">The scope name of the first capture.</param>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown when regex is null.
+            
+            -- or --
+            
+            Thrown when firstScopeCapture is null.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            Thrown when regex is empty.
+            
+            -- or --
+            
+            Thrown when firstScopeCapture is empty.
+            </exception>
+        </member>
+        <member name="M:WikiPlex.Compilation.MacroRule.#ctor(System.String,System.Collections.Generic.IDictionary{System.Int32,System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WikiPlex.Compilation.MacroRule"/> class.
+            </summary>
+            <param name="regex">The regular expression.</param>
+            <param name="captures">The dictionary of captures.</param>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown when regex is null.
+            
+            -- or --
+            
+            Thrown when captures is null.
+            </exception>
+            <exception cref="T:System.ArgumentException">Thrown when regex is empty.</exception>
+        </member>
+        <member name="P:WikiPlex.Compilation.MacroRule.Regex">
+            <summary>
+            Gets or sets the regex.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Compilation.MacroRule.Captures">
+            <summary>
+            Gets the dictionary of captures.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Compilation.Macros.HeadingsMacro">
+            <summary>
+            This macro will display text as headings.
+            </summary>
+            <example><code language="none">
+            ! heading 1
+            !! heading 2
+            !!! heading 3
+            !!!! heading 4
+            !!!!! heading 5
+            !!!!!! heading 6
+            </code></example>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.HeadingsMacro.Id">
+            <summary>
+            Gets the id of the macro.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Compilation.Macros.HeadingsMacro.Rules">
+            <summary>
+            Gets the list of rules for the macro.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Formatting.Renderers.SourceCodeRenderer">
+            <summary>
+            Will render all source code scopes.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Formatting.Renderers.SourceCodeRenderer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WikiPlex.Formatting.Renderers.SourceCodeRenderer"/> class.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Formatting.Renderers.SourceCodeRenderer.#ctor(ColorCode.ICodeColorizer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WikiPlex.Formatting.Renderers.SourceCodeRenderer"/> class.
+            </summary>
+            <param name="codeColorizer">The <see cref="T:ColorCode.ICodeColorizer"/> to use for syntax highlighting.</param>
+        </member>
+        <member name="M:WikiPlex.Formatting.Renderers.SourceCodeRenderer.PerformExpand(System.String,System.String,System.Func{System.String,System.String},System.Func{System.String,System.String})">
+            <summary>
+            Will expand the input into the appropriate content based on scope.
+            </summary>
+            <param name="scopeName">The scope name.</param>
+            <param name="input">The input to be expanded.</param>
+            <param name="htmlEncode">Function that will html encode the output.</param>
+            <param name="attributeEncode">Function that will html attribute encode the output.</param>
+            <returns>The expanded content.</returns>
+        </member>
+        <member name="P:WikiPlex.Formatting.Renderers.SourceCodeRenderer.ScopeNames">
+            <summary>
+            Gets the collection of scope names for this <see cref="T:WikiPlex.Formatting.Renderers.IRenderer"/>.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Formatting.Renderers.TextFormattingRenderer">
+            <summary>
+            This will render all text formatting options (bold, italics, underline, headings, strikethrough, subscript, superscript, horizontal rule and escaped markup)
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Formatting.Renderers.TextFormattingRenderer.PerformExpand(System.String,System.String,System.Func{System.String,System.String},System.Func{System.String,System.String})">
+            <summary>
+            Will expand the input into the appropriate content based on scope.
+            </summary>
+            <param name="scopeName">The scope name.</param>
+            <param name="input">The input to be expanded.</param>
+            <param name="htmlEncode">Function that will html encode the output.</param>
+            <param name="attributeEncode">Function that will html attribute encode the output.</param>
+            <returns>The expanded content.</returns>
+        </member>
+        <member name="P:WikiPlex.Formatting.Renderers.TextFormattingRenderer.ScopeNames">
+            <summary>
+            Gets the collection of scope names for this <see cref="T:WikiPlex.Formatting.Renderers.IRenderer"/>.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Formatting.Renderers.ListItemRenderer">
+            <summary>
+            This will render the ordered list and unordered list scopes.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Formatting.Renderers.ListItemRenderer.PerformExpand(System.String,System.String,System.Func{System.String,System.String},System.Func{System.String,System.String})">
+            <summary>
+            Will expand the input into the appropriate content based on scope.
+            </summary>
+            <param name="scopeName">The scope name.</param>
+            <param name="input">The input to be expanded.</param>
+            <param name="htmlEncode">Function that will html encode the output.</param>
+            <param name="attributeEncode">Function that will html attribute encode the output.</param>
+            <returns>The expanded content.</returns>
+        </member>
+        <member name="P:WikiPlex.Formatting.Renderers.ListItemRenderer.ScopeNames">
+            <summary>
+            Gets the collection of scope names for this <see cref="T:WikiPlex.Formatting.Renderers.IRenderer"/>.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Macros">
+            <summary>
+            The static entry point for registering <see cref="T:WikiPlex.Compilation.Macros.IMacro"/>s for all instances of a <see cref="T:WikiPlex.IWikiEngine"/>.
+            </summary>
+            <remarks>For convienience, all <see cref="T:WikiPlex.Compilation.Macros.IMacro"/>s that are shipped with WikiPlex are already registered.</remarks>
+        </member>
+        <member name="M:WikiPlex.Macros.Register``1">
+            <summary>
+            Registers a new <see cref="T:WikiPlex.Compilation.Macros.IMacro"/>.
+            </summary>
+            <typeparam name="TMacro">The <see cref="T:WikiPlex.Compilation.Macros.IMacro"/> to register. Must have a parameterless constructor.</typeparam>
+            <exception cref="T:System.ArgumentNullException">Thrown when the Id of the macro is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when the Id of the macro is empty.</exception>
+        </member>
+        <member name="M:WikiPlex.Macros.Register(WikiPlex.Compilation.Macros.IMacro)">
+            <summary>
+            Registers a new <see cref="T:WikiPlex.Compilation.Macros.IMacro"/>.
+            </summary>
+            <param name="macro">The macro used for registration.</param>
+            <remarks>This macro needs to be thread safe.</remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <para>Thrown when the macro object is null</para>
+            <para>- or -</para>
+            <para>Thrown when the Id of the macro is null.</para>
+            </exception>
+            <exception cref="T:System.ArgumentException">Thrown when the Id of the macro is empty.</exception>
+        </member>
+        <member name="M:WikiPlex.Macros.Unregister``1">
+            <summary>
+            Un-registers a <see cref="T:WikiPlex.Compilation.Macros.IMacro"/>.
+            </summary>
+            <typeparam name="TMacro">The type of <see cref="T:WikiPlex.Compilation.Macros.IMacro"/> to un-register. This type needs to have a parameterless constructor.</typeparam>
+            <exception cref="T:System.ArgumentNullException">Thrown when the Id of the macro is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when the Id of the macro is empty.</exception>
+        </member>
+        <member name="M:WikiPlex.Macros.Unregister(WikiPlex.Compilation.Macros.IMacro)">
+            <summary>
+            Un-registers a <see cref="T:WikiPlex.Compilation.Macros.IMacro"/> based on the Id.
+            </summary>
+            <param name="macro">The macro to un-register.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <para>Thrown when the macro object is null</para>
+            <para>- or -</para>
+            <para>Thrown when the Id of the macro is null.</para>
+            </exception>
+            <exception cref="T:System.ArgumentException">Thrown when the Id of the macro is empty.</exception>
+        </member>
+        <member name="P:WikiPlex.Macros.All">
+            <summary>
+            Gets the entire list of currently registered macros.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Parsing.Parser">
+            <summary>
+            Handles parsing the wiki content.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Parsing.Parser.#ctor(WikiPlex.Compilation.MacroCompiler)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WikiPlex.Parsing.Parser"/> class.
+            </summary>
+            <param name="compiler">The <see cref="T:WikiPlex.Compilation.MacroCompiler"/> to use for compiling macros.</param>
+        </member>
+        <member name="M:WikiPlex.Parsing.Parser.Parse(System.String,System.Collections.Generic.IEnumerable{WikiPlex.Compilation.Macros.IMacro},System.Collections.Generic.IDictionary{System.String,WikiPlex.Parsing.IScopeAugmenter},System.Action{System.Collections.Generic.IList{WikiPlex.Parsing.Scope}})">
+            <summary>
+            Will parse the wiki content pushing scopes into the parse handler.
+            </summary>
+            <param name="wikiContent">The wiki content.</param>
+            <param name="macros">The macros to use for parsing.</param>
+            <param name="scopeAugmenters">The scope augmenters to use for parsing.</param>
+            <param name="parseHandler">The action method that is used for pushing parsed scopes.</param>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown when macros is null.
+            
+            -- or --
+            
+            Thrown when scope augmenters is null.
+            </exception>
+            <exception cref="T:System.ArgumentException">Thrown when macros is empty.</exception>
+        </member>
+        <member name="T:WikiPlex.Parsing.Scope">
+            <summary>
+            Encapsulates a found scope during parsing.
+            </summary>
+        </member>
+        <member name="M:WikiPlex.Parsing.Scope.#ctor(System.String,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WikiPlex.Parsing.Scope"/> class.
+            </summary>
+            <param name="name">The name of the scope.</param>
+            <param name="index">The index where the scope was found.</param>
+            <param name="length">The length of the scope.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when name is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when name is empty.</exception>
+        </member>
+        <member name="M:WikiPlex.Parsing.Scope.#ctor(System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WikiPlex.Parsing.Scope"/> class.
+            </summary>
+            <param name="name">The name of the scope.</param>
+            <param name="index">The index where the scope was found.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when name is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when name is empty.</exception>
+        </member>
+        <member name="P:WikiPlex.Parsing.Scope.Index">
+            <summary>
+             Gets the index of the scope.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Parsing.Scope.Length">
+            <summary>
+            Gets the length of the scope.
+            </summary>
+        </member>
+        <member name="P:WikiPlex.Parsing.Scope.Name">
+            <summary>
+            Gets the name of the scope.
+            </summary>
+        </member>
+        <member name="T:WikiPlex.Renderers">
+            <summary>
+            The static entry point for registering <see cref="T:WikiPlex.Formatting.Renderers.IRenderer"/>s for all instances of a <see cref="T:WikiPlex.IWikiEngine"/>.
+            </summary>
+            <remarks>For convienience, all <see cref="T:WikiPlex.Formatting.Renderers.IRenderer"/>s that are shipped with WikiPlex are already registered.</remarks>
+        </member>
+        <member name="M:WikiPlex.Renderers.Register``1">
+            <summary>
+            Registers a new <see cref="T:WikiPlex.Formatting.Renderers.IRenderer"/>.
+            </summary>
+            <typeparam name="TRenderer">The <see cref="T:WikiPlex.Formatting.Renderers.IRenderer"/> to register. Must have a parameterless constructor.</typeparam>
+            <exception cref="T:System.ArgumentNullException">Thrown when the Id of the renderer is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when the Id of the renderer is empty.</exception>
+        </member>
+        <member name="M:WikiPlex.Renderers.Register(WikiPlex.Formatting.Renderers.IRenderer)">
+            <summary>
+            Registers a new <see cref="T:WikiPlex.Formatting.Renderers.IRenderer"/>.
+            </summary>
+            <param name="renderer">The renderer used for registration.</param>
+            <remarks>This renderer needs to be thread safe.</remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <para>Thrown when the renderer object is null</para>
+            <para>- or -</para>
+            <para>Thrown when the Id of the renderer is null.</para>
+            </exception>
+            <exception cref="T:System.ArgumentException">Thrown when the Id of the renderer is empty.</exception>
+        </member>
+        <member name="M:WikiPlex.Renderers.Unregister``1">
+            <summary>
+            Un-registers a <see cref="T:WikiPlex.Formatting.Renderers.IRenderer"/>.
+            </summary>
+            <typeparam name="TRenderer">The type of <see cref="T:WikiPlex.Formatting.Renderers.IRenderer"/> to un-register. This type needs to have a parameterless constructor.</typeparam>
+            <exception cref="T:System.ArgumentNullException">Thrown when the Id of the renderer is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when the Id of the renderer is empty.</exception>
+        </member>
+        <member name="M:WikiPlex.Renderers.Unregister(WikiPlex.Formatting.Renderers.IRenderer)">
+            <summary>
+            Un-registers a <see cref="T:WikiPlex.Formatting.Renderers.IRenderer"/> based on the Id.
+            </summary>
+            <param name="renderer">The renderer to un-register.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <para>Thrown when the renderer object is null</para>
+            <para>- or -</para>
+            <para>Thrown when the Id of the renderer is null.</para>
+            </exception>
+            <exception cref="T:System.ArgumentException">Thrown when the Id of the renderer is empty.</exception>
+        </member>
+        <member name="P:WikiPlex.Renderers.All">
+            <summary>
+            Gets the entire list of currently registered renderers.
+            </summary>
+        </member>
+    </members>
+</doc>

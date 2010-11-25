@@ -117,8 +117,38 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Speaker_EMail" xml:space="preserve">
+  <data name="Address_City" xml:space="preserve">
+    <value>Stadt</value>
+  </data>
+  <data name="Address_Country" xml:space="preserve">
+    <value>Land</value>
+  </data>
+  <data name="Address_Street" xml:space="preserve">
+    <value>Straße</value>
+  </data>
+  <data name="Address_ZipCode" xml:space="preserve">
+    <value>PLZ</value>
+  </data>
+  <data name="Contact_EMail" xml:space="preserve">
     <value>E-Mail</value>
+  </data>
+  <data name="Contact_Fax" xml:space="preserve">
+    <value>Telefax</value>
+  </data>
+  <data name="Contact_Homepage" xml:space="preserve">
+    <value>Homepage</value>
+  </data>
+  <data name="Contact_Phone" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="Speaker_Biographx" xml:space="preserve">
+    <value>Biographie</value>
+  </data>
+  <data name="Speaker_Company" xml:space="preserve">
+    <value>Firma</value>
+  </data>
+  <data name="Speaker_Engagement" xml:space="preserve">
+    <value>Bisherige Veranstaltungen</value>
   </data>
   <data name="Speaker_FirstName" xml:space="preserve">
     <value>Vorname</value>
@@ -126,7 +156,13 @@
   <data name="Speaker_LastName" xml:space="preserve">
     <value>Nachname</value>
   </data>
+  <data name="Speaker_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
   <data name="Speaker_Salutation" xml:space="preserve">
     <value>Anrede</value>
+  </data>
+  <data name="Speaker_Topics" xml:space="preserve">
+    <value>Mögliche Themen</value>
   </data>
 </root>

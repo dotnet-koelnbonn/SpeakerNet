@@ -1,7 +1,6 @@
 using System;
 using System.Web.Mvc;
 using SpeakerNet.FilterAttributes;
-using SpeakerNet.Models;
 using SpeakerNet.Models.Views;
 using SpeakerNet.Services;
 
@@ -16,10 +15,25 @@ namespace SpeakerNet.Controllers
             this.speakerService = speakerService;
         }
 
-        public ActionResult Edit(Speaker speaker)
+        public ActionResult Edit(Guid id)
         {
+            return View(speakerService.GetSpeaker(id));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ActionName("Edit")]
+        public ActionResult EditCommand(Guid id)
+        {
+            var speaker = speakerService.GetSpeaker(id);
+            if (TryUpdateModel(speaker))
+            {
+                speakerService.Update();
+                return RedirectToAction("Details", new {speaker.Id});
+            }
             return View(speaker);
         }
+
 
         [AdminOnly]
         public ActionResult Create()
@@ -48,9 +62,7 @@ namespace SpeakerNet.Controllers
         [AdminOnly]
         public ActionResult Details(Guid id)
         {
-            if (ModelState.IsValid)
-                return View(speakerService.GetSpeaker(id));
-            return RedirectToAction("List");
+            return View(speakerService.GetSpeaker(id));
         }
     }
 }

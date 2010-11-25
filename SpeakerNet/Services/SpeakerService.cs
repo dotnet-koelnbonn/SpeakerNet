@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using AutoMapper;
 using SpeakerNet.Data;
 using SpeakerNet.Models;
 using SpeakerNet.Models.Views;
@@ -19,12 +20,12 @@ namespace SpeakerNet.Services
         public IEnumerable<SpeakerListModel> GetSpeakerList()
         {
             var speakers = from s in speakerRepository.Entities
-                   orderby s.LastName , s.FirstName
-                   select new SpeakerListModel
-                   {
-                       Id = s.Id,
-                       Fullname = s.LastName + ", " + s.FirstName
-                   };
+                           orderby s.LastName , s.FirstName
+                           select new SpeakerListModel
+                           {
+                               Id = s.Id,
+                               Fullname = s.LastName + ", " + s.FirstName
+                           };
             return speakers.ToList();
         }
 
@@ -42,7 +43,12 @@ namespace SpeakerNet.Services
 
         public Speaker GetSpeaker(Guid id)
         {
-            return speakerRepository.Entities.Where(e => e.Id==id).Single();
+            return speakerRepository.Entities.Where(e => e.Id == id).Single();
+        }
+
+        public void Update()
+        {
+            speakerRepository.SaveChanges();
         }
     }
 }

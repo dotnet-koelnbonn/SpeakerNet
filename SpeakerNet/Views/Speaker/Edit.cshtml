@@ -1,0 +1,25 @@
+﻿@model Speaker
+
+@{
+    View.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken();
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Bearbeiten</legend>
+    @Html.EditorForModel()
+    @Html.EditorFor(e => e.Contact)
+    @Html.EditorFor(e => e.Address)
+        <p>
+            <input type="submit" value="Speichern" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.SpeakerList("Liste aller Sprecher");
+</div>
+

@@ -61,11 +61,101 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Stadt.
+        /// </summary>
+        public static string Address_City {
+            get {
+                return ResourceManager.GetString("Address_City", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Land.
+        /// </summary>
+        public static string Address_Country {
+            get {
+                return ResourceManager.GetString("Address_Country", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Straße.
+        /// </summary>
+        public static string Address_Street {
+            get {
+                return ResourceManager.GetString("Address_Street", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PLZ.
+        /// </summary>
+        public static string Address_ZipCode {
+            get {
+                return ResourceManager.GetString("Address_ZipCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to E-Mail.
         /// </summary>
-        public static string Speaker_EMail {
+        public static string Contact_EMail {
             get {
-                return ResourceManager.GetString("Speaker_EMail", resourceCulture);
+                return ResourceManager.GetString("Contact_EMail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Telefax.
+        /// </summary>
+        public static string Contact_Fax {
+            get {
+                return ResourceManager.GetString("Contact_Fax", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Homepage.
+        /// </summary>
+        public static string Contact_Homepage {
+            get {
+                return ResourceManager.GetString("Contact_Homepage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Telefon.
+        /// </summary>
+        public static string Contact_Phone {
+            get {
+                return ResourceManager.GetString("Contact_Phone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Biographie.
+        /// </summary>
+        public static string Speaker_Biographx {
+            get {
+                return ResourceManager.GetString("Speaker_Biographx", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Firma.
+        /// </summary>
+        public static string Speaker_Company {
+            get {
+                return ResourceManager.GetString("Speaker_Company", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bisherige Veranstaltungen.
+        /// </summary>
+        public static string Speaker_Engagement {
+            get {
+                return ResourceManager.GetString("Speaker_Engagement", resourceCulture);
             }
         }
         
@@ -88,11 +178,29 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string Speaker_Name {
+            get {
+                return ResourceManager.GetString("Speaker_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Anrede.
         /// </summary>
         public static string Speaker_Salutation {
             get {
                 return ResourceManager.GetString("Speaker_Salutation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mögliche Themen.
+        /// </summary>
+        public static string Speaker_Topics {
+            get {
+                return ResourceManager.GetString("Speaker_Topics", resourceCulture);
             }
         }
     }
