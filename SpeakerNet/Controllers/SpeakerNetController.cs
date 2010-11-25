@@ -3,7 +3,7 @@ using SpeakerNet.Infrastructure.Mvc;
 
 namespace SpeakerNet.Controllers
 {
-    public class SpeakerNetController :Controller
+    public abstract class SpeakerNetController :Controller
     {
         protected override IActionInvoker CreateActionInvoker()
         {

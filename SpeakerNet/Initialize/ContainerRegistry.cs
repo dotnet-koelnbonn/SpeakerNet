@@ -1,3 +1,4 @@
+using SpeakerNet.Data;
 using SpeakerNet.Infrastructure.Bootstrap;
 using SpeakerNet.ModelBinder;
 using StructureMap.Configuration.DSL;
@@ -12,6 +13,7 @@ namespace SpeakerNet.Initialize
             {
                 x.AssembliesFromApplicationBaseDirectory();
                 x.ConnectImplementationsToTypesClosing(typeof (IModelBinder<>));
+                x.AddAllTypesOf(typeof (IRepository<>));
                 x.AddAllTypesOf<IBootstrapItem>();
             });
         }

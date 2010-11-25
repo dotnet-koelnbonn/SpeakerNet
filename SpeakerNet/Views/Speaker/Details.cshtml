@@ -1,0 +1,15 @@
+﻿@model SpeakerNet.Models.Speaker
+@{
+    View.Title = "Details";
+}
+<h2>
+    Details</h2>
+<fieldset>
+    <legend>Fields</legend>
+    @Html.DisplayForModel()
+    @Html.DisplayFor(e => e.Address)
+    @Html.DisplayFor(e => e.Contact)
+</fieldset>
+<p>
+    @Html.EditSpeaker("Bearbeiten", Model) | @Html.SpeakerList("Sprecherliste")
+</p>

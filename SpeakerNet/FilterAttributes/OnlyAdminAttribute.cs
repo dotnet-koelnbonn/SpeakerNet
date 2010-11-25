@@ -7,7 +7,7 @@ namespace SpeakerNet.FilterAttributes
     {
         public AdminOnlyAttribute()
         {
-            Roles = SecurityRoles.Administrator;
+//            Roles = SecurityRoles.Administrator;
         }
     }
 }

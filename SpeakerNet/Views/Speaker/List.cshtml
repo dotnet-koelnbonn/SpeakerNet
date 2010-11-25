@@ -1,0 +1,16 @@
+﻿@model IEnumerable<SpeakerListModel>
+@{
+    View.Title = "List";
+}
+<h2>
+    List</h2>
+@{
+    var grid = new WebGrid(Model);
+    var columns = grid.Columns(
+        grid.Column("Id", "",  o => Html.ShowSpeaker("Zeigen", (SpeakerListModel)o.Value)),
+        grid.Column("Fullname", "Name"));
+}
+@grid.GetHtml(columns: columns)
+<p>
+    @Html.CreateSpeaker("Neuen Sprecher anlegen")
+</p>

@@ -7,17 +7,20 @@ using SpeakerNet.Services.Authorization;
 
 namespace SpeakerNet.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController : SpeakerNetController
     {
 
         public IFormsAuthenticationService FormsService { get; set; }
         public IMembershipService MembershipService { get; set; }
 
+        public AccountController(IMembershipService membershipService)
+        {
+            MembershipService = membershipService;
+        } 
         protected override void Initialize(RequestContext requestContext)
         {
             if (FormsService == null) { FormsService = new FormsAuthenticationService(); }
-            if (MembershipService == null) { MembershipService = new AccountMembershipService(); }
-
+          
             base.Initialize(requestContext);
         }
 

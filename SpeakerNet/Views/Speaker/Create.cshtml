@@ -1,0 +1,24 @@
+﻿@model SpeakerNet.Models.Views.CreateSpeakerModel
+
+@{
+    View.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken();
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Neuen Sprecher anlegen</legend>
+        @Html.EditorForModel()
+        <p>
+            <input type="submit" value="Anlegen" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.SpeakerList("Liste aller Sprecher");
+</div>
+

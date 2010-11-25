@@ -15,6 +15,12 @@ namespace SpeakerNet.Data
             return string.Format("Data Source={0}", filename);
         }
 
+        protected override void OnModelCreating(System.Data.Entity.ModelConfiguration.ModelBuilder modelBuilder)
+        {
+            modelBuilder.ComplexType<Address>();
+            modelBuilder.ComplexType<Contact>();
+            base.OnModelCreating(modelBuilder);
+        }
         public DbSet<Speaker> Speakers { get; set; }
     }
 }

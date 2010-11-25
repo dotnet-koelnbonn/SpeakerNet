@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace SpeakerNet.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : SpeakerNetController
     {
         public ActionResult Index()
         {
