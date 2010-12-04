@@ -1,15 +1,38 @@
-﻿@model SpeakerNet.Models.Speaker
+﻿@model SpeakerEditModel
 @{
-    View.Title = "Details";
+    View.Title = T("Navigation_Speakers");
 }
-<h2>
-    Details</h2>
-<fieldset>
-    <legend>Fields</legend>
-    @Html.DisplayForModel()
+<h2>Sprecherangaben von @Model.FirstName @Model.LastName</h2>
+<fieldset> 
+    <legend>Persönliches</legend>
+    <div class="col-left">
+        <div class="display-label">@T("Speaker_Name")</div> 
+        <div class="display-field">@Model.Salutation @Model.FirstName @Model.LastName</div> 
+        <div class="display-label">@Model.GetDisplayName("CompanyName")</div> 
+        <div class="display-field">@Html.DisplayFor(e => e.CompanyName)</div>
+    </div> 
+    <div class="col-middle">
     @Html.DisplayFor(e => e.Address)
+    </div>
+    <div class="col-right">
     @Html.DisplayFor(e => e.Contact)
+    </div>
+</fieldset>
+<fieldset> 
+    <legend>Fachliches</legend>
+    <div class="col-left">
+        <div class="display-label">@Model.GetDisplayName("Biography")</div> 
+        <div class="display-field">@Html.DisplayFor(e=>e.Biography)</div> 
+    </div> 
+    <div class="col-middle">
+        <div class="display-label">@Model.GetDisplayName("Topics")</div> 
+        <div class="display-field">@Html.DisplayFor(e=>e.Topics)</div> 
+    </div>
+    <div class="col-right">
+        <div class="display-label">@Model.GetDisplayName("Engagement")</div> 
+        <div class="display-field">@Html.DisplayFor(e=>e.Engagement)</div> 
+    </div>
 </fieldset>
 <p>
-    @Html.EditSpeaker("Bearbeiten", Model) | @Html.SpeakerList("Sprecherliste")
+    @Html.EditSpeaker(@T("Edit"), Model) | @Html.ActionLink(T("Speaker_SessionList"),"List","SpeakerSession",new { speakerId=Model.Id},null) | @Html.ActionLink(T("Speaker_Help"), "Help", new { Model.Id })
 </p>

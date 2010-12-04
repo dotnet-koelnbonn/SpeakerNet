@@ -1,10 +1,18 @@
 ﻿using System;
 using System.Web.Security;
+using SpeakerNet.Settings;
 
 namespace SpeakerNet.Services.Authorization
 {
     public class MembershipService : IMembershipService
     {
+        private readonly IAuthenticationSettings settings;
+
+        public MembershipService(IAuthenticationSettings settings)
+        {
+            this.settings = settings;
+        }
+
         public int MinPasswordLength
         {
             get { return 6; }
@@ -12,6 +20,10 @@ namespace SpeakerNet.Services.Authorization
 
         public bool ValidateUser(string userName, string password)
         {
+            if (userName != settings.Username)
+                return false;
+            if (password != settings.Password)
+                return false;
             return true;
         }
 

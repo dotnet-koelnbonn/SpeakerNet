@@ -141,7 +141,7 @@
   <data name="Contact_Phone" xml:space="preserve">
     <value>Telefon</value>
   </data>
-  <data name="Speaker_Biographx" xml:space="preserve">
+  <data name="Speaker_Biography" xml:space="preserve">
     <value>Biographie</value>
   </data>
   <data name="Speaker_Company" xml:space="preserve">
@@ -164,5 +164,92 @@
   </data>
   <data name="Speaker_Topics" xml:space="preserve">
     <value>Mögliche Themen</value>
+  </data>
+  <data name="Exception_MissingResourceName" xml:space="preserve">
+    <value>Missing ResourceName: </value>
+  </data>
+  <data name="Navigation_Home" xml:space="preserve">
+    <value>Startseite</value>
+  </data>
+  <data name="Navigation_Imprint" xml:space="preserve">
+    <value>Impressum</value>
+  </data>
+  <data name="Navigation_Speakers" xml:space="preserve">
+    <value>Sprecher</value>
+  </data>
+  <data name="LogOn_Welcome" xml:space="preserve">
+    <value>Willkommen {0}!</value>
+  </data>
+  <data name="Navigation_LogOff" xml:space="preserve">
+    <value>Abmelden</value>
+  </data>
+  <data name="Navigation_LogOn" xml:space="preserve">
+    <value>Anmelden</value>
+  </data>
+  <data name="Session_Abstract" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="Session_Duration" xml:space="preserve">
+    <value>Dauer</value>
+  </data>
+  <data name="Session_Event" xml:space="preserve">
+    <value>Veranstaltung</value>
+  </data>
+  <data name="Session_Level" xml:space="preserve">
+    <value>Level</value>
+  </data>
+  <data name="Session_Name" xml:space="preserve">
+    <value>Titel</value>
+  </data>
+  <data name="Session_Speaker" xml:space="preserve">
+    <value>Sprecher</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Erstellen</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Bearbeiten</value>
+  </data>
+  <data name="Navigation_Sessions" xml:space="preserve">
+    <value>Sessions</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Speichern</value>
+  </data>
+  <data name="Navigation_Events" xml:space="preserve">
+    <value>Veranstaltungen</value>
+  </data>
+  <data name="Home_Welcome" xml:space="preserve">
+    <value>Willkommen</value>
+  </data>
+  <data name="Speaker_CreateNewSpeaker" xml:space="preserve">
+    <value>Neuen Sprecher anlegen</value>
+  </data>
+  <data name="Speaker_Sessions" xml:space="preserve">
+    <value>Sessions</value>
+  </data>
+  <data name="Speaker_SpeakerList" xml:space="preserve">
+    <value>Alle Sprecher</value>
+  </data>
+  <data name="Session_1_Minutes" xml:space="preserve">
+    <value>{0} Minuten</value>
+  </data>
+  <data name="Session_Level100" xml:space="preserve">
+    <value>Überblick für Neulinge</value>
+  </data>
+  <data name="Session_Level200" xml:space="preserve">
+    <value>Anfänger</value>
+  </data>
+  <data name="Session_Level300" xml:space="preserve">
+    <value>Fortgeschritten</value>
+  </data>
+  <data name="Session_Level400" xml:space="preserve">
+    <value>Deep Dive</value>
+  </data>
+  <data name="Speaker_Help" xml:space="preserve">
+    <value>Hilfe</value>
+  </data>
+  <data name="Speaker_SessionList" xml:space="preserve">
+    <value>Sprecher-Sessions</value>
   </data>
 </root>

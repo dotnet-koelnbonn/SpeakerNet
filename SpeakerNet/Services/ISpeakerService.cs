@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using SpeakerNet.Models;
-using SpeakerNet.Models.Views;
+using SpeakerNet.ViewModels;
 
 namespace SpeakerNet.Services
 {
@@ -10,7 +10,7 @@ namespace SpeakerNet.Services
     {
         IEnumerable<SpeakerListModel> GetSpeakerList();
         bool CreateSpeaker(CreateSpeakerModel model);
-        Speaker GetSpeaker(Guid id);
-        void Update();
+        Speaker GetSpeaker(Guid speakerId);
+        void UpdateSpeaker(Guid speakerId, SpeakerEditModel model);
     }
 }

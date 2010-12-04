@@ -12,4 +12,6 @@
 [Bb]uild
 [Db]ebug
 [Rr]elease
+publish
+deploy
 _ReSharper*/

@@ -11,24 +11,17 @@ namespace SpeakerNet.Models
             
         }
         [StringLength(32)]
-        [DataType(DataType.PhoneNumber)]
-        [Label("Contact_Phone")]
         public string Phone { get; set; }
 
         [StringLength(32)]
-        [DataType(DataType.PhoneNumber)]
-        [Label("Contact_Fax")]
         public string Fax { get; set; }
 
-        [StringLength(128)]
-        [DataType(DataType.EmailAddress)]
         [Required]
-        [Label("Contact_EMail")]
+        [StringLength(128)]
         public string EMail { get; set; }
 
         [StringLength(256)]
         [DataType(DataType.Url)]
-        [Label("Contact_Homepage")]
         public string Homepage { get; set; }
 
         public static Contact Create()

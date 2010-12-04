@@ -1,17 +1,21 @@
 ﻿@model IEnumerable<SpeakerListModel>
 @{
-    View.Title = "Sprecher";
+    View.Title = T("Navigation_Speakers");
     }
 @{
     var grid = new WebGrid(Model);
     var columns = grid.Columns(
-        grid.Column("Id", "",  o => Html.ShowSpeaker("Zeigen", (SpeakerListModel)o.Value)),
-        grid.Column("Fullname"));
+        grid.Column("Id", "",  o => Html.ShowSpeakerLinks((SpeakerListModel)o.Value)),
+        grid.Column("Fullname", typeof(SpeakerListModel).GetDisplayName("Fullname")),
+        grid.Column("SessionCount", typeof(SpeakerListModel).GetDisplayName("SessionCount"))
+        );
+        
 }
 
-<h2>Sprecher</h2>
+<h2>@T("Speaker_SpeakerList")</h2>
+
 @grid.GetHtml(columns: columns)
 
 <p>
-    @Html.CreateSpeaker("Neuen Sprecher anlegen")
+    @Html.CreateSpeaker(T("Speaker_CreateNewSpeaker"))
 </p>

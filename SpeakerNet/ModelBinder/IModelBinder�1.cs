@@ -2,5 +2,5 @@
 
 namespace SpeakerNet.ModelBinder
 {
-    public interface IModelBinder<T> : IModelBinder where T : class {}
+    public interface IModelBinder<T> : IModelBinder {}
 }

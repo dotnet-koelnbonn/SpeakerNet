@@ -1,24 +1,23 @@
-﻿@model SpeakerNet.Models.Views.CreateSpeakerModel
+﻿@model CreateSpeakerModel
 
 @{
-    View.Title = "Create";
+    View.Title = T("Navigation_Speakers");
 }
 
-<h2>Create</h2>
+<h2>@T("Speaker_CreateNewSpeaker")</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken();
     @Html.ValidationSummary(true)
     <fieldset>
-        <legend>Neuen Sprecher anlegen</legend>
         @Html.EditorForModel()
         <p>
-            <input type="submit" value="Anlegen" />
+            <input type="submit" value="@T("Save")" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.SpeakerList("Liste aller Sprecher");
+    @Html.SpeakerList(T("Speaker_SpeakerList"))
 </div>
 

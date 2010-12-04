@@ -4,6 +4,7 @@ using System.Web.Routing;
 using System.Web.Security;
 using SpeakerNet.Models;
 using SpeakerNet.Services.Authorization;
+using SpeakerNet.ViewModels;
 
 namespace SpeakerNet.Controllers
 {
@@ -34,6 +35,7 @@ namespace SpeakerNet.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult LogOn(LogOnModel model, string returnUrl)
         {
             if (ModelState.IsValid)
@@ -77,6 +79,7 @@ namespace SpeakerNet.Controllers
 
         public ActionResult Register()
         {
+            throw new NotImplementedException();
             ViewModel.PasswordLength = MembershipService.MinPasswordLength;
             return View();
         }
@@ -84,6 +87,7 @@ namespace SpeakerNet.Controllers
         [HttpPost]
         public ActionResult Register(RegisterModel model)
         {
+            throw new NotImplementedException();
             if (ModelState.IsValid)
             {
                 // Attempt to register the user
@@ -112,6 +116,7 @@ namespace SpeakerNet.Controllers
         [Authorize]
         public ActionResult ChangePassword()
         {
+            throw new NotImplementedException();
             ViewModel.PasswordLength = MembershipService.MinPasswordLength;
             return View();
         }
@@ -120,6 +125,7 @@ namespace SpeakerNet.Controllers
         [HttpPost]
         public ActionResult ChangePassword(ChangePasswordModel model)
         {
+            throw new NotImplementedException();
             if (ModelState.IsValid)
             {
                 if (MembershipService.ChangePassword(User.Identity.Name, model.OldPassword, model.NewPassword))
@@ -143,6 +149,7 @@ namespace SpeakerNet.Controllers
 
         public ActionResult ChangePasswordSuccess()
         {
+            throw new NotImplementedException();
             return View();
         }
 

@@ -1,0 +1,37 @@
+﻿@model SpeakerSessionListModel
+@{
+    View.Title = @T("Navigation_Sessions");
+}
+<h2>
+    Sessions von @Model.Firstname @Model.Lastname</h2>
+<table>
+    <thead>
+        <tr>
+            <th>&nbsp;</th>
+            <th>@typeof(SpeakerSessionIndexModel).GetDisplayName("Name")</th>
+            <th>@typeof(SpeakerSessionIndexModel).GetDisplayName("Level")</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Sessions)
+        {
+            <tr>
+                <td>@Html.ActionLink(T("Edit"), "EditSession", new { speakerid = Model.Id, id = item.Id })
+                </td>
+                <td>@Html.ActionLink(item.Name, "Details", new { speakerid = Model.Id, id = item.Id })
+                </td>
+                <td>@item.Level
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3">@Html.ActionLink("Neue Session anlegen", "CreateSession", new { speakerid = Model.Id })
+            </td>
+        </tr>
+    </tfoot>
+</table>
+<p>
+    @Html.ActionLink("Sprecherliste", "List", "Speaker")
+</p>

@@ -1,8 +1,10 @@
 using System;
 using System.Web.Mvc;
+using SpeakerNet.Extensions;
 using SpeakerNet.FilterAttributes;
-using SpeakerNet.Models.Views;
+using SpeakerNet.Models;
 using SpeakerNet.Services;
+using SpeakerNet.ViewModels;
 
 namespace SpeakerNet.Controllers
 {
@@ -15,23 +17,31 @@ namespace SpeakerNet.Controllers
             this.speakerService = speakerService;
         }
 
+        public ActionResult Help(Guid id)
+        {
+            return View(new SpeakerHelpModel {Id = id});
+        }
+
+        public ActionResult Details(Guid id)
+        {
+            return View(speakerService.GetSpeaker(id).MapFrom<Speaker, SpeakerEditModel>());
+        }
+
         public ActionResult Edit(Guid id)
         {
-            return View(speakerService.GetSpeaker(id));
+            return View(speakerService.GetSpeaker(id).MapFrom<Speaker, SpeakerEditModel>());
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("Edit")]
-        public ActionResult EditCommand(Guid id)
+        public ActionResult EditCommand(Guid id, SpeakerEditModel model)
         {
-            var speaker = speakerService.GetSpeaker(id);
-            if (TryUpdateModel(speaker))
-            {
-                speakerService.Update();
-                return RedirectToAction("Details", new {speaker.Id});
+            if (ModelState.IsValid) {
+                speakerService.UpdateSpeaker(id, model);
+                return RedirectToAction("Details", new {id});
             }
-            return View(speaker);
+            return View(model);
         }
 
 
@@ -46,7 +56,7 @@ namespace SpeakerNet.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(CreateSpeakerModel model)
         {
-            if (ModelState.IsValid){
+            if (ModelState.IsValid) {
                 if (speakerService.CreateSpeaker(model))
                     return RedirectToAction("List");
             }
@@ -57,12 +67,6 @@ namespace SpeakerNet.Controllers
         public ActionResult List()
         {
             return View(speakerService.GetSpeakerList());
-        }
-
-        [AdminOnly]
-        public ActionResult Details(Guid id)
-        {
-            return View(speakerService.GetSpeaker(id));
         }
     }
 }

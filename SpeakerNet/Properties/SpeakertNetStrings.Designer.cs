@@ -133,11 +133,227 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Erstellen.
+        /// </summary>
+        public static string Create {
+            get {
+                return ResourceManager.GetString("Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bearbeiten.
+        /// </summary>
+        public static string Edit {
+            get {
+                return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Missing ResourceName: .
+        /// </summary>
+        public static string Exception_MissingResourceName {
+            get {
+                return ResourceManager.GetString("Exception_MissingResourceName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Willkommen.
+        /// </summary>
+        public static string Home_Welcome {
+            get {
+                return ResourceManager.GetString("Home_Welcome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Willkommen {0}!.
+        /// </summary>
+        public static string LogOn_Welcome {
+            get {
+                return ResourceManager.GetString("LogOn_Welcome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Veranstaltungen.
+        /// </summary>
+        public static string Navigation_Events {
+            get {
+                return ResourceManager.GetString("Navigation_Events", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Startseite.
+        /// </summary>
+        public static string Navigation_Home {
+            get {
+                return ResourceManager.GetString("Navigation_Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Impressum.
+        /// </summary>
+        public static string Navigation_Imprint {
+            get {
+                return ResourceManager.GetString("Navigation_Imprint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Abmelden.
+        /// </summary>
+        public static string Navigation_LogOff {
+            get {
+                return ResourceManager.GetString("Navigation_LogOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Anmelden.
+        /// </summary>
+        public static string Navigation_LogOn {
+            get {
+                return ResourceManager.GetString("Navigation_LogOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sessions.
+        /// </summary>
+        public static string Navigation_Sessions {
+            get {
+                return ResourceManager.GetString("Navigation_Sessions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sprecher.
+        /// </summary>
+        public static string Navigation_Speakers {
+            get {
+                return ResourceManager.GetString("Navigation_Speakers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Speichern.
+        /// </summary>
+        public static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} Minuten.
+        /// </summary>
+        public static string Session_1_Minutes {
+            get {
+                return ResourceManager.GetString("Session_1_Minutes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Beschreibung.
+        /// </summary>
+        public static string Session_Abstract {
+            get {
+                return ResourceManager.GetString("Session_Abstract", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dauer.
+        /// </summary>
+        public static string Session_Duration {
+            get {
+                return ResourceManager.GetString("Session_Duration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Veranstaltung.
+        /// </summary>
+        public static string Session_Event {
+            get {
+                return ResourceManager.GetString("Session_Event", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Level.
+        /// </summary>
+        public static string Session_Level {
+            get {
+                return ResourceManager.GetString("Session_Level", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Überblick für Neulinge.
+        /// </summary>
+        public static string Session_Level100 {
+            get {
+                return ResourceManager.GetString("Session_Level100", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Anfänger.
+        /// </summary>
+        public static string Session_Level200 {
+            get {
+                return ResourceManager.GetString("Session_Level200", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fortgeschritten.
+        /// </summary>
+        public static string Session_Level300 {
+            get {
+                return ResourceManager.GetString("Session_Level300", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deep Dive.
+        /// </summary>
+        public static string Session_Level400 {
+            get {
+                return ResourceManager.GetString("Session_Level400", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Titel.
+        /// </summary>
+        public static string Session_Name {
+            get {
+                return ResourceManager.GetString("Session_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sprecher.
+        /// </summary>
+        public static string Session_Speaker {
+            get {
+                return ResourceManager.GetString("Session_Speaker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Biographie.
         /// </summary>
-        public static string Speaker_Biographx {
+        public static string Speaker_Biography {
             get {
-                return ResourceManager.GetString("Speaker_Biographx", resourceCulture);
+                return ResourceManager.GetString("Speaker_Biography", resourceCulture);
             }
         }
         
@@ -147,6 +363,15 @@ namespace SpeakerNet.Properties {
         public static string Speaker_Company {
             get {
                 return ResourceManager.GetString("Speaker_Company", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Neuen Sprecher anlegen.
+        /// </summary>
+        public static string Speaker_CreateNewSpeaker {
+            get {
+                return ResourceManager.GetString("Speaker_CreateNewSpeaker", resourceCulture);
             }
         }
         
@@ -165,6 +390,15 @@ namespace SpeakerNet.Properties {
         public static string Speaker_FirstName {
             get {
                 return ResourceManager.GetString("Speaker_FirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hilfe.
+        /// </summary>
+        public static string Speaker_Help {
+            get {
+                return ResourceManager.GetString("Speaker_Help", resourceCulture);
             }
         }
         
@@ -192,6 +426,33 @@ namespace SpeakerNet.Properties {
         public static string Speaker_Salutation {
             get {
                 return ResourceManager.GetString("Speaker_Salutation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sprecher-Sessions.
+        /// </summary>
+        public static string Speaker_SessionList {
+            get {
+                return ResourceManager.GetString("Speaker_SessionList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sessions.
+        /// </summary>
+        public static string Speaker_Sessions {
+            get {
+                return ResourceManager.GetString("Speaker_Sessions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alle Sprecher.
+        /// </summary>
+        public static string Speaker_SpeakerList {
+            get {
+                return ResourceManager.GetString("Speaker_SpeakerList", resourceCulture);
             }
         }
         

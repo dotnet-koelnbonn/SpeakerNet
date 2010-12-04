@@ -1,44 +1,52 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
-using SpeakerNet.Attributes;
 
 namespace SpeakerNet.Models
 {
     public class Speaker
     {
-        public Speaker()
+        protected Speaker()
         {
             Address = Address.Create();
             Contact = Contact.Create();
         }
 
-        public static Speaker Create()
+
+        public static Speaker Create(string salutation, string firstname, string lastname, string email)
         {
-            return new Speaker
-            {
-                Id = Guid.NewGuid()
+            var speaker = new Speaker {
+                Id = Guid.NewGuid(),
+                Salutation = salutation,
+                FirstName = firstname,
+                LastName = lastname
             };
+            speaker.Contact.EMail = email;
+            return speaker;
         }
 
         public Guid Id { get; private set; }
 
-        [StringLength(16)]
         [Required]
-        [Label("Speaker_Salutation")]
+        [StringLength(16)]
         public string Salutation { get; set; }
 
-        [StringLength(128)]
         [Required]
-        [Label("Speaker_FirstName")]
+        [StringLength(128)]
         public string FirstName { get; set; }
 
-        [StringLength(128)]
         [Required]
-        [Label("Speaker_LastName")]
+        [StringLength(128)]
         public string LastName { get; set; }
 
+        [StoreGenerated(StoreGeneratedPattern.None)]
+        public string FullName
+        {
+            get { return string.Format("{0} {1}", FirstName, LastName); }
+        }
+
         [StringLength(256)]
-        [Label("Speaker_Company")]
         public string CompanyName { get; set; }
 
         [Required]
@@ -48,19 +56,12 @@ namespace SpeakerNet.Models
         public Contact Contact { get; set; }
 
         [StringLength(4000)]
-        [DataType(DataType.MultilineText)]
-        [Label("Speaker_Engagement")]
         public string Engagement { get; set; }
 
         [StringLength(4000)]
-        [DataType(DataType.MultilineText)]
-        [Label("Speaker_Biography")]
         public string Biography { get; set; }
 
-        [DataType(DataType.MultilineText)]
         [StringLength(4000)]
-        [Label("Speaker_Topics")]
         public string Topics { get; set; }
-
     }
 }

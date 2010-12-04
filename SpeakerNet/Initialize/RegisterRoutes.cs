@@ -18,10 +18,19 @@ namespace SpeakerNet.Initialize
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                "SpeakerSession", // Route name
+                "SpeakerSession/{action}/{speakerid}/{id}", // URL with parameters
+                new {
+                    controller = "SpeakerSession",
+                    action = "List",
+                    id = UrlParameter.Optional
+                } // Parameter defaults
+                );
+
+            routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
-                new
-                {
+                new {
                     controller = "Home",
                     action = "Index",
                     id = UrlParameter.Optional

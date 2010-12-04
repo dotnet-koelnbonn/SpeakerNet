@@ -1,0 +1,40 @@
+﻿@model DetailsEventModel
+
+@{
+    View.Title = @T("Navigation_Events");
+}
+
+<h2>@Model.Name</h2>
+
+<fieldset>
+    <legend>Session</legend>
+<table>
+@{
+    var provider = ModelMetadataProviders.Current;
+    var metaDataDuration = provider.GetMetadataForProperty(()=>null,typeof(SessionListModel),"Duration").GetDisplayName();
+}
+<thead>
+<tr>
+<th>Session</th>
+<th>Level</th>
+<th>Dauer - @metaDataDuration</th>
+<th>Sprecher</th>
+</tr>
+</thead>
+<tbody>
+@foreach (var item in Model.Session)
+{
+<tr>
+<td>@Html.ActionLink(item.Name,"Details", "SpeakerSession", new { item.SpeakerId, item.Id },null)</td>
+<td>@item.Level</td>
+<td>@item.Duration</td>
+<td>@Html.ActionLink(item.SpeakerFullName,"Details", "Speaker", new { id = item.SpeakerId },null)</td>
+</tr>
+}
+</tbody>
+</table>
+</fieldset>
+<p>
+    @Html.ActionLink(T("Edit"), "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Veranstaltungsliste", "Index")
+</p>

@@ -7,8 +7,6 @@ namespace SpeakerNet.ModelBinder
     {
         public IModelBinder GetBinder(Type modelType)
         {
-            if (!modelType.IsClass)
-                return null;
             var genericType = typeof (IModelBinder<>).MakeGenericType(modelType);
             return (IModelBinder) DependencyResolver.Current.GetService(genericType);
         }

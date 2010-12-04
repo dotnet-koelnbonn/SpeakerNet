@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SpeakerNet.FilterAttributes;
 
 namespace SpeakerNet.Controllers
 {
     public class HomeController : SpeakerNetController
     {
+        [AdminOnly]
         public ActionResult Index()
         {
             ViewModel.Message = "Welcome to ASP.NET MVC!";

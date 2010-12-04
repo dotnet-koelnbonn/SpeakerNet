@@ -1,8 +1,10 @@
 ﻿@{
-    View.Title = "Home Page";
+    View.Title = @T("Navigation_Home");
 }
 
-<h2>@View.Message</h2>
-<p>
-    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
-</p>
+<h2>@T("Home_Welcome")</h2>
+
+<ul>
+<li>@Html.ActionLink(T("Navigation_Events"), "Index", "Event")</li>
+<li>@Html.ActionLink(T("Navigation_Speakers"), "List", "Speaker")</li>
+</ul>

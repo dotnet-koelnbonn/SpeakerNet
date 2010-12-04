@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Reflection;
 using System.Web.Mvc;
 using Microsoft.Practices.ServiceLocation;
+using SpeakerNet.Infrastructure.Mvc;
 using StructureMap;
 using StructureMap.ServiceLocatorAdapter;
 
@@ -25,7 +26,7 @@ namespace SpeakerNet.Infrastructure.Registration
             var starts = new string[0];
             var names = ConfigurationManager.AppSettings["IoC.IncludeAssemblies"];
             if (!string.IsNullOrWhiteSpace(names)){
-                starts = names.Split(new[] {',', ';'}, StringSplitOptions.RemoveEmptyEntries);
+                starts = names.Split(new[] {';'}, StringSplitOptions.RemoveEmptyEntries);
             }
             return starts;
         }
@@ -49,7 +50,6 @@ namespace SpeakerNet.Infrastructure.Registration
                                     });
 
             DependencyResolver.SetResolver(new StructureMapDependencyResolver(container));
-            FilterProviders.Providers.Add(new StructureMapFilterAttributeFilterProvider(container));
         }
 
 

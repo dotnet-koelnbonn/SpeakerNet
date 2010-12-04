@@ -2,8 +2,8 @@ using System;
 
 namespace SpeakerNet.Data
 {
-    public interface IDatabaseContext
+    public interface IDatabaseContext : IDisposable
     {
-        SpeakerNetContext DbContext { get; }
+        SpeakerNetDbContext DbContext { get; }
     }
 }

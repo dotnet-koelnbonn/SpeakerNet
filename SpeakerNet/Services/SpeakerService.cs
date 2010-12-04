@@ -1,54 +1,56 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using AutoMapper;
 using SpeakerNet.Data;
+using SpeakerNet.Extensions;
 using SpeakerNet.Models;
-using SpeakerNet.Models.Views;
+using SpeakerNet.ViewModels;
 
 namespace SpeakerNet.Services
 {
     public class SpeakerService : ISpeakerService
     {
-        private readonly IRepository<Speaker> speakerRepository;
+        private readonly IRepository<Speaker> repository;
+        private readonly IRepository<Session> sessionRepository;
 
-        public SpeakerService(IRepository<Speaker> speakerRepository)
+        public SpeakerService(IRepository<Speaker> repository, IRepository<Session> sessionRepository)
         {
-            this.speakerRepository = speakerRepository;
+            this.repository = repository;
+            this.sessionRepository = sessionRepository;
         }
 
         public IEnumerable<SpeakerListModel> GetSpeakerList()
         {
-            var speakers = from s in speakerRepository.Entities
-                           orderby s.LastName , s.FirstName
-                           select new SpeakerListModel
-                           {
-                               Id = s.Id,
-                               Fullname = s.LastName + ", " + s.FirstName
+
+            var speakers = from speaker in repository.Entities
+                                   join session in sessionRepository.Entities on speaker.Id equals  session.Speaker.Id into sessions
+                           orderby speaker.LastName , speaker.FirstName 
+                           select new SpeakerListModel {
+                               Id = speaker.Id,
+                               Fullname = speaker.LastName + ", " + speaker.FirstName,
+                               SessionCount = sessions.Count()
                            };
             return speakers.ToList();
         }
 
         public bool CreateSpeaker(CreateSpeakerModel model)
         {
-            var speaker = Speaker.Create();
-            speaker.FirstName = model.FirstName;
-            speaker.LastName = model.LastName;
-            speaker.Salutation = model.Salutation;
-            speaker.Contact.EMail = model.EMail;
-            speakerRepository.Add(speaker);
-            speakerRepository.SaveChanges();
+            var speaker = Speaker.Create(model.Salutation,model.FirstName,model.LastName,model.EMail);
+            repository.Add(speaker);
+            repository.SaveChanges();
             return true;
         }
 
-        public Speaker GetSpeaker(Guid id)
+        public Speaker GetSpeaker(Guid speakerId)
         {
-            return speakerRepository.Entities.Where(e => e.Id == id).Single();
+            return repository.Entities.Where(e => e.Id == speakerId).Single();
         }
 
-        public void Update()
+        public void UpdateSpeaker(Guid speakerId, SpeakerEditModel model)
         {
-            speakerRepository.SaveChanges();
+            var speaker = GetSpeaker(speakerId);
+            model.MapTo(speaker);
+            repository.SaveChanges();
         }
     }
 }

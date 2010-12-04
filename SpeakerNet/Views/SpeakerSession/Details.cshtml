@@ -1,0 +1,15 @@
+﻿@model DisplaySessionModel
+
+@{
+    View.Title = @T("Navigation_Sessions");
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    @Html.DisplayForModel()
+</fieldset>
+<p>
+    @Html.ActionLink(T("Edit"), "EditSession", new { Model.SpeakerId, Model.Id }) |
+    @Html.ActionLink("Sessionliste", "List", new {Model.SpeakerId})
+</p>

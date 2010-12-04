@@ -1,0 +1,170 @@
+<#@ template language="C#" HostSpecific="True" #>
+<#
+MvcTextTemplateHost mvcHost = (MvcTextTemplateHost)(Host);
+
+var typeName = mvcHost.ControllerRootName;
+var modelBase = string.Format("{0}Model", typeName);
+
+var listModelName = string.Format("List{0}", modelBase);
+var detailModelName = string.Format("Details{0}", modelBase);
+var createModelName = string.Format("Create{0}", modelBase);
+var editModelName = string.Format("Edit{0}", modelBase);
+var deleteModelName = string.Format("Delete{0}", modelBase);
+
+var serviceName = string.Format("I{0}Service", typeName);
+
+#>
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web.Mvc;
+
+namespace <#= mvcHost.Namespace #>
+{
+    public class <#= mvcHost.ControllerName #> : SpeakerNetController
+    {
+        private readonly <#= serviceName #> service;
+
+        public <#= mvcHost.ControllerName #> (<#= serviceName #> service)
+        {
+            this.service = service;
+        }
+        //
+        // GET: <#= (!String.IsNullOrEmpty(mvcHost.AreaName)) ? ("/" + mvcHost.AreaName) : String.Empty #>/<#= mvcHost.ControllerRootName #>/
+
+        public ActionResult Index()
+        {
+            return View(service.Get<#=listModelName#>());
+        }
+
+<#
+if(mvcHost.AddActionMethods) {
+#>
+        //
+        // GET: <#= (!String.IsNullOrEmpty(mvcHost.AreaName)) ? ("/" + mvcHost.AreaName) : String.Empty #>/<#= mvcHost.ControllerRootName #>/Details/5
+
+        public ActionResult Details(int id)
+        {
+            return View(service.Get<#=detailModelName#>(id));
+        }
+
+        //
+        // GET: <#= (!String.IsNullOrEmpty(mvcHost.AreaName)) ? ("/" + mvcHost.AreaName) : String.Empty #>/<#= mvcHost.ControllerRootName #>/Create
+
+        public ActionResult Create()
+        {
+            return View(new <#=createModelName#>());
+        } 
+
+        //
+        // POST: <#= (!String.IsNullOrEmpty(mvcHost.AreaName)) ? ("/" + mvcHost.AreaName) : String.Empty #>/<#= mvcHost.ControllerRootName #>/Create
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(<#= createModelName #> model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (service.Create<#=typeName#>(model))
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            return View(model);
+        }
+        
+        //
+        // GET: <#= (!String.IsNullOrEmpty(mvcHost.AreaName)) ? ("/" + mvcHost.AreaName) : String.Empty #>/<#= mvcHost.ControllerRootName #>/Edit/5
+ 
+        public ActionResult Edit(int id)
+        {
+            return View(service.Get<#=editModelName#>(id));
+        }
+
+        //
+        // POST: <#= (!String.IsNullOrEmpty(mvcHost.AreaName)) ? ("/" + mvcHost.AreaName) : String.Empty #>/<#= mvcHost.ControllerRootName #>/Edit/5
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, <#= editModelName #> model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (service.Update<#=typeName#>(id, model))
+                {
+                    return RedirectToAction("Details", new { id });
+                }
+            }
+            return View(model);
+        }
+
+        //
+        // GET: <#= (!String.IsNullOrEmpty(mvcHost.AreaName)) ? ("/" + mvcHost.AreaName) : String.Empty #>/<#= mvcHost.ControllerRootName #>/Delete/5
+ 
+        public ActionResult Delete(int id)
+        {
+            return View(service.Get<#=deleteModelName#>(id));
+        }
+
+        //
+        // POST: <#= (!String.IsNullOrEmpty(mvcHost.AreaName)) ? ("/" + mvcHost.AreaName) : String.Empty #>/<#= mvcHost.ControllerRootName #>/Delete/5
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id, <#= deleteModelName #> model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (service.Delete<#=typeName#>(id, model))
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            return View(model);
+        }
+<#
+}
+#>
+    }
+
+    public interface <#=serviceName#> {
+        IEnumerable<<#=listModelName#>> Get<#=listModelName#>();
+<# if(mvcHost.AddActionMethods) { #>
+        <#=detailModelName#> Get<#=detailModelName#>(int id);
+        <#=editModelName#> Get<#=editModelName#>(int id);
+        <#=deleteModelName#> Get<#=deleteModelName#>(int id);
+
+        bool Create<#=typeName#>(<#=createModelName#> model);
+        bool Update<#=typeName#>(int id, <#=editModelName#> model);
+        bool Delete<#=typeName#>(int id, <#=deleteModelName#> model);
+<# } #>
+    }
+
+    public class <#=listModelName#> {
+        [Key]
+        public int Id { get; set; }
+    }
+
+<# if(mvcHost.AddActionMethods) { #>
+
+    public class <#=detailModelName#> {
+        [Key]
+        public int Id { get; set; }
+    }
+
+    public class <#=createModelName#> {
+    }
+
+    public class <#=editModelName#> {
+        [Key]
+        public int Id { get; set; }
+    }
+
+    public class <#=deleteModelName#> {
+        [Key]
+        public int Id { get; set; }
+    }
+
+<# } #>
+}

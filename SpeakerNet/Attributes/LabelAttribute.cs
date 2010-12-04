@@ -6,6 +6,14 @@ namespace SpeakerNet.Attributes
     public class LabelAttribute : DisplayNameAttribute
     {
         public LabelAttribute(string resourceName)
-            : base(SpeakertNetStrings.ResourceManager.GetString(resourceName, SpeakertNetStrings.Culture)) {}
+            : base(GetDisplayName(resourceName))
+        {
+        }
+
+        private static string GetDisplayName(string resourceName)
+        {
+            var displayName = SpeakertNetStrings.ResourceManager.GetString(resourceName, SpeakertNetStrings.Culture);
+            return displayName ?? "Missing: " + resourceName;
+        }
     }
 }

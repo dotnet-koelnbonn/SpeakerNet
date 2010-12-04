@@ -1,25 +1,29 @@
-﻿@model Speaker
+﻿@model SpeakerEditModel
 
 @{
-    View.Title = "Create";
+    View.Title = T("Navigation_Speakers");
 }
 
-<h2>Create</h2>
+<h2>@T("Speaker_Edit_of",Model.FirstName, Model.LastName)</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken();
     @Html.ValidationSummary(true)
-    <fieldset>
-        <legend>Bearbeiten</legend>
+    <fieldset class="divide">
+        <legend>Sprecherangaben</legend>
+     <div class="col-left">
     @Html.EditorForModel()
+     </div>
+     <div class="col-right">
     @Html.EditorFor(e => e.Contact)
     @Html.EditorFor(e => e.Address)
+     </div>
+    </fieldset>
         <p>
             <input type="submit" value="Speichern" />
         </p>
-    </fieldset>
 }
 <div>
-    @Html.SpeakerList("Liste aller Sprecher");
+    @Html.ActionLink("Anzeigen", "Details", new { Model.Id })
 </div>
 
