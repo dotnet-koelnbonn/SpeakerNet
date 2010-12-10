@@ -16,7 +16,7 @@ if(mvcHost.IsPartialView) {
 } else if(mvcHost.IsContentPage) {
 #>
 @{
-    View.Title = "<#= mvcHost.ViewName#>";
+    ViewBag.Title = "<#= mvcHost.ViewName#>";
 }
 
 <h2><#= mvcHost.ViewName#></h2>

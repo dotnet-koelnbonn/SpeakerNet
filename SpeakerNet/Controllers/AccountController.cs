@@ -80,7 +80,7 @@ namespace SpeakerNet.Controllers
         public ActionResult Register()
         {
             throw new NotImplementedException();
-            ViewModel.PasswordLength = MembershipService.MinPasswordLength;
+            ViewBag.PasswordLength = MembershipService.MinPasswordLength;
             return View();
         }
 
@@ -105,7 +105,7 @@ namespace SpeakerNet.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            ViewModel.PasswordLength = MembershipService.MinPasswordLength;
+            ViewBag.PasswordLength = MembershipService.MinPasswordLength;
             return View(model);
         }
 
@@ -117,7 +117,7 @@ namespace SpeakerNet.Controllers
         public ActionResult ChangePassword()
         {
             throw new NotImplementedException();
-            ViewModel.PasswordLength = MembershipService.MinPasswordLength;
+            ViewBag.PasswordLength = MembershipService.MinPasswordLength;
             return View();
         }
 
@@ -139,7 +139,7 @@ namespace SpeakerNet.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            ViewModel.PasswordLength = MembershipService.MinPasswordLength;
+            ViewBag.PasswordLength = MembershipService.MinPasswordLength;
             return View(model);
         }
 
