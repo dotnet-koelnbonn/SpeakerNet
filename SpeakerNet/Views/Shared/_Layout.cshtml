@@ -19,7 +19,7 @@
                 @Html.Partial("_LogOnPartial")
             </div>
             <div id="menucontainer">
-                <ul id="menu">
+                <ul class="menu">
                     <li>@Html.ActionLink(T("Navigation_Home"), "Index", "Home")</li>
                     <li>@Html.ActionLink(T("Navigation_Imprint"), "About", "Home")</li>
                     @if (Request.IsAuthenticated)
@@ -29,14 +29,13 @@
                     }
                 </ul>
             </div>
+        </div>
+    <div id="main">
             <div id="navigation">
-                <ul>
-                    @RenderSection("navigation", required: false);
+                <ul class="menu">
+                    @RenderSection("navigation", required: false)
                 </ul>
             </div>
-        </div>
-    </div>
-    <div id="main">
         @RenderBody()
         <div id="footer">
         </div>

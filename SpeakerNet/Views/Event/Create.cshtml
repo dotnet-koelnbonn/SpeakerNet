@@ -24,7 +24,6 @@
     </fieldset>
 }
 
-<div>
-    @Html.ActionLink("Veranstaltungsliste", "Index")
-</div>
-
+@section navigation {
+    <li>@Html.ActionLink("Veranstaltungsliste", "Index")</li>
+}

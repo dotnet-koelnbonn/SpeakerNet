@@ -33,6 +33,9 @@
         <div class="display-field">@Html.DisplayFor(e=>e.Engagement)</div> 
     </div>
 </fieldset>
-<p>
-    @Html.EditSpeaker(@T("Edit"), Model) | @Html.ActionLink(T("Speaker_SessionList"),"List","SpeakerSession",new { speakerId=Model.Id},null) | @Html.ActionLink(T("Speaker_Help"), "Help", new { Model.Id })
-</p>
+
+@section navigation {
+    <li>@Html.EditSpeaker(@T("Edit"), Model)</li>
+    <li>@Html.ActionLink(T("Speaker_SessionList"), "List", "SpeakerSession", new { speakerId = Model.Id }, null)</li>
+    <li>@Html.ActionLink(T("Speaker_Help"), "Help", new { Model.Id })</li>
+}

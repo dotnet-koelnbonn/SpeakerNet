@@ -23,7 +23,6 @@
             <input type="submit" value="Speichern" />
         </p>
 }
-<div>
-    @Html.ActionLink("Anzeigen", "Details", new { Model.Id })
-</div>
-
+@section navigation {
+    <li>@Html.ActionLink("Anzeigen", "Details", new { Model.Id })</li>
+}

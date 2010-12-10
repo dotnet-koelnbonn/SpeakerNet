@@ -34,7 +34,8 @@
 </tbody>
 </table>
 </fieldset>
-<p>
-    @Html.ActionLink(T("Edit"), "Edit", new { id=Model.Id }) |
-    @Html.ActionLink("Veranstaltungsliste", "Index")
-</p>
+
+@section navigation {
+    <li>@Html.ActionLink(T("Edit"), "Edit", new { id=Model.Id })</li>
+    <li>@Html.ActionLink("Veranstaltungsliste", "Index")</li>
+}

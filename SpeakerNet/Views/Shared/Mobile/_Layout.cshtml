@@ -10,7 +10,7 @@
     <div class="page">
         <div id="header">
             <div id="menucontainer">
-                <ul id="menu">
+                <ul class="menu">
                     <li>@Html.ActionLink(T("Navigation_Home"), "Index", "Home")</li>
                     <li>@Html.ActionLink(T("Navigation_Imprint"), "About", "Home")</li>
 @if (Request.IsAuthenticated)
@@ -22,6 +22,11 @@
             </div>
         </div>
         <div id="main">
+            <div id="navigation">
+                <ul class="menu">
+                    @RenderSection("navigation", required: false)
+                </ul>
+            </div>
             @RenderBody()
             <div id="footer">
                     @Html.Partial("_LogOnPartial")

@@ -48,15 +48,15 @@
         <div class="editor-field">
             @Html.DropDownListFor(model => model.EventId, Model.EventSelectList)
             @Html.ValidationMessageFor(model => model.EventId)
-        </div>
+        </div>  
 
         <p>
-            <input type="submit" value="@T("Create")" />
+            <input type="submit" value="@T("Save")" />
         </p>
     </fieldset>
 }
 
-<div>
-    @Html.ActionLink("Sessionliste", "List", new {Model.SpeakerId})
-</div>
-
+@section navigation {
+    <li>@Html.ActionLink("Sessionliste", "List", new {Model.SpeakerId})</li>
+    <li>@Html.ActionLink("Sprecherdaten", "Details", "Speaker", new { id = Model.SpeakerId }, null)</li>
+}

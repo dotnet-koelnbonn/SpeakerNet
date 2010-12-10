@@ -16,6 +16,6 @@
 
 @grid.GetHtml(columns: columns)
 
-<p>
-    @Html.CreateSpeaker(T("Speaker_CreateNewSpeaker"))
-</p>
+@section navigation {
+    <li>@Html.CreateSpeaker(T("Speaker_CreateNewSpeaker"))</li>
+}

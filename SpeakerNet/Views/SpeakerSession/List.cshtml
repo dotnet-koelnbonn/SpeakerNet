@@ -7,9 +7,13 @@
 <table>
     <thead>
         <tr>
-            <th>&nbsp;</th>
-            <th>@typeof(SpeakerSessionIndexModel).GetDisplayName("Name")</th>
-            <th>@typeof(SpeakerSessionIndexModel).GetDisplayName("Level")</th>
+            <th>
+                &nbsp;
+            </th>
+            <th>@typeof(SpeakerSessionIndexModel).GetDisplayName("Name")
+            </th>
+            <th>@typeof(SpeakerSessionIndexModel).GetDisplayName("Level")
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -25,13 +29,12 @@
             </tr>
         }
     </tbody>
-    <tfoot>
-        <tr>
-            <td colspan="3">@Html.ActionLink("Neue Session anlegen", "CreateSession", new { speakerid = Model.Id })
-            </td>
-        </tr>
-    </tfoot>
 </table>
-<p>
-    @Html.ActionLink("Sprecherliste", "List", "Speaker")
-</p>
+@section navigation {
+    <li>@Html.ActionLink("Neuen Sessionvorschlag anlegen", "CreateSession", new { speakerid = Model.Id })</li>
+    <li>@Html.ActionLink("Sprecherdaten","Details", "Speaker", new { id=Model.Id}, null)</li>
+    @if (Request.IsAuthenticated)
+    {
+        <li>@Html.ActionLink("Sprecherliste", "List", "Speaker")</li>
+    }
+}

@@ -4,12 +4,14 @@
     ViewBag.Title = @T("Navigation_Sessions");
 }
 
-<h2>Details</h2>
+<h2>@T("Navigation_Session")</h2>
 
 <fieldset>
     @Html.DisplayForModel()
 </fieldset>
-<p>
-    @Html.ActionLink(T("Edit"), "EditSession", new { Model.SpeakerId, Model.Id }) |
-    @Html.ActionLink("Sessionliste", "List", new {Model.SpeakerId})
-</p>
+
+@section navigation {
+    <li>@Html.ActionLink(T("Edit"), "EditSession", new { Model.SpeakerId, Model.Id })</li>
+    <li>@Html.ActionLink("Sessionliste", "List", new {Model.SpeakerId})</li>
+    <li>@Html.ActionLink("Sprecherdaten", "Details", "Speaker", new { id = Model.SpeakerId }, null)</li>
+}
