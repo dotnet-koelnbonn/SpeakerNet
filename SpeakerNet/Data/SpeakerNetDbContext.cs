@@ -9,7 +9,7 @@ namespace SpeakerNet.Data
     {
         public SpeakerNetDbContext() : base(CreateConnectionString())
         {
-            ObjectContext.ContextOptions.LazyLoadingEnabled = true;
+            Configuration.LazyLoadingEnabled = true;
         }
 
         private static string CreateConnectionString()

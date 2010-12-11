@@ -3,11 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeakerNet", "SpeakerNet\SpeakerNet.csproj", "{6EAA7A69-20ED-46CA-8993-0D38C9FBAE7D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IISExpress", "IISExpress", "{426447F4-F840-4EC3-97AE-2D881786E496}"
-	ProjectSection(SolutionItems) = preProject
-		iisstart.bat = iisstart.bat
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

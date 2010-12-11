@@ -252,4 +252,10 @@
   <data name="Speaker_SessionList" xml:space="preserve">
     <value>Sprecher-Sessions</value>
   </data>
+  <data name="Session_Suggestion" xml:space="preserve">
+    <value>Sessionvorschlag</value>
+  </data>
+  <data name="Speaker_Edit_of" xml:space="preserve">
+    <value>Bearbeiten von {0} {1}</value>
+  </data>
 </root>

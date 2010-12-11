@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Metadata.Edm;
+using System.Data.Entity.Database;
 
 namespace SpeakerNet.Models
 {
@@ -40,7 +42,7 @@ namespace SpeakerNet.Models
         [StringLength(128)]
         public string LastName { get; set; }
 
-        [StoreGenerated(StoreGeneratedPattern.None)]
+        [NotMapped]
         public string FullName
         {
             get { return string.Format("{0} {1}", FirstName, LastName); }
