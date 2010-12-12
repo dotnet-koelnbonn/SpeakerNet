@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = T("Navigation_Speakers");
 }
-<h2>Sprecherangaben von @Model.FirstName @Model.LastName</h2>
+<h2>@T("Speaker_Details_Title", @Model.FirstName,@Model.LastName)</h2>
 <fieldset> 
     <legend>Persönliches</legend>
     <div class="col-left">

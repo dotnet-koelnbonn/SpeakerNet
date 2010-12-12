@@ -7,6 +7,10 @@ namespace SpeakerNet.ViewModels
 {
     public class CreateSessionModel : ISessionSelectLists
     {
+        public CreateSessionModel()
+        {
+            Duration = 60;
+        }
         [Required]
         [StringLength(128)]
         [Label("Session_Name")]

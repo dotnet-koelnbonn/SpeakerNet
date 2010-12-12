@@ -2,8 +2,7 @@
 @{
     ViewBag.Title = @T("Navigation_Sessions");
 }
-<h2>
-    Sessions von @Model.Firstname @Model.Lastname</h2>
+<h2>@T("SpeakerSession_List", @Model.Firstname, @Model.Lastname)</h2>
 <table>
     <thead>
         <tr>

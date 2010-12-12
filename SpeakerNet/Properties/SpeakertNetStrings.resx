@@ -163,7 +163,7 @@
     <value>Anrede</value>
   </data>
   <data name="Speaker_Topics" xml:space="preserve">
-    <value>Mögliche Themen</value>
+    <value>Fachgebiete</value>
   </data>
   <data name="Exception_MissingResourceName" xml:space="preserve">
     <value>Missing ResourceName: </value>
@@ -226,7 +226,7 @@
     <value>Neuen Sprecher anlegen</value>
   </data>
   <data name="Speaker_Sessions" xml:space="preserve">
-    <value>Sessions</value>
+    <value>Sessionvorschläge</value>
   </data>
   <data name="Speaker_SpeakerList" xml:space="preserve">
     <value>Alle Sprecher</value>
@@ -250,12 +250,21 @@
     <value>Hilfe</value>
   </data>
   <data name="Speaker_SessionList" xml:space="preserve">
-    <value>Sprecher-Sessions</value>
+    <value>Sessionvorschläge</value>
   </data>
   <data name="Session_Suggestion" xml:space="preserve">
     <value>Sessionvorschlag</value>
   </data>
   <data name="Speaker_Edit_of" xml:space="preserve">
     <value>Bearbeiten von {0} {1}</value>
+  </data>
+  <data name="SessionCommunity_1_Minutes" xml:space="preserve">
+    <value>Community-Lunch-Session {0} Min.</value>
+  </data>
+  <data name="SpeakerSession_List" xml:space="preserve">
+    <value>Sessionvorschläge von {0} {1}</value>
+  </data>
+  <data name="Speaker_Details_Title" xml:space="preserve">
+    <value>{0} {1}</value>
   </data>
 </root>

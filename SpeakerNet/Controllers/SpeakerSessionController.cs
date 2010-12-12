@@ -72,7 +72,7 @@ namespace SpeakerNet.Controllers
                     new SelectListItem {Value = "400", Text = T("Session_Level400")}
                 }, "Value", "Text");
             model.DurationSelectList = new SelectList(new[] {
-                new SelectListItem {Value = "30", Text = T("Session_1_Minutes", 30)},
+                new SelectListItem {Value = "20", Text = T("SessionCommunity_1_Minutes", 20)},
                 new SelectListItem {Value = "45", Text = T("Session_1_Minutes", 45)},
                 new SelectListItem {Value = "60", Text = T("Session_1_Minutes", 60)}
             }, "Value", "Text");

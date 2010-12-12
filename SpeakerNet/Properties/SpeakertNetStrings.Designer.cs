@@ -358,6 +358,15 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Community-Lunch-Session {0} Min..
+        /// </summary>
+        public static string SessionCommunity_1_Minutes {
+            get {
+                return ResourceManager.GetString("SessionCommunity_1_Minutes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Biographie.
         /// </summary>
         public static string Speaker_Biography {
@@ -381,6 +390,15 @@ namespace SpeakerNet.Properties {
         public static string Speaker_CreateNewSpeaker {
             get {
                 return ResourceManager.GetString("Speaker_CreateNewSpeaker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} {1}.
+        /// </summary>
+        public static string Speaker_Details_Title {
+            get {
+                return ResourceManager.GetString("Speaker_Details_Title", resourceCulture);
             }
         }
         
@@ -448,7 +466,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sprecher-Sessions.
+        ///   Looks up a localized string similar to Sessionvorschläge.
         /// </summary>
         public static string Speaker_SessionList {
             get {
@@ -457,7 +475,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sessions.
+        ///   Looks up a localized string similar to Sessionvorschläge.
         /// </summary>
         public static string Speaker_Sessions {
             get {
@@ -475,11 +493,20 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mögliche Themen.
+        ///   Looks up a localized string similar to Fachgebiete.
         /// </summary>
         public static string Speaker_Topics {
             get {
                 return ResourceManager.GetString("Speaker_Topics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sessionvorschläge von {0} {1}.
+        /// </summary>
+        public static string SpeakerSession_List {
+            get {
+                return ResourceManager.GetString("SpeakerSession_List", resourceCulture);
             }
         }
     }
