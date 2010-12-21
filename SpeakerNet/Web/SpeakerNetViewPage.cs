@@ -7,9 +7,15 @@ namespace SpeakerNet.Web
 {
     public abstract class SpeakerNetViewPage<TModel> : WebViewPage<TModel>
     {
+        private ISiteSettings siteSettings;
         public ISiteSettings SiteSettings
         {
-            get { return new SiteSettings(new AppSettings()); }
+            get
+            {
+                if (siteSettings == null)
+                    siteSettings = new SiteSettings(new AppSettings());
+                return siteSettings;
+            }
         }
 
         public override System.Web.WebPages.HelperResult RenderPage(string path, params object[] data)
@@ -20,7 +26,8 @@ namespace SpeakerNet.Web
         protected string T(string resourceName, params object[] args)
         {
             string format = SpeakertNetStrings.ResourceManager.GetString(resourceName, SpeakertNetStrings.Culture);
-            if (format == null) {
+            if (format == null)
+            {
                 format = "Missing: " + resourceName;
             }
             return string.Format(SpeakertNetStrings.Culture, format, args);

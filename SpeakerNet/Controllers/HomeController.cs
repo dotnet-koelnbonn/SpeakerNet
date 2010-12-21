@@ -12,7 +12,7 @@ namespace SpeakerNet.Controllers
         [AdminOnly]
         public ActionResult Index()
         {
-            ViewBag.Message = "Welcome to ASP.NET MVC!";
+            ViewBag.Message = "Willkommen bei ASP.NET";
 
             return View();
         }

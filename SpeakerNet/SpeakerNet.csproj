@@ -140,23 +140,23 @@
     <Compile Include="Settings\IAppSettings.cs" />
     <Compile Include="Settings\IAuthenticationSettings.cs" />
     <Compile Include="Settings\ISiteSettings.cs" />
-    <Compile Include="ViewModels\SpeakerHelpModel.cs" />
+    <Compile Include="ViewModels\Speaker\SpeakerHelpModel.cs" />
     <Compile Include="ViewModels\SpeakerSession\CreateSessionModel.cs" />
     <Compile Include="ViewModels\SpeakerSession\DisplaySessionModel.cs" />
     <Compile Include="ViewModels\SpeakerSession\EditSessionModel.cs" />
     <Compile Include="ViewModels\SpeakerSession\ISessionSelectLists.cs" />
     <Compile Include="ViewModels\SpeakerSession\SpeakerSessionIndexModel.cs" />
     <Compile Include="ViewModels\SpeakerSession\SpeakerSessionListModel.cs" />
-    <Compile Include="ViewModels\AddressModel.cs" />
-    <Compile Include="ViewModels\ContactModel.cs" />
+    <Compile Include="ViewModels\Speaker\AddressModel.cs" />
+    <Compile Include="ViewModels\Speaker\ContactModel.cs" />
     <Compile Include="ViewModels\Event\CreateEventModel.cs" />
-    <Compile Include="ViewModels\CreateSpeakerModel.cs" />
+    <Compile Include="ViewModels\Account\CreateSpeakerModel.cs" />
     <Compile Include="ViewModels\Event\EditEventModel.cs" />
     <Compile Include="ViewModels\Event\EventListModel.cs" />
     <Compile Include="ViewModels\Event\DetailsEventModel.cs" />
-    <Compile Include="ViewModels\SessionListModel.cs" />
-    <Compile Include="ViewModels\SpeakerEditModel.cs" />
-    <Compile Include="ViewModels\SpeakerListModel.cs" />
+    <Compile Include="ViewModels\Speaker\SessionListModel.cs" />
+    <Compile Include="ViewModels\Speaker\SpeakerEditModel.cs" />
+    <Compile Include="ViewModels\Speaker\SpeakerListModel.cs" />
     <Compile Include="Properties\SpeakertNetStrings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -164,12 +164,12 @@
     </Compile>
     <Compile Include="Security\SecurityRoles.cs" />
     <Compile Include="Services\Authorization\AccountValidation.cs" />
-    <Compile Include="ViewModels\ChangePasswordModel.cs" />
+    <Compile Include="ViewModels\Account\ChangePasswordModel.cs" />
     <Compile Include="Services\Authorization\FormsAuthenticationService.cs" />
     <Compile Include="Services\Authorization\IFormsAuthenticationService.cs" />
     <Compile Include="Services\Authorization\IMembershipService.cs" />
-    <Compile Include="ViewModels\LogOnModel.cs" />
-    <Compile Include="ViewModels\RegisterModel.cs" />
+    <Compile Include="ViewModels\Account\LogOnModel.cs" />
+    <Compile Include="ViewModels\Account\RegisterModel.cs" />
     <Compile Include="Models\Speaker.cs" />
     <Compile Include="ViewModels\Validation\ValidatePasswordLengthAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -234,7 +234,9 @@
     <Content Include="Views\Speaker\Help.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Speaker\Create.cshtml" />
@@ -312,7 +314,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>3425</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:3425/</IISUrl>
+          <IISUrl>http://localhost:3425/speakernet</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>http://localhost:1500/</CustomServerUrl>
