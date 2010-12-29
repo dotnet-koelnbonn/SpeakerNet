@@ -1,8 +1,8 @@
 <Configuration>
   <NamespaceFolders>
     <SkipFolder>6EAA7A69-20ED-46CA-8993-0D38C9FBAE7D/d:ViewModels/d:Event</SkipFolder>
+    <SkipFolder>6EAA7A69-20ED-46CA-8993-0D38C9FBAE7D/d:ViewModels/d:Speaker</SkipFolder>
     <SkipFolder>6EAA7A69-20ED-46CA-8993-0D38C9FBAE7D/d:ViewModels/d:SpeakerSession</SkipFolder>
     <SkipFolder>6EAA7A69-20ED-46CA-8993-0D38C9FBAE7D/d:ViewModels/d:Validation</SkipFolder>
-    <SkipFolder>6EAA7A69-20ED-46CA-8993-0D38C9FBAE7D/d:ViewModels/d:Speaker</SkipFolder>
   </NamespaceFolders>
 </Configuration>

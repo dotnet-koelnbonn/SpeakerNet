@@ -17,8 +17,8 @@ namespace SpeakerNet.Infrastructure.Registration
         static RegisterStructureMap()
         {
             AssemblyStarts = new List<string>();
-            AssemblyStarts.Add(typeof (RegisterStructureMap).Assembly.GetName().Name.Split('.')[0]);
             AssemblyStarts.AddRange(GetAssemblyStartsFromAppSettings());
+            AssemblyStarts.Add(typeof(RegisterStructureMap).Assembly.GetName().Name.Split('.')[0]);
         }
 
         private static IEnumerable<string> GetAssemblyStartsFromAppSettings()
