@@ -8,9 +8,9 @@ using System.Web.Mvc;
 
 namespace SpeakerNet.Web
 {
-    public static class MobilePathHelpers
+    public static class AdaptiveViewEnginePathHelpers
     {
-        private static string GetNewLayoutPath(HttpContextBase context, IMobileViewEngine viewEngine,
+        private static string GetNewLayoutPath(HttpContextBase context, IAdaptiveViewEngine viewEngine,
                                               string layoutFile)
         {
             if (!viewEngine.IsTheRightDevice(context))
@@ -44,9 +44,9 @@ namespace SpeakerNet.Web
             return path;
         }
 
-        private static IEnumerable<IMobileViewEngine> GetViewEngines()
+        private static IEnumerable<IAdaptiveViewEngine> GetViewEngines()
         {
-            return ViewEngines.Engines.Where(ve => ve is IMobileViewEngine).Cast<IMobileViewEngine>();
+            return ViewEngines.Engines.Where(ve => ve is IAdaptiveViewEngine).Cast<IAdaptiveViewEngine>();
         }
 
         public static string GetLayoutPath(this HttpContextBase httpContext, string layoutFile)

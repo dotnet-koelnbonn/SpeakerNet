@@ -12,7 +12,7 @@ namespace SpeakerNet.Attributes
 
         private static string GetDisplayName(string resourceName)
         {
-            var displayName = SpeakertNetStrings.ResourceManager.GetString(resourceName, SpeakertNetStrings.Culture);
+            var displayName = SpeakerNetStrings.ResourceManager.GetString(resourceName, SpeakerNetStrings.Culture);
             return displayName ?? "Missing: " + resourceName;
         }
     }

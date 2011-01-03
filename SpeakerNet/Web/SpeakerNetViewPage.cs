@@ -8,6 +8,7 @@ namespace SpeakerNet.Web
     public abstract class SpeakerNetViewPage<TModel> : WebViewPage<TModel>
     {
         private ISiteSettings siteSettings;
+
         public ISiteSettings SiteSettings
         {
             get
@@ -25,12 +26,11 @@ namespace SpeakerNet.Web
 
         protected string T(string resourceName, params object[] args)
         {
-            string format = SpeakertNetStrings.ResourceManager.GetString(resourceName, SpeakertNetStrings.Culture);
-            if (format == null)
-            {
+            var format = SpeakerNetStrings.ResourceManager.GetString(resourceName, SpeakerNetStrings.Culture);
+            if (format == null) {
                 format = "Missing: " + resourceName;
             }
-            return string.Format(SpeakertNetStrings.Culture, format, args);
+            return string.Format(SpeakerNetStrings.Culture, format, args);
         }
     }
 }

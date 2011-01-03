@@ -9,7 +9,7 @@
         head.js("@Url.Script("jquery-1.4.4.min.js")", 
             function() {
                 head.js("@Url.Script("jquery.unobtrusive-ajax.min.js")")
-                .js("@Url.Script("jquery.validate.min.js")", "@Url.Script("jquery.validate.unobtrusive.min.js")");
+                    .js("@Url.Script("jquery.validate.min.js")", "@Url.Script("jquery.validate.unobtrusive.min.js")");
                 @RenderSection("scriptFiles", false)
                 });
         head.ready(function() {

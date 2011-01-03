@@ -141,6 +141,7 @@
     <Compile Include="Settings\IAppSettings.cs" />
     <Compile Include="Settings\IAuthenticationSettings.cs" />
     <Compile Include="Settings\ISiteSettings.cs" />
+    <Compile Include="Settings\SiteSettings.cs" />
     <Compile Include="ViewModels\Speaker\SpeakerHelpModel.cs" />
     <Compile Include="ViewModels\SpeakerSession\CreateSessionModel.cs" />
     <Compile Include="ViewModels\SpeakerSession\DisplaySessionModel.cs" />
@@ -158,10 +159,10 @@
     <Compile Include="ViewModels\Speaker\SessionListModel.cs" />
     <Compile Include="ViewModels\Speaker\SpeakerEditModel.cs" />
     <Compile Include="ViewModels\Speaker\SpeakerListModel.cs" />
-    <Compile Include="Properties\SpeakertNetStrings.Designer.cs">
+    <Compile Include="Properties\SpeakerNetStrings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SpeakertNetStrings.resx</DependentUpon>
+      <DependentUpon>SpeakerNetStrings.resx</DependentUpon>
     </Compile>
     <Compile Include="Security\SecurityRoles.cs" />
     <Compile Include="Services\Authorization\AccountValidation.cs" />
@@ -177,9 +178,10 @@
     <Compile Include="Services\Authorization\MembershipService.cs" />
     <Compile Include="Services\ISpeakerService.cs" />
     <Compile Include="Services\SpeakerService.cs" />
-    <Compile Include="Web\MobileHelpers.cs" />
-    <Compile Include="Web\CustomMobileViewEngine.cs" />
-    <Compile Include="Web\MobilePathHelpers.cs" />
+    <Compile Include="Web\AdaptiveViewEngine.cs" />
+    <Compile Include="Web\AdaptiveViewEngineHelpers.cs" />
+    <Compile Include="Web\IAdaptiveViewEngine.cs" />
+    <Compile Include="Web\AdaptiveViewEnginePathHelpers.cs" />
     <Compile Include="Web\SpeakerNetViewPage.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -243,9 +245,9 @@
     <Content Include="Views\Speaker\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Properties\SpeakertNetStrings.resx">
+    <EmbeddedResource Include="Properties\SpeakerNetStrings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>SpeakertNetStrings.Designer.cs</LastGenOutput>
+      <LastGenOutput>SpeakerNetStrings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

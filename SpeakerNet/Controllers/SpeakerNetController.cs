@@ -16,12 +16,12 @@ namespace SpeakerNet.Controllers
 
         protected string T(string resourceName, params object[] args)
         {
-            string format = SpeakertNetStrings.ResourceManager.GetString(resourceName, SpeakertNetStrings.Culture);
+            string format = SpeakerNetStrings.ResourceManager.GetString(resourceName, SpeakerNetStrings.Culture);
             if (format == null)
             {
                 format = "Missing: " + resourceName;
             }
-            return string.Format(SpeakertNetStrings.Culture, format, args);
+            return string.Format(SpeakerNetStrings.Culture, format, args);
         }
     }
 }

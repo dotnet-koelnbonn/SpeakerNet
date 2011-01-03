@@ -1,23 +1,17 @@
-using System;
+﻿using System;
 using System.Web;
 using System.Web.Mvc;
 
 namespace SpeakerNet.Web
 {
-    public interface IMobileViewEngine : IViewEngine
-    {
-        Func<HttpContextBase, bool> IsTheRightDevice { get; }
-        string PathToSearch { get;}
-    }
-
-    public class CustomMobileViewEngine : IMobileViewEngine
+    public class AdaptiveViewEngine : IAdaptiveViewEngine
     {
         private IViewEngine BaseViewEngine { get; set; }
         public Func<HttpContextBase, bool> IsTheRightDevice { get; private set; }
         public string PathToSearch { get; private set; }
 
-        public CustomMobileViewEngine(Func<HttpContextBase, bool> isTheRightDevice, string pathToSearch,
-                                      IViewEngine baseViewEngine)
+        public AdaptiveViewEngine(Func<HttpContextBase, bool> isTheRightDevice, string pathToSearch,
+                                  IViewEngine baseViewEngine)
         {
             BaseViewEngine = baseViewEngine;
             IsTheRightDevice = isTheRightDevice;
