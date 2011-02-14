@@ -2,40 +2,41 @@
 @{
     ViewBag.Title = T("Navigation_Speakers");
 }
-<h2>@T("Speaker_Details_Title", @Model.FirstName,@Model.LastName)</h2>
-<fieldset> 
+<h2>@T("Speaker_Details_Title", @Model.FirstName, @Model.LastName)</h2>
+<fieldset>
     <legend>Persönliches</legend>
     <div class="col-left">
-        <div class="display-label">@T("Speaker_Name")</div> 
-        <div class="display-field">@Model.Salutation @Model.FirstName @Model.LastName</div> 
-        <div class="display-label">@Model.GetDisplayName("CompanyName")</div> 
+        <div class="display-label">@T("Speaker_Name")</div>
+        <div class="display-field">@Model.Salutation @Model.FirstName @Model.LastName</div>
+        <div class="display-label">@Model.GetDisplayName("CompanyName")</div>
         <div class="display-field">@Html.DisplayFor(e => e.CompanyName)</div>
-    </div> 
+    </div>
     <div class="col-middle">
-    @Html.DisplayFor(e => e.Address)
+        @Html.DisplayFor(e => e.Address)
     </div>
     <div class="col-right">
-    @Html.DisplayFor(e => e.Contact)
+        @Html.DisplayFor(e => e.Contact)
     </div>
 </fieldset>
-<fieldset> 
+<fieldset>
     <legend>Fachliches</legend>
     <div class="col-left">
-        <div class="display-label">@Model.GetDisplayName("Biography")</div> 
-        <div class="display-field">@Html.DisplayFor(e=>e.Biography)</div> 
-    </div> 
+        <div class="display-label">@Model.GetDisplayName("Biography")</div>
+        <div class="display-field">@Html.DisplayFor(e => e.Biography)</div>
+    </div>
     <div class="col-middle">
-        <div class="display-label">@Model.GetDisplayName("Topics")</div> 
-        <div class="display-field">@Html.DisplayFor(e=>e.Topics)</div> 
+        <div class="display-label">@Model.GetDisplayName("Topics")</div>
+        <div class="display-field">@Html.DisplayFor(e => e.Topics)</div>
     </div>
     <div class="col-right">
-        <div class="display-label">@Model.GetDisplayName("Engagement")</div> 
-        <div class="display-field">@Html.DisplayFor(e=>e.Engagement)</div> 
+        <div class="display-label">@Model.GetDisplayName("Engagement")</div>
+        <div class="display-field">@Html.DisplayFor(e => e.Engagement)</div>
     </div>
 </fieldset>
-
 @section navigation {
-    <li>@Html.EditSpeaker(@T("Edit"), Model)</li>
-    <li>@Html.ActionLink(T("Speaker_SessionList"), "List", "SpeakerSession", new { speakerId = Model.Id }, null)</li>
-    <li>@Html.ActionLink(T("Speaker_Help"), "Help", new { Model.Id })</li>
+    <ul class="menu">
+        <li>@Html.EditSpeaker(@T("Edit"), Model)</li>
+        <li>@Html.ActionLink(T("Speaker_SessionList"), "List", "SpeakerSession", new { speakerId = Model.Id }, null)</li>
+        <li>@Html.ActionLink(T("Speaker_Help"), "Help", new { Model.Id })</li>
+    </ul>
 }

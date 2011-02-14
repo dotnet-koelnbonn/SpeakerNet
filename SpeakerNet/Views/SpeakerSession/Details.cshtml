@@ -1,17 +1,15 @@
 ﻿@model DisplaySessionModel
-
 @{
     ViewBag.Title = @T("Session_Suggestion");
 }
-
 <h2>@T("Session_Suggestion")</h2>
-
 <fieldset>
     @Html.DisplayForModel()
 </fieldset>
-
 @section navigation {
-    <li>@Html.ActionLink(T("Edit"), "EditSession", new { Model.SpeakerId, Model.Id })</li>
-    <li>@Html.ActionLink("Sessionliste", "List", new {Model.SpeakerId})</li>
-    <li>@Html.ActionLink("Sprecherdaten", "Details", "Speaker", new { id = Model.SpeakerId }, null)</li>
+    <ul class="menu">
+        <li>@Html.ActionLink(T("Edit"), "EditSession", new { Model.SpeakerId, Model.Id })</li>
+        <li>@Html.ActionLink("Sessionliste", "List", new { Model.SpeakerId })</li>
+        <li>@Html.ActionLink("Sprecherdaten", "Details", "Speaker", new { id = Model.SpeakerId }, null)</li>
+    </ul>
 }

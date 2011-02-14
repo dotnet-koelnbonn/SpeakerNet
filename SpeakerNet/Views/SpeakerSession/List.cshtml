@@ -30,10 +30,12 @@
     </tbody>
 </table>
 @section navigation {
-    <li>@Html.ActionLink("Neuen Sessionvorschlag anlegen", "CreateSession", new { speakerid = Model.Id })</li>
-    <li>@Html.ActionLink("Sprecherdaten","Details", "Speaker", new { id=Model.Id}, null)</li>
-    @if (Request.IsAuthenticated)
-    {
-        <li>@Html.ActionLink("Sprecherliste", "List", "Speaker")</li>
-    }
+    <ul class="menu">
+        <li>@Html.ActionLink("Neuen Sessionvorschlag anlegen", "CreateSession", new { speakerid = Model.Id })</li>
+        <li>@Html.ActionLink("Sprecherdaten", "Details", "Speaker", new { id = Model.Id }, null)</li>
+        @if (Request.IsAuthenticated)
+        {
+            <li>@Html.ActionLink("Sprecherliste", "List", "Speaker")</li>
+        }
+    </ul>
 }

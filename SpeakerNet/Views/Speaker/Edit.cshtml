@@ -1,28 +1,28 @@
 ﻿@model SpeakerEditModel
-
 @{
     ViewBag.Title = T("Navigation_Speakers");
 }
-
-<h2>@T("Speaker_Edit_of",Model.FirstName, Model.LastName)</h2>
-
-@using (Html.BeginForm()) {
+<h2>@T("Speaker_Edit_of", Model.FirstName, Model.LastName)</h2>
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken();
     @Html.ValidationSummary(true)
     <fieldset class="divide">
         <legend>Sprecherangaben</legend>
-     <div class="col-left">
-    @Html.EditorForModel()
-     </div>
-     <div class="col-right">
-    @Html.EditorFor(e => e.Contact)
-    @Html.EditorFor(e => e.Address)
-     </div>
+        <div class="col-left">
+            @Html.EditorForModel()
+        </div>
+        <div class="col-right">
+            @Html.EditorFor(e => e.Contact)
+            @Html.EditorFor(e => e.Address)
+        </div>
     </fieldset>
-        <p>
-            <input type="submit" value="Speichern" />
-        </p>
+    <p>
+        <input type="submit" value="Speichern" />
+    </p>
 }
 @section navigation {
-    <li>@Html.ActionLink("Anzeigen", "Details", new { Model.Id })</li>
+    <ul class="menu">
+        <li>@Html.ActionLink("Anzeigen", "Details", new { Model.Id })</li>
+    </ul>
 }

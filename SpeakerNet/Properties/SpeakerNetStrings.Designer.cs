@@ -61,7 +61,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Stadt.
+        ///   Looks up a localized string similar to City.
         /// </summary>
         public static string Address_City {
             get {
@@ -70,7 +70,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Land.
+        ///   Looks up a localized string similar to Country.
         /// </summary>
         public static string Address_Country {
             get {
@@ -79,7 +79,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Straße.
+        ///   Looks up a localized string similar to Street.
         /// </summary>
         public static string Address_Street {
             get {
@@ -88,7 +88,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PLZ.
+        ///   Looks up a localized string similar to ZipCode.
         /// </summary>
         public static string Address_ZipCode {
             get {
@@ -106,7 +106,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Telefax.
+        ///   Looks up a localized string similar to Fax.
         /// </summary>
         public static string Contact_Fax {
             get {
@@ -124,7 +124,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Telefon.
+        ///   Looks up a localized string similar to Phone.
         /// </summary>
         public static string Contact_Phone {
             get {
@@ -133,7 +133,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Erstellen.
+        ///   Looks up a localized string similar to Create.
         /// </summary>
         public static string Create {
             get {
@@ -142,7 +142,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bearbeiten.
+        ///   Looks up a localized string similar to Edit.
         /// </summary>
         public static string Edit {
             get {
@@ -160,7 +160,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Willkommen.
+        ///   Looks up a localized string similar to Welcome.
         /// </summary>
         public static string Home_Welcome {
             get {
@@ -169,7 +169,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Willkommen {0}!.
+        ///   Looks up a localized string similar to Welome {0}!.
         /// </summary>
         public static string LogOn_Welcome {
             get {
@@ -178,7 +178,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Veranstaltungen.
+        ///   Looks up a localized string similar to Events.
         /// </summary>
         public static string Navigation_Events {
             get {
@@ -187,7 +187,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Startseite.
+        ///   Looks up a localized string similar to Homepage.
         /// </summary>
         public static string Navigation_Home {
             get {
@@ -196,7 +196,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Impressum.
+        ///   Looks up a localized string similar to Imprimt.
         /// </summary>
         public static string Navigation_Imprint {
             get {
@@ -205,7 +205,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Abmelden.
+        ///   Looks up a localized string similar to Log Off.
         /// </summary>
         public static string Navigation_LogOff {
             get {
@@ -214,7 +214,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Anmelden.
+        ///   Looks up a localized string similar to Log In.
         /// </summary>
         public static string Navigation_LogOn {
             get {
@@ -232,7 +232,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sprecher.
+        ///   Looks up a localized string similar to Speaker.
         /// </summary>
         public static string Navigation_Speakers {
             get {
@@ -241,7 +241,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Speichern.
+        ///   Looks up a localized string similar to Save.
         /// </summary>
         public static string Save {
             get {
@@ -250,7 +250,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} Minuten.
+        ///   Looks up a localized string similar to {0} Minutes.
         /// </summary>
         public static string Session_1_Minutes {
             get {
@@ -259,7 +259,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Beschreibung.
+        ///   Looks up a localized string similar to Description.
         /// </summary>
         public static string Session_Abstract {
             get {
@@ -268,7 +268,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dauer.
+        ///   Looks up a localized string similar to Duration.
         /// </summary>
         public static string Session_Duration {
             get {
@@ -277,7 +277,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Veranstaltung.
+        ///   Looks up a localized string similar to Event.
         /// </summary>
         public static string Session_Event {
             get {
@@ -295,7 +295,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Überblick für Neulinge.
+        ///   Looks up a localized string similar to Overview.
         /// </summary>
         public static string Session_Level100 {
             get {
@@ -304,7 +304,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Anfänger.
+        ///   Looks up a localized string similar to Beginner.
         /// </summary>
         public static string Session_Level200 {
             get {
@@ -313,7 +313,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Fortgeschritten.
+        ///   Looks up a localized string similar to Advanced.
         /// </summary>
         public static string Session_Level300 {
             get {
@@ -331,7 +331,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Titel.
+        ///   Looks up a localized string similar to Title.
         /// </summary>
         public static string Session_Name {
             get {
@@ -340,7 +340,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sprecher.
+        ///   Looks up a localized string similar to Speaker.
         /// </summary>
         public static string Session_Speaker {
             get {
@@ -349,7 +349,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sessionvorschlag.
+        ///   Looks up a localized string similar to Sessionproposal.
         /// </summary>
         public static string Session_Suggestion {
             get {
@@ -376,7 +376,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Firma.
+        ///   Looks up a localized string similar to Company.
         /// </summary>
         public static string Speaker_Company {
             get {
@@ -385,7 +385,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Neuen Sprecher anlegen.
+        ///   Looks up a localized string similar to Create new Speaker.
         /// </summary>
         public static string Speaker_CreateNewSpeaker {
             get {
@@ -403,7 +403,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bearbeiten von {0} {1}.
+        ///   Looks up a localized string similar to Editing of {0} {1}.
         /// </summary>
         public static string Speaker_Edit_of {
             get {
@@ -421,7 +421,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Vorname.
+        ///   Looks up a localized string similar to Firstname.
         /// </summary>
         public static string Speaker_FirstName {
             get {
@@ -430,7 +430,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hilfe.
+        ///   Looks up a localized string similar to Help.
         /// </summary>
         public static string Speaker_Help {
             get {
@@ -439,7 +439,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nachname.
+        ///   Looks up a localized string similar to Lastname.
         /// </summary>
         public static string Speaker_LastName {
             get {
@@ -457,7 +457,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Anrede.
+        ///   Looks up a localized string similar to Salutation.
         /// </summary>
         public static string Speaker_Salutation {
             get {
@@ -466,7 +466,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sessionvorschläge.
+        ///   Looks up a localized string similar to Sessionproposals.
         /// </summary>
         public static string Speaker_SessionList {
             get {
@@ -475,7 +475,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sessionvorschläge.
+        ///   Looks up a localized string similar to Sessionproposals.
         /// </summary>
         public static string Speaker_Sessions {
             get {
@@ -484,7 +484,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Alle Sprecher.
+        ///   Looks up a localized string similar to All Speakers.
         /// </summary>
         public static string Speaker_SpeakerList {
             get {
@@ -493,7 +493,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Fachgebiete.
+        ///   Looks up a localized string similar to Topics.
         /// </summary>
         public static string Speaker_Topics {
             get {
@@ -502,7 +502,7 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sessionvorschläge von {0} {1}.
+        ///   Looks up a localized string similar to Sessionproposals from {0} {1}.
         /// </summary>
         public static string SpeakerSession_List {
             get {

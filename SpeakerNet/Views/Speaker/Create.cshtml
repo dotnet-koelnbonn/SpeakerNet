@@ -1,12 +1,10 @@
 ﻿@model CreateSpeakerModel
-
 @{
     ViewBag.Title = T("Navigation_Speakers");
 }
-
 <h2>@T("Speaker_CreateNewSpeaker")</h2>
-
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken();
     @Html.ValidationSummary(true)
     <fieldset>
@@ -16,8 +14,8 @@
         </p>
     </fieldset>
 }
-
 @section navigation {
-    <li>@Html.SpeakerList(T("Speaker_SpeakerList"))</li>
+    <ul class="menu">
+        <li>@Html.SpeakerList(T("Speaker_SpeakerList"))</li>
+    </ul>
 }
-

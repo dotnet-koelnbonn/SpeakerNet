@@ -10,22 +10,22 @@ namespace SpeakerNet.Services
 {
     public class SpeakerSessionService : ISpeakerSessionService
     {
-        private readonly IRepository<Session> repository;
-        private readonly IRepository<Speaker> speakerRepository;
-        private readonly IRepository<Event> eventRepository;
+        private readonly IRepository<Session> _repository;
+        private readonly IRepository<Speaker> _speakerRepository;
+        private readonly IRepository<Event> _eventRepository;
 
         public SpeakerSessionService(IRepository<Session> repository, IRepository<Speaker> speakerRepository,
                                      IRepository<Event> eventRepository)
         {
-            this.repository = repository;
-            this.speakerRepository = speakerRepository;
-            this.eventRepository = eventRepository;
+            _repository = repository;
+            _speakerRepository = speakerRepository;
+            _eventRepository = eventRepository;
         }
 
         public SpeakerSessionListModel GetSpeakerSessionList(Guid speakerId)
         {
             var speaker = GetSpeaker(speakerId);
-            var sessions = repository.Entities.Where(s => s.Speaker.Id == speaker.Id).ToList();
+            var sessions = _repository.Entities.Where(s => s.Speaker.Id == speaker.Id).ToList();
             var model = speaker.MapFrom<Speaker, SpeakerSessionListModel>();
             model.Sessions = sessions.MapFrom<Session, SpeakerSessionIndexModel>();
             return model;
@@ -33,13 +33,13 @@ namespace SpeakerNet.Services
 
         private Speaker GetSpeaker(Guid speakerId)
         {
-            return speakerRepository.Entities
+            return _speakerRepository.Entities
                 .Single(s => s.Id == speakerId);
         }
 
         private Event GetEvent(int eventId)
         {
-            return eventRepository.Entities.Single(e => e.Id == eventId);
+            return _eventRepository.Entities.Single(e => e.Id == eventId);
         }
 
         public void CreateSession(Guid speakerId, CreateSessionModel model)
@@ -49,13 +49,13 @@ namespace SpeakerNet.Services
             var session = Session.Create(model.Name, model.Abstract, model.Level, model.Duration);
             session.Speaker = speaker;
             session.Event = theEvent;
-            repository.Add(session);
-            repository.SaveChanges();
+            _repository.Add(session);
+            _repository.SaveChanges();
         }
 
         public IEnumerable<DetailsEventModel> GetEventList()
         {
-            return eventRepository.Entities
+            return _eventRepository.Entities
                 .OrderBy(e => e.Name)
                 .ToList()
                 .MapFrom<Event, DetailsEventModel>();
@@ -73,7 +73,7 @@ namespace SpeakerNet.Services
             var theEvent = GetEvent(model.EventId);
             session.Event = theEvent;
             model.MapTo(session);
-            repository.SaveChanges();
+            _repository.SaveChanges();
         }
 
         public DisplaySessionModel GetDisplaySessionModel(Guid speakerId, int sessionId)
@@ -83,7 +83,7 @@ namespace SpeakerNet.Services
 
         private Session GetSession(Guid speakerId, int sessionId)
         {
-            var query = from ss in repository.Entities
+            var query = from ss in _repository.Entities
                         where ss.Id == sessionId && ss.Speaker.Id == speakerId
                         select ss;
             return query.Single();

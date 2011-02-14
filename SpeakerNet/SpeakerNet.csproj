@@ -74,6 +74,7 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.WebPages" />
@@ -89,12 +90,16 @@
     <Reference Include="WikiPlex">
       <HintPath>..\packages\WikiPlex.2.0\lib\Net40\WikiPlex.dll</HintPath>
     </Reference>
+    <Reference Include="xunit">
+      <HintPath>..\packages\xunit.1.7.0.1540\lib\xunit.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\SpeakerController.cs" />
     <Compile Include="Controllers\SpeakerNetController.cs" />
     <Compile Include="Controllers\SpeakerSessionController.cs" />
+    <Compile Include="Data\CreateDatabaseIfNotExistsWithoutModelCheck.cs" />
     <Compile Include="Data\EntityFrameworkDatabaseContext.cs" />
     <Compile Include="Data\IDatabaseContext.cs" />
     <Compile Include="Data\IRepository%27.cs" />
@@ -127,11 +132,17 @@
     <Compile Include="Infrastructure\Registration\RegisterStructureMap.cs" />
     <Compile Include="Initialize\ViewEnginesInitialize.cs" />
     <Compile Include="ModelBinder\GenericModelBinderProvider.cs" />
-    <Compile Include="ModelBinder\IModelBinder´1.cs" />
+    <Compile Include="ModelBinder\IModelBinder.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\Session.cs" />
+    <Compile Include="Models\SpeakerPicture.cs" />
+    <Compile Include="Properties\SpeakerNetStrings.de.Designer.cs">
+      <DependentUpon>SpeakerNetStrings.de.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Services\EventService.cs" />
     <Compile Include="Services\IEventService.cs" />
     <Compile Include="Services\ISpeakerSessionService.cs" />
@@ -194,6 +205,11 @@
     <Content Include="Scripts\jquery-1.4.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.4.js" />
     <Content Include="Scripts\jquery-1.4.4.min.js" />
+    <Content Include="Scripts\jQuery.DataLink.js" />
+    <Content Include="Scripts\jQuery.tmpl.js" />
+    <Content Include="Scripts\jQuery.tmpl.min.js" />
+    <Content Include="Scripts\jquery.tmplPlus.js" />
+    <Content Include="Scripts\jquery.tmplPlus.min.js" />
     <Content Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -221,7 +237,9 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LogOnPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="CodeTemplates\AddController\Controller.tt" />
@@ -245,6 +263,10 @@
     <Content Include="Views\Speaker\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Properties\SpeakerNetStrings.de.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SpeakerNetStrings.de.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\SpeakerNetStrings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>SpeakerNetStrings.Designer.cs</LastGenOutput>

@@ -10,20 +10,20 @@ namespace SpeakerNet.Services
 {
     public class SpeakerService : ISpeakerService
     {
-        private readonly IRepository<Speaker> repository;
-        private readonly IRepository<Session> sessionRepository;
+        private readonly IRepository<Speaker> _repository;
+        private readonly IRepository<Session> _sessionRepository;
 
         public SpeakerService(IRepository<Speaker> repository, IRepository<Session> sessionRepository)
         {
-            this.repository = repository;
-            this.sessionRepository = sessionRepository;
+            _repository = repository;
+            _sessionRepository = sessionRepository;
         }
 
         public IEnumerable<SpeakerListModel> GetSpeakerList()
         {
 
-            var speakers = from speaker in repository.Entities
-                                   join session in sessionRepository.Entities on speaker.Id equals  session.Speaker.Id into sessions
+            var speakers = from speaker in _repository.Entities
+                                   join session in _sessionRepository.Entities on speaker.Id equals  session.Speaker.Id into sessions
                            orderby speaker.LastName , speaker.FirstName 
                            select new SpeakerListModel {
                                Id = speaker.Id,
@@ -36,21 +36,21 @@ namespace SpeakerNet.Services
         public bool CreateSpeaker(CreateSpeakerModel model)
         {
             var speaker = Speaker.Create(model.Salutation,model.FirstName,model.LastName,model.EMail);
-            repository.Add(speaker);
-            repository.SaveChanges();
+            _repository.Add(speaker);
+            _repository.SaveChanges();
             return true;
         }
 
         public Speaker GetSpeaker(Guid speakerId)
         {
-            return repository.Entities.Where(e => e.Id == speakerId).Single();
+            return _repository.Entities.Where(e => e.Id == speakerId).Single();
         }
 
         public void UpdateSpeaker(Guid speakerId, SpeakerEditModel model)
         {
             var speaker = GetSpeaker(speakerId);
             model.MapTo(speaker);
-            repository.SaveChanges();
+            _repository.SaveChanges();
         }
     }
 }

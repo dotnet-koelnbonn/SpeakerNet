@@ -25,8 +25,8 @@ namespace SpeakerNet.Data
             base.OnModelCreating(modelBuilder);
         }
 
-        public DbSet<Speaker> Speakers { get; set; }
         public DbSet<Session> Sessions { get; set; }
+        public DbSet<Speaker> Speakers { get; set; }
         public DbSet<Event> Events { get; set; }
     }
 }

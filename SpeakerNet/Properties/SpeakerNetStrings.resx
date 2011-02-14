@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+	<!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,212 +59,212 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="Address_City" xml:space="preserve">
-    <value>Stadt</value>
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="Address_City" xml:space="preserve">
+    <value>City</value>
   </data>
-  <data name="Address_Country" xml:space="preserve">
-    <value>Land</value>
+	<data name="Address_Country" xml:space="preserve">
+    <value>Country</value>
   </data>
-  <data name="Address_Street" xml:space="preserve">
-    <value>Straße</value>
+	<data name="Address_Street" xml:space="preserve">
+    <value>Street</value>
   </data>
-  <data name="Address_ZipCode" xml:space="preserve">
-    <value>PLZ</value>
+	<data name="Address_ZipCode" xml:space="preserve">
+    <value>ZipCode</value>
   </data>
-  <data name="Contact_EMail" xml:space="preserve">
+	<data name="Contact_EMail" xml:space="preserve">
     <value>E-Mail</value>
   </data>
-  <data name="Contact_Fax" xml:space="preserve">
-    <value>Telefax</value>
+	<data name="Contact_Fax" xml:space="preserve">
+    <value>Fax</value>
   </data>
-  <data name="Contact_Homepage" xml:space="preserve">
+	<data name="Contact_Homepage" xml:space="preserve">
     <value>Homepage</value>
   </data>
-  <data name="Contact_Phone" xml:space="preserve">
-    <value>Telefon</value>
+	<data name="Contact_Phone" xml:space="preserve">
+    <value>Phone</value>
   </data>
-  <data name="Speaker_Biography" xml:space="preserve">
+	<data name="Speaker_Biography" xml:space="preserve">
     <value>Biographie</value>
   </data>
-  <data name="Speaker_Company" xml:space="preserve">
-    <value>Firma</value>
+	<data name="Speaker_Company" xml:space="preserve">
+    <value>Company</value>
   </data>
-  <data name="Speaker_Engagement" xml:space="preserve">
+	<data name="Speaker_Engagement" xml:space="preserve">
     <value>Bisherige Veranstaltungen</value>
   </data>
-  <data name="Speaker_FirstName" xml:space="preserve">
-    <value>Vorname</value>
+	<data name="Speaker_FirstName" xml:space="preserve">
+    <value>Firstname</value>
   </data>
-  <data name="Speaker_LastName" xml:space="preserve">
-    <value>Nachname</value>
+	<data name="Speaker_LastName" xml:space="preserve">
+    <value>Lastname</value>
   </data>
-  <data name="Speaker_Name" xml:space="preserve">
+	<data name="Speaker_Name" xml:space="preserve">
     <value>Name</value>
   </data>
-  <data name="Speaker_Salutation" xml:space="preserve">
-    <value>Anrede</value>
+	<data name="Speaker_Salutation" xml:space="preserve">
+    <value>Salutation</value>
   </data>
-  <data name="Speaker_Topics" xml:space="preserve">
-    <value>Fachgebiete</value>
+	<data name="Speaker_Topics" xml:space="preserve">
+    <value>Topics</value>
   </data>
-  <data name="Exception_MissingResourceName" xml:space="preserve">
+	<data name="Exception_MissingResourceName" xml:space="preserve">
     <value>Missing ResourceName: </value>
   </data>
-  <data name="Navigation_Home" xml:space="preserve">
-    <value>Startseite</value>
+	<data name="Navigation_Home" xml:space="preserve">
+    <value>Homepage</value>
   </data>
-  <data name="Navigation_Imprint" xml:space="preserve">
-    <value>Impressum</value>
+	<data name="Navigation_Imprint" xml:space="preserve">
+    <value>Imprimt</value>
   </data>
-  <data name="Navigation_Speakers" xml:space="preserve">
-    <value>Sprecher</value>
+	<data name="Navigation_Speakers" xml:space="preserve">
+    <value>Speaker</value>
   </data>
-  <data name="LogOn_Welcome" xml:space="preserve">
-    <value>Willkommen {0}!</value>
+	<data name="LogOn_Welcome" xml:space="preserve">
+    <value>Welome {0}!</value>
   </data>
-  <data name="Navigation_LogOff" xml:space="preserve">
-    <value>Abmelden</value>
+	<data name="Navigation_LogOff" xml:space="preserve">
+    <value>Log Off</value>
   </data>
-  <data name="Navigation_LogOn" xml:space="preserve">
-    <value>Anmelden</value>
+	<data name="Navigation_LogOn" xml:space="preserve">
+    <value>Log In</value>
   </data>
-  <data name="Session_Abstract" xml:space="preserve">
-    <value>Beschreibung</value>
+	<data name="Session_Abstract" xml:space="preserve">
+    <value>Description</value>
   </data>
-  <data name="Session_Duration" xml:space="preserve">
-    <value>Dauer</value>
+	<data name="Session_Duration" xml:space="preserve">
+    <value>Duration</value>
   </data>
-  <data name="Session_Event" xml:space="preserve">
-    <value>Veranstaltung</value>
+	<data name="Session_Event" xml:space="preserve">
+    <value>Event</value>
   </data>
-  <data name="Session_Level" xml:space="preserve">
+	<data name="Session_Level" xml:space="preserve">
     <value>Level</value>
   </data>
-  <data name="Session_Name" xml:space="preserve">
-    <value>Titel</value>
+	<data name="Session_Name" xml:space="preserve">
+    <value>Title</value>
   </data>
-  <data name="Session_Speaker" xml:space="preserve">
-    <value>Sprecher</value>
+	<data name="Session_Speaker" xml:space="preserve">
+    <value>Speaker</value>
   </data>
-  <data name="Create" xml:space="preserve">
-    <value>Erstellen</value>
+	<data name="Create" xml:space="preserve">
+    <value>Create</value>
   </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Bearbeiten</value>
+	<data name="Edit" xml:space="preserve">
+    <value>Edit</value>
   </data>
-  <data name="Navigation_Sessions" xml:space="preserve">
+	<data name="Navigation_Sessions" xml:space="preserve">
     <value>Sessions</value>
   </data>
-  <data name="Save" xml:space="preserve">
-    <value>Speichern</value>
+	<data name="Save" xml:space="preserve">
+    <value>Save</value>
   </data>
-  <data name="Navigation_Events" xml:space="preserve">
-    <value>Veranstaltungen</value>
+	<data name="Navigation_Events" xml:space="preserve">
+    <value>Events</value>
   </data>
-  <data name="Home_Welcome" xml:space="preserve">
-    <value>Willkommen</value>
+	<data name="Home_Welcome" xml:space="preserve">
+    <value>Welcome</value>
   </data>
-  <data name="Speaker_CreateNewSpeaker" xml:space="preserve">
-    <value>Neuen Sprecher anlegen</value>
+	<data name="Speaker_CreateNewSpeaker" xml:space="preserve">
+    <value>Create new Speaker</value>
   </data>
-  <data name="Speaker_Sessions" xml:space="preserve">
-    <value>Sessionvorschläge</value>
+	<data name="Speaker_Sessions" xml:space="preserve">
+    <value>Sessionproposals</value>
   </data>
-  <data name="Speaker_SpeakerList" xml:space="preserve">
-    <value>Alle Sprecher</value>
+	<data name="Speaker_SpeakerList" xml:space="preserve">
+    <value>All Speakers</value>
   </data>
-  <data name="Session_1_Minutes" xml:space="preserve">
-    <value>{0} Minuten</value>
+	<data name="Session_1_Minutes" xml:space="preserve">
+    <value>{0} Minutes</value>
   </data>
-  <data name="Session_Level100" xml:space="preserve">
-    <value>Überblick für Neulinge</value>
+	<data name="Session_Level100" xml:space="preserve">
+    <value>Overview</value>
   </data>
-  <data name="Session_Level200" xml:space="preserve">
-    <value>Anfänger</value>
+	<data name="Session_Level200" xml:space="preserve">
+    <value>Beginner</value>
   </data>
-  <data name="Session_Level300" xml:space="preserve">
-    <value>Fortgeschritten</value>
+	<data name="Session_Level300" xml:space="preserve">
+    <value>Advanced</value>
   </data>
-  <data name="Session_Level400" xml:space="preserve">
+	<data name="Session_Level400" xml:space="preserve">
     <value>Deep Dive</value>
   </data>
-  <data name="Speaker_Help" xml:space="preserve">
-    <value>Hilfe</value>
+	<data name="Speaker_Help" xml:space="preserve">
+    <value>Help</value>
   </data>
-  <data name="Speaker_SessionList" xml:space="preserve">
-    <value>Sessionvorschläge</value>
+	<data name="Speaker_SessionList" xml:space="preserve">
+    <value>Sessionproposals</value>
   </data>
-  <data name="Session_Suggestion" xml:space="preserve">
-    <value>Sessionvorschlag</value>
+	<data name="Session_Suggestion" xml:space="preserve">
+    <value>Sessionproposal</value>
   </data>
-  <data name="Speaker_Edit_of" xml:space="preserve">
-    <value>Bearbeiten von {0} {1}</value>
+	<data name="Speaker_Edit_of" xml:space="preserve">
+    <value>Editing of {0} {1}</value>
   </data>
-  <data name="SessionCommunity_1_Minutes" xml:space="preserve">
+	<data name="SessionCommunity_1_Minutes" xml:space="preserve">
     <value>Community-Lunch-Session {0} Min.</value>
   </data>
-  <data name="SpeakerSession_List" xml:space="preserve">
-    <value>Sessionvorschläge von {0} {1}</value>
+	<data name="SpeakerSession_List" xml:space="preserve">
+    <value>Sessionproposals from {0} {1}</value>
   </data>
-  <data name="Speaker_Details_Title" xml:space="preserve">
+	<data name="Speaker_Details_Title" xml:space="preserve">
     <value>{0} {1}</value>
   </data>
 </root>

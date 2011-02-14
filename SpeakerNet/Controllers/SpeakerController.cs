@@ -10,11 +10,11 @@ namespace SpeakerNet.Controllers
 {
     public class SpeakerController : SpeakerNetController
     {
-        private readonly ISpeakerService speakerService;
+        private readonly ISpeakerService _speakerService;
 
         public SpeakerController(ISpeakerService speakerService)
         {
-            this.speakerService = speakerService;
+            this._speakerService = speakerService;
         }
 
         public ActionResult Help(Guid id)
@@ -24,12 +24,12 @@ namespace SpeakerNet.Controllers
 
         public ActionResult Details(Guid id)
         {
-            return View(speakerService.GetSpeaker(id).MapFrom<Speaker, SpeakerEditModel>());
+            return View(_speakerService.GetSpeaker(id).MapFrom<Speaker, SpeakerEditModel>());
         }
 
         public ActionResult Edit(Guid id)
         {
-            return View(speakerService.GetSpeaker(id).MapFrom<Speaker, SpeakerEditModel>());
+            return View(_speakerService.GetSpeaker(id).MapFrom<Speaker, SpeakerEditModel>());
         }
 
         [HttpPost]
@@ -38,7 +38,7 @@ namespace SpeakerNet.Controllers
         public ActionResult EditCommand(Guid id, SpeakerEditModel model)
         {
             if (ModelState.IsValid) {
-                speakerService.UpdateSpeaker(id, model);
+                _speakerService.UpdateSpeaker(id, model);
                 return RedirectToAction("Details", new {id});
             }
             return View(model);
@@ -57,7 +57,7 @@ namespace SpeakerNet.Controllers
         public ActionResult Create(CreateSpeakerModel model)
         {
             if (ModelState.IsValid) {
-                if (speakerService.CreateSpeaker(model))
+                if (_speakerService.CreateSpeaker(model))
                     return RedirectToAction("List");
             }
             return View();
@@ -66,7 +66,7 @@ namespace SpeakerNet.Controllers
         [AdminOnly]
         public ActionResult List()
         {
-            return View(speakerService.GetSpeakerList());
+            return View(_speakerService.GetSpeakerList());
         }
     }
 }

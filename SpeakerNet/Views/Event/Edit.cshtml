@@ -1,19 +1,15 @@
 ﻿@model SpeakerNet.ViewModels.EditEventModel
-
 @{
     ViewBag.Title = @T("Navigation_Events");
 }
-
 <h2>@Model.Name</h2>
-
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
     <fieldset>
         <legend>Fields</legend>
-
         @Html.HiddenFor(model => model.Id)
-
         <div class="editor-label">
             @Html.LabelFor(model => model.Name)
         </div>
@@ -21,13 +17,13 @@
             @Html.EditorFor(model => model.Name)
             @Html.ValidationMessageFor(model => model.Name)
         </div>
-
         <p>
             <input type="submit" value="@T("Save")" />
         </p>
     </fieldset>
 }
-
 @section navigation {
-    <li>@Html.ActionLink("Veranstaltungsliste", "Index")</li>
+    <ul class="menu">
+        <li>@Html.ActionLink("Veranstaltungsliste", "Index")</li>
+    </ul>
 }
