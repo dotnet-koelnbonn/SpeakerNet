@@ -1,0 +1,15 @@
+﻿@model PictureUploadUploadModel
+@{
+    ViewBag.Title = "Upload";
+}
+
+<h2>Sprecherbild hochladen</h2>
+
+<h3>Für @Model.SpeakerName</h3>
+@using (Html.BeginForm("Upload","PictureUpload",new { Model.SpeakerId}, FormMethod.Post,new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="Picture" />
+    <input type="submit" value="Hochladen" />
+}
+
+

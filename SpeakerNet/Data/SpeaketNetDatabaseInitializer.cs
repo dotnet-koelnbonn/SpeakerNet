@@ -1,9 +1,10 @@
 using System;
+using System.Data.Entity.Database;
 using SpeakerNet.Models;
 
 namespace SpeakerNet.Data
 {
-    public class SpeaketNetDatabaseInitializer : CreateDatabaseIfNotExistsWithoutModelCheck<SpeakerNetDbContext>
+    public class SpeaketNetDatabaseInitializer : DropCreateDatabaseIfModelChanges<SpeakerNetDbContext>
     {
         protected override void Seed(SpeakerNetDbContext context)
         {

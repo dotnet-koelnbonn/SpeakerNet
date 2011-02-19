@@ -1,29 +1,35 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 namespace SpeakerNet.Data
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        private readonly IDatabaseContext dbContext;
+        private readonly IDatabaseContext _dbContext;
 
         public Repository(IDatabaseContext dbContext)
         {
-            this.dbContext = dbContext;
+            _dbContext = dbContext;
         }
 
         public IQueryable<T> Entities
         {
-            get { return dbContext.DbContext.Set<T>(); }
+            get { return _dbContext.DbContext.Set<T>(); }
         }
 
         public void Add(T entity)
         {
-            dbContext.DbContext.Set<T>().Add(entity);
+            _dbContext.DbContext.Set<T>().Add(entity);
+        }
+
+        public void Remove(T entity)
+        {
+            _dbContext.DbContext.Set<T>().Remove(entity);
         }
 
         public void SaveChanges()
         {
-            dbContext.DbContext.SaveChanges();
+            _dbContext.DbContext.SaveChanges();
         }
     }
 }

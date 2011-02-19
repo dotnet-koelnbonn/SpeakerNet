@@ -66,14 +66,16 @@
     <Reference Include="Microsoft.Practices.ServiceLocation">
       <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
-    <Reference Include="StructureMap">
-      <HintPath>..\packages\structuremap.2.6.1.0\lib\StructureMap.dll</HintPath>
+    <Reference Include="StructureMap, Version=2.6.2.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\structuremap.2.6.2\lib\StructureMap.dll</HintPath>
     </Reference>
     <Reference Include="StructureMapAdapter">
       <HintPath>..\packages\CommonServiceLocator.StructureMapAdapter.1.1\lib\StructureMapAdapter.dll</HintPath>
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -96,13 +98,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\EventController.cs" />
+    <Compile Include="Controllers\PictureUpload.cs" />
     <Compile Include="Controllers\SpeakerController.cs" />
     <Compile Include="Controllers\SpeakerNetController.cs" />
+    <Compile Include="Controllers\SpeakerPictureController.cs" />
     <Compile Include="Controllers\SpeakerSessionController.cs" />
     <Compile Include="Data\CreateDatabaseIfNotExistsWithoutModelCheck.cs" />
     <Compile Include="Data\EntityFrameworkDatabaseContext.cs" />
     <Compile Include="Data\IDatabaseContext.cs" />
-    <Compile Include="Data\IRepository%27.cs" />
+    <Compile Include="Data\IRepository.cs" />
     <Compile Include="Data\Repository.cs" />
     <Compile Include="Data\SpeaketNetDatabaseInitializer.cs" />
     <Compile Include="Attributes\LabelAttribute.cs" />
@@ -143,9 +147,14 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Services\Cropping.cs" />
     <Compile Include="Services\EventService.cs" />
     <Compile Include="Services\IEventService.cs" />
+    <Compile Include="Services\IPictureUploadService.cs" />
+    <Compile Include="Services\ISpeakerPictureService.cs" />
     <Compile Include="Services\ISpeakerSessionService.cs" />
+    <Compile Include="Services\PictureUploadService.cs" />
+    <Compile Include="Services\SpeakerPictureService.cs" />
     <Compile Include="Services\SpeakerSessionService.cs" />
     <Compile Include="Settings\AppSettings.cs" />
     <Compile Include="Settings\AuthenticationSettings.cs" />
@@ -153,6 +162,8 @@
     <Compile Include="Settings\IAuthenticationSettings.cs" />
     <Compile Include="Settings\ISiteSettings.cs" />
     <Compile Include="Settings\SiteSettings.cs" />
+    <Compile Include="ViewModels\PictureUploadShowModel.cs" />
+    <Compile Include="ViewModels\PictureUploadUploadModel.cs" />
     <Compile Include="ViewModels\Speaker\SpeakerHelpModel.cs" />
     <Compile Include="ViewModels\SpeakerSession\CreateSessionModel.cs" />
     <Compile Include="ViewModels\SpeakerSession\DisplaySessionModel.cs" />
@@ -202,9 +213,8 @@
     <Content Include="Scripts\head.js" />
     <Content Include="Scripts\head.load.min.js" />
     <Content Include="Scripts\head.min.js" />
-    <Content Include="Scripts\jquery-1.4.4-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.4.4.js" />
-    <Content Include="Scripts\jquery-1.4.4.min.js" />
+    <Content Include="Scripts\jquery-1.5.js" />
+    <Content Include="Scripts\jquery-1.5.min.js" />
     <Content Include="Scripts\jQuery.DataLink.js" />
     <Content Include="Scripts\jQuery.tmpl.js" />
     <Content Include="Scripts\jQuery.tmpl.min.js" />
@@ -212,6 +222,7 @@
     <Content Include="Scripts\jquery.tmplPlus.min.js" />
     <Content Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -250,6 +261,8 @@
     <None Include="CodeTemplates\AddView\CSHTML\Empty.tt" />
     <None Include="CodeTemplates\AddView\CSHTML\List.tt" />
     <Content Include="Views\Speaker\Help.cshtml" />
+    <Content Include="Views\PictureUpload\Show.cshtml" />
+    <Content Include="Views\PictureUpload\Upload.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">

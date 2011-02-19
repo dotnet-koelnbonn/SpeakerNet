@@ -10,6 +10,10 @@
         <div class="display-field">@Model.Salutation @Model.FirstName @Model.LastName</div>
         <div class="display-label">@Model.GetDisplayName("CompanyName")</div>
         <div class="display-field">@Html.DisplayFor(e => e.CompanyName)</div>
+        <div>
+        <img src="@Url.SpeakerPictureCropUrl(Model.Id, 140, 185)" />
+        </div>
+        @Html.ActionLink("Bild ändern", "Show", "PictureUpload", new { speakerId = Model.Id }, null)
     </div>
     <div class="col-middle">
         @Html.DisplayFor(e => e.Address)

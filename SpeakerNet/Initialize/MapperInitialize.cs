@@ -17,6 +17,7 @@ namespace SpeakerNet.Initialize
             Map<Event, DetailsEventModel>();
             Map<Event, EditEventModel>();
             Map<EditEventModel, Event>();
+            Map<SpeakerPicture, PictureUploadShowModel>();
 
             Map<Session, SessionListModel>();
             Map<Speaker, SpeakerSessionListModel>();
