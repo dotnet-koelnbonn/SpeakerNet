@@ -24,6 +24,9 @@
                 <th>
                     Sprecher
                 </th>
+                <th>
+                    Ausgewählt
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -37,6 +40,8 @@
                     <td>@item.Duration
                     </td>
                     <td>@Html.ActionLink(item.SpeakerFullName, "Details", "Speaker", new { id = item.SpeakerId }, null)
+                    </td>
+                    <td>@item.Selected
                     </td>
                 </tr>
             }

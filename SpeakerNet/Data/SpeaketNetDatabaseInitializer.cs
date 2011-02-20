@@ -4,7 +4,7 @@ using SpeakerNet.Models;
 
 namespace SpeakerNet.Data
 {
-    public class SpeaketNetDatabaseInitializer : DropCreateDatabaseIfModelChanges<SpeakerNetDbContext>
+    public class SpeaketNetDatabaseInitializer : CreateDatabaseIfNotExistsWithoutModelCheck<SpeakerNetDbContext>
     {
         protected override void Seed(SpeakerNetDbContext context)
         {

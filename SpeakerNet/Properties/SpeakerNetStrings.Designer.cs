@@ -340,6 +340,15 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Selected.
+        /// </summary>
+        public static string Session_Selected {
+            get {
+                return ResourceManager.GetString("Session_Selected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Speaker.
         /// </summary>
         public static string Session_Speaker {

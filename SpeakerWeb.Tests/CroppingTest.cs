@@ -65,7 +65,5 @@ namespace SpeakerWeb.Tests
             var multi = new Cropping().GetMultiplicator(sourceSize, destSize);
             Assert.Equal(0.39, multi, 2);
         }
-
-
     }
 }

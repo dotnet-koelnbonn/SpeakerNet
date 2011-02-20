@@ -32,5 +32,11 @@ namespace SpeakerNet.ViewModels
 
         [ScaffoldColumn(false)]
         public Guid SpeakerId { get; set; }
+
+        [Label("Session_Selected")]
+        public bool Selected { get; set; }
+
+        [ScaffoldColumn(false)]
+        public bool ShowSessionSelection { get; set; }
     }
 }

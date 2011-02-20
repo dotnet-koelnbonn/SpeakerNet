@@ -8,16 +8,16 @@ namespace SpeakerNet.Controllers
     [AdminOnly]
     public class EventController : SpeakerNetController
     {
-        private readonly IEventService service;
+        private readonly IEventService _service;
 
         public EventController(IEventService service)
         {
-            this.service = service;
+            this._service = service;
         }
 
         public ActionResult Index()
         {
-            return View(service.GetEventList());
+            return View(_service.GetEventList());
         }
 
         public ActionResult Create()
@@ -27,7 +27,7 @@ namespace SpeakerNet.Controllers
 
         public ActionResult Details(int id)
         {
-            return View(service.GetDetailsEventModel(id));
+            return View(_service.GetDetailsEventModel(id));
         }
 
         [HttpPost]
@@ -35,7 +35,7 @@ namespace SpeakerNet.Controllers
         public ActionResult Create(CreateEventModel model)
         {
             if (ModelState.IsValid){
-                service.CreateEvent(model);
+                _service.CreateEvent(model);
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -43,7 +43,7 @@ namespace SpeakerNet.Controllers
 
         public ActionResult Edit(int id)
         {
-            return View(service.GetEditEventModel(id));
+            return View(_service.GetEditEventModel(id));
         }
 
         [HttpPost]
@@ -51,10 +51,10 @@ namespace SpeakerNet.Controllers
         public ActionResult Edit(int id, EditEventModel model)
         {
             if (ModelState.IsValid){
-                service.UpdateEvent(id, model);
+                _service.UpdateEvent(id, model);
                 return RedirectToAction("Index");
             }
-            return View(service.GetEditEventModel(id));
+            return View(_service.GetEditEventModel(id));
         }
     }
 }
