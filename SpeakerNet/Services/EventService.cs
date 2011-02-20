@@ -61,14 +61,15 @@ namespace SpeakerNet.Services
             var model= GetEvent(eventId).MapFrom<Event, DetailsEventModel>();
             var sessions = from s in _sessionRepository.Entities
                            where s.Event.Id == eventId
-                           orderby s.Name
+                           orderby s.Selected descending, s.Duration, s.Speaker.LastName, s.Speaker.FirstName
                            select new SessionListModel {
                                Id = s.Id,
                                SpeakerId = s.Speaker.Id,
                                Name = s.Name,
                                Level = s.Level,
                                Duration = s.Duration,
-                               SpeakerFullName = s.Speaker.FirstName + " " + s.Speaker.LastName
+                               SpeakerFullName = s.Speaker.FirstName + " " + s.Speaker.LastName,
+                               Selected = s.Selected
                            };
             model.Session = sessions.ToList();
             return model;

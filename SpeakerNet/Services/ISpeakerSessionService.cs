@@ -13,5 +13,6 @@ namespace SpeakerNet.Services
         EditSessionModel GetEditSessionModel(Guid speakerId, int sessionId);
         void UpdateSession(Guid speakerId, int sessionId, EditSessionModel model);
         DisplaySessionModel GetDisplaySessionModel(Guid speakerId, int sessionId);
+        void ToogleSelected(Guid speakerId, int sessionId);
     }
 }

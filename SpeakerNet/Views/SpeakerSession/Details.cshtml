@@ -6,6 +6,15 @@
 <fieldset>
     @Html.DisplayForModel()
 </fieldset>
+@if (Model.ShowSessionSelection)
+{
+    using (Html.BeginForm("ToogleSelected", "SpeakerSession", new { speakerId = Model.SpeakerId, id = Model.Id }))
+    {
+         @Html.AntiForgeryToken()
+    var text = "Session " + (Model.Selected ? "abwählen" : "wählen");
+         <button type="submit">@text</button>
+    }
+}
 @section navigation {
     <ul class="menu">
         <li>@Html.ActionLink(T("Edit"), "EditSession", new { Model.SpeakerId, Model.Id })</li>

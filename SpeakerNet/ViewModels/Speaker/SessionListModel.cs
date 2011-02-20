@@ -19,5 +19,8 @@ namespace SpeakerNet.ViewModels
 
         [Label("Session_Speaker")]
         public string SpeakerFullName { get; set; }
+
+        [Label("Session_Selected")]
+        public bool Selected { get; set; }
     }
 }

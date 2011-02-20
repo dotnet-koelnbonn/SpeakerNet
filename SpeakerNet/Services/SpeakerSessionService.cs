@@ -81,6 +81,13 @@ namespace SpeakerNet.Services
             return GetSession(speakerId, sessionId).MapFrom<Session, DisplaySessionModel>();
         }
 
+        public void ToogleSelected(Guid speakerId, int sessionId)
+        {
+            var session = GetSession(speakerId, sessionId);
+            session.Selected = !session.Selected;
+            _repository.SaveChanges();
+        }
+
         private Session GetSession(Guid speakerId, int sessionId)
         {
             var query = from ss in _repository.Entities

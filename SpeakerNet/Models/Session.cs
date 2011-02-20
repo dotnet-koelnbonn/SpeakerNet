@@ -33,5 +33,7 @@ namespace SpeakerNet.Models
         {
             return new Session {Name = name, Abstract = @abstract, Level = level, Duration = duration};
         }
+
+        public bool Selected { get; set; }
     }
 }

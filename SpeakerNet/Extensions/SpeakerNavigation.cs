@@ -1,6 +1,8 @@
+using System;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
+using SpeakerNet.Models;
 using SpeakerNet.ViewModels;
 
 namespace SpeakerNet.Extensions
@@ -44,6 +46,28 @@ namespace SpeakerNet.Extensions
         public static IHtmlString SpeakerList(this HtmlHelper htmlHelper, string caption)
         {
             return htmlHelper.ActionLink(caption, "List", "Speaker");
+        }
+
+        public static string SpeakerPictureCropUrl(this UrlHelper urlHelper, Guid speakerId ,int width, int height)
+        {
+            return urlHelper.Action("Show", "SpeakerPicture",
+                                    new {
+                                        speakerId = speakerId,
+                                        width = width,
+                                        height = height,
+                                        mode = "crop"
+                                    });
+        }
+        public static string SpeakerPictureResizeUrl(this UrlHelper urlHelper, Guid speakerId, int width, int height)
+        {
+            return urlHelper.Action("Show", "SpeakerPicture",
+                                    new
+                                    {
+                                        speakerId = speakerId,
+                                        width = width,
+                                        height = height,
+                                        mode = "resize"
+                                    });
         }
     }
 }
