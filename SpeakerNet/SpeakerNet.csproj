@@ -70,9 +70,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\structuremap.2.6.2\lib\StructureMap.dll</HintPath>
     </Reference>
-    <Reference Include="StructureMapAdapter">
-      <HintPath>..\packages\CommonServiceLocator.StructureMapAdapter.1.1\lib\StructureMapAdapter.dll</HintPath>
-    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
@@ -119,6 +116,7 @@
     <Compile Include="Infrastructure\Mvc\DatabaseContextActionInvoker.cs" />
     <Compile Include="Infrastructure\Mvc\StructureMapControllerActionInvoker.cs" />
     <Compile Include="Infrastructure\Mvc\StructureMapDependencyResolver.cs" />
+    <Compile Include="Infrastructure\Registration\StructureMapServiceLocator.cs" />
     <Compile Include="Initialize\ContainerRegistry.cs" />
     <Compile Include="Initialize\DatabaseInitialize.cs" />
     <Compile Include="Initialize\MapperInitialize.cs" />

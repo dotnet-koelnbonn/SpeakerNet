@@ -6,7 +6,6 @@ using System.Web.Mvc;
 using Microsoft.Practices.ServiceLocation;
 using SpeakerNet.Infrastructure.Mvc;
 using StructureMap;
-using StructureMap.ServiceLocatorAdapter;
 
 namespace SpeakerNet.Infrastructure.Registration
 {
@@ -61,7 +60,7 @@ namespace SpeakerNet.Infrastructure.Registration
 
         private static void SetServiceLocator(IContainer container)
         {
-            var serviceLocator = new StructureMapServiceLocator(container);
+            IServiceLocator serviceLocator = new StructureMapServiceLocator(container);
             ServiceLocator.SetLocatorProvider(() => serviceLocator);
             container.Configure(x => x.For<IServiceLocator>().Singleton().Use(serviceLocator));
         }
