@@ -8,21 +8,21 @@ namespace SpeakerNet.Controllers
 {
     public class SpeakerSessionController : SpeakerNetController
     {
-        private readonly ISpeakerSessionService _service;
+        private readonly ISpeakerSessionService service;
 
         public SpeakerSessionController(ISpeakerSessionService service)
         {
-            _service = service;
+            this.service = service;
         }
 
         public ActionResult List(Guid speakerId)
         {
-            return View(_service.GetSpeakerSessionList(speakerId));
+            return View(service.GetSpeakerSessionList(speakerId));
         }
 
         public ActionResult Details(Guid speakerId, int id)
         {
-            var displaySessionModel = _service.GetDisplaySessionModel(speakerId, id);
+            var displaySessionModel = service.GetDisplaySessionModel(speakerId, id);
             if (User.Identity.IsAuthenticated) {
                 displaySessionModel.ShowSessionSelection = true;
             }
@@ -41,7 +41,7 @@ namespace SpeakerNet.Controllers
         public ActionResult CreateSession(Guid speakerId, CreateSessionModel model)
         {
             if (ModelState.IsValid) {
-                _service.CreateSession(speakerId, model);
+                service.CreateSession(speakerId, model);
                 return RedirectToAction("List", new {speakerId});
             }
             SetSelectLists(model);
@@ -50,7 +50,7 @@ namespace SpeakerNet.Controllers
 
         public ActionResult EditSession(Guid speakerId, int id)
         {
-            var model = _service.GetEditSessionModel(speakerId, id);
+            var model = service.GetEditSessionModel(speakerId, id);
             SetSelectLists(model);
             return View(model);
         }
@@ -60,7 +60,7 @@ namespace SpeakerNet.Controllers
         public ActionResult EditSession(Guid speakerId, int id, EditSessionModel model)
         {
             if (ModelState.IsValid) {
-                _service.UpdateSession(speakerId, id, model);
+                service.UpdateSession(speakerId, id, model);
                 return RedirectToAction("Details", new {speakerId, id});
             }
             SetSelectLists(model);
@@ -74,7 +74,7 @@ namespace SpeakerNet.Controllers
         {
             if (ModelState.IsValid)
             {
-                _service.ToogleSelected(speakerId, id);
+                service.ToogleSelected(speakerId, id);
             }
             return RedirectToAction("Details", new { speakerId, id });
         }
@@ -93,7 +93,7 @@ namespace SpeakerNet.Controllers
                 new SelectListItem {Value = "45", Text = T("Session_1_Minutes", 45)},
                 new SelectListItem {Value = "60", Text = T("Session_1_Minutes", 60)}
             }, "Value", "Text");
-            model.EventSelectList = new SelectList(_service.GetEventList(), "Id", "Name");
+            model.EventSelectList = new SelectList(service.GetEventList(), "Id", "Name");
         }
     }
 }

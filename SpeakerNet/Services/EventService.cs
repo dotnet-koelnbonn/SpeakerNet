@@ -10,19 +10,19 @@ namespace SpeakerNet.Services
 {
     public class EventService : IEventService
     {
-        private readonly IRepository<Event> _repository;
-        private readonly IRepository<Session> _sessionRepository;
+        private readonly IRepository<Event> repository;
+        private readonly IRepository<Session> sessionRepository;
 
         public EventService(IRepository<Event> repository, IRepository<Session> sessionRepository)
         {
-            _repository = repository;
-            _sessionRepository = sessionRepository;
+            this.repository = repository;
+            this.sessionRepository = sessionRepository;
         }
 
         public IEnumerable<EventListModel> GetEventList()
         {
-            var query = from evt in _repository.Entities
-                               join session in _sessionRepository.Entities on evt.Id equals session.Event.Id into sessions
+            var query = from evt in repository.Entities
+                               join session in sessionRepository.Entities on evt.Id equals session.Event.Id into sessions
                         orderby evt.Name
                         select new EventListModel {
                             Id=evt.Id,
@@ -35,8 +35,8 @@ namespace SpeakerNet.Services
         public void CreateEvent(CreateEventModel model)
         {
             var newEvent = Event.Create(model.Name);
-            _repository.Add(newEvent);
-            _repository.SaveChanges();
+            repository.Add(newEvent);
+            repository.SaveChanges();
         }
 
         public EditEventModel GetEditEventModel(int eventId)
@@ -46,20 +46,20 @@ namespace SpeakerNet.Services
 
         private Event GetEvent(int eventId)
         {
-            return _repository.Entities.Single(e => e.Id == eventId);
+            return repository.Entities.Single(e => e.Id == eventId);
         }
 
         public void UpdateEvent(int eventId, EditEventModel model)
         {
             var evt = GetEvent(eventId);
             model.MapTo(evt);
-            _repository.SaveChanges();
+            repository.SaveChanges();
         }
 
         public DetailsEventModel GetDetailsEventModel(int eventId)
         {
             var model= GetEvent(eventId).MapFrom<Event, DetailsEventModel>();
-            var sessions = from s in _sessionRepository.Entities
+            var sessions = from s in sessionRepository.Entities
                            where s.Event.Id == eventId
                            orderby s.Selected descending, s.Duration, s.Speaker.LastName, s.Speaker.FirstName
                            select new SessionListModel {

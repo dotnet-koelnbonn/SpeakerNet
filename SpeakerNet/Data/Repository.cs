@@ -3,33 +3,34 @@ using System.Linq;
 
 namespace SpeakerNet.Data
 {
-    public class Repository<T> : IRepository<T> where T : class
+    public class Repository<T> : IRepository<T>
+        where T : class
     {
-        private readonly IDatabaseContext _dbContext;
+        private readonly IDatabaseContext context;
 
-        public Repository(IDatabaseContext dbContext)
+        public Repository(IDatabaseContext context)
         {
-            _dbContext = dbContext;
+            this.context = context;
         }
 
         public IQueryable<T> Entities
         {
-            get { return _dbContext.DbContext.Set<T>(); }
+            get { return context.DbContext.Set<T>(); }
         }
 
         public void Add(T entity)
         {
-            _dbContext.DbContext.Set<T>().Add(entity);
+            context.DbContext.Set<T>().Add(entity);
         }
 
         public void Remove(T entity)
         {
-            _dbContext.DbContext.Set<T>().Remove(entity);
+            context.DbContext.Set<T>().Remove(entity);
         }
 
         public void SaveChanges()
         {
-            _dbContext.DbContext.SaveChanges();
+            context.DbContext.SaveChanges();
         }
     }
 }

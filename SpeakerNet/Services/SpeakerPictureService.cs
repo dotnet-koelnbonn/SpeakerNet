@@ -7,16 +7,16 @@ namespace SpeakerNet.Services
 {
     public class SpeakerPictureService : ISpeakerPictureService
     {
-        private readonly IRepository<SpeakerPicture> _repository;
+        private readonly IRepository<SpeakerPicture> repository;
 
         public SpeakerPictureService(IRepository<SpeakerPicture> repository)
         {
-            _repository = repository;
+            this.repository = repository;
         }
 
         public SpeakerPicture TryGetPicture(Guid speakerId)
         {
-            return _repository.Entities.FirstOrDefault(sp => sp.Speaker.Id == speakerId && sp.CurrentPicture==true);
+            return repository.Entities.FirstOrDefault(sp => sp.Speaker.Id == speakerId && sp.CurrentPicture==true);
         }
     }
 }

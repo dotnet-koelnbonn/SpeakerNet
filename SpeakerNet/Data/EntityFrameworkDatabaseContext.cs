@@ -17,7 +17,6 @@ namespace SpeakerNet.Data
             }
         }
 
-
         public void Dispose()
         {
             if (dbContext!=null){

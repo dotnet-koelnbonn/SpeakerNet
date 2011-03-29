@@ -15,14 +15,14 @@ namespace SpeakerNet.Infrastructure.Registration
             this.container = container;
         }
 
-        protected override object DoGetInstance(Type serviceType, string key)
-        {
-            return container.GetInstance(serviceType, key);
-        }
-
         protected override IEnumerable<object> DoGetAllInstances(Type serviceType)
         {
             return container.GetAllInstances(serviceType).Cast<object>();
+        }
+
+        protected override object DoGetInstance(Type serviceType, string key)
+        {
+            return container.GetInstance(serviceType, key);
         }
     }
 }

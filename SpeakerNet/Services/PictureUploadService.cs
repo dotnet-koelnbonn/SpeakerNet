@@ -9,18 +9,18 @@ namespace SpeakerNet.Services
 {
     public class PictureUploadService : IPictureUploadService
     {
-        private readonly IRepository<SpeakerPicture> _repository;
-        private readonly IRepository<Speaker> _speakerRepository;
+        private readonly IRepository<SpeakerPicture> repository;
+        private readonly IRepository<Speaker> speakerRepository;
 
         public PictureUploadService(IRepository<SpeakerPicture> repository, IRepository<Speaker> speakerRepository)
         {
-            _repository = repository;
-            _speakerRepository = speakerRepository;
+            this.repository = repository;
+            this.speakerRepository = speakerRepository;
         }
 
         public PictureUploadShowModel TryGetShowModel(Guid speakerId)
         {
-            var query = from s in _repository.Entities
+            var query = from s in repository.Entities
                         where s.Speaker.Id == speakerId && s.CurrentPicture
                         select new PictureUploadShowModel {
                             Id = s.Id,
@@ -32,7 +32,7 @@ namespace SpeakerNet.Services
 
         public PictureUploadUploadModel GetUploadModel(Guid speakerId)
         {
-            var query = from s in _speakerRepository.Entities
+            var query = from s in speakerRepository.Entities
                         where s.Id == speakerId
                         select new PictureUploadUploadModel {
                             SpeakerId = s.Id,
@@ -43,16 +43,16 @@ namespace SpeakerNet.Services
 
         public bool SavePicture(Guid speakerId, HttpPostedFileBase picture)
         {
-            var speaker = _speakerRepository.Entities.Single(s => s.Id == speakerId);
+            var speaker = speakerRepository.Entities.Single(s => s.Id == speakerId);
             ClearCurrentPicturesFromSpeaker(speaker);
             AddPictureToRepository(speaker, picture);
-            _repository.SaveChanges();
+            repository.SaveChanges();
             return true;
         }
 
         private void AddPictureToRepository(Speaker speaker, HttpPostedFileBase picture)
         {
-            _repository.Add(new SpeakerPicture {
+            repository.Add(new SpeakerPicture {
                 CurrentPicture = true,
                 Speaker = speaker,
                 Picture = ReadBytes(picture),
@@ -71,7 +71,7 @@ namespace SpeakerNet.Services
 
         private void ClearCurrentPicturesFromSpeaker(Speaker speaker)
         {
-            var query = _repository.Entities.Where(sp => sp.Speaker.Id == speaker.Id);
+            var query = repository.Entities.Where(sp => sp.Speaker.Id == speaker.Id);
             foreach (var speakerPicture in query) {
                 speakerPicture.CurrentPicture = false;
             }

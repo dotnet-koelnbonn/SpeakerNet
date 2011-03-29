@@ -22,9 +22,9 @@ namespace SpeakerNet.Models
                 Id = Guid.NewGuid(),
                 Salutation = salutation,
                 FirstName = firstname,
-                LastName = lastname
+                LastName = lastname,
+                Contact = {EMail = email}
             };
-            speaker.Contact.EMail = email;
             return speaker;
         }
 
