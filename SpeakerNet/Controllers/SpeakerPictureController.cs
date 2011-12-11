@@ -9,16 +9,16 @@ namespace SpeakerNet.Controllers
 {
     public class SpeakerPictureController : SpeakerNetController
     {
-        private readonly ISpeakerPictureService _service;
+        private readonly ISpeakerPictureService service;
 
         public SpeakerPictureController(ISpeakerPictureService service)
         {
-            _service = service;
+            this.service = service;
         }
 
         public ActionResult Show(Guid speakerId, int width, int height, string mode = "")
         {
-            SpeakerPicture speakerPicture = _service.TryGetPicture(speakerId);
+            SpeakerPicture speakerPicture = service.TryGetPicture(speakerId);
             if (speakerPicture == null)
                 return new HttpNotFoundResult();
 

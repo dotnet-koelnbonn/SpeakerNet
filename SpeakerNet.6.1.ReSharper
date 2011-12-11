@@ -1,12 +1,10 @@
 <Configuration>
   <CodeStyleSettings>
-    <ExternalPath IsNull="False">
-    </ExternalPath>
+    <ExternalPath IsNull="False" />
     <Sharing>SOLUTION</Sharing>
     <CSharp>
       <FormatSettings>
         <ALIGN_MULTILINE_ARRAY_AND_OBJECT_INITIALIZER>False</ALIGN_MULTILINE_ARRAY_AND_OBJECT_INITIALIZER>
-        <FORCE_IFELSE_BRACES_STYLE>ALWAYS_ADD</FORCE_IFELSE_BRACES_STYLE>
         <INDENT_EMBRACED_INITIALIZER_BLOCK>False</INDENT_EMBRACED_INITIALIZER_BLOCK>
         <INITIALIZER_BRACES>END_OF_LINE</INITIALIZER_BRACES>
         <MODIFIERS_ORDER IsNull="False">
@@ -58,6 +56,16 @@
         <PredefinedRule Inspect="True" Prefix="" Suffix="" Style="AaBb" ElementKind="Other" />
       </Naming2>
     </CSharp>
+    <JavaScript>
+      <FormatSettings />
+      <Naming2>
+        <UserRule Name="JS_LOCAL_VARIABLE" Inspect="True" Prefix="" Suffix="" Style="aaBb" />
+        <UserRule Name="JS_LOCAL_FUNCTION" Inspect="True" Prefix="" Suffix="" Style="aaBb" />
+        <UserRule Name="JS_PARAMETER" Inspect="True" Prefix="" Suffix="" Style="aaBb" />
+        <UserRule Name="JS_LABEL" Inspect="True" Prefix="" Suffix="" Style="aaBb" />
+        <UserRule Name="JS_PROPERTY" Inspect="True" Prefix="" Suffix="" Style="AaBb" />
+      </Naming2>
+    </JavaScript>
     <VB>
       <FormatSettings />
       <ImportsSettings />
@@ -74,6 +82,9 @@
         <UserRule Name="ASP_HTML_CONTROL" Inspect="True" Prefix="" Suffix="" Style="AaBb" />
       </Naming2>
     </Web>
+    <XML>
+      <FormatSettings />
+    </XML>
     <Xaml>
       <Naming2>
         <UserRule Name="XAML_FIELD" Inspect="True" Prefix="_" Suffix="" Style="aaBb" />
@@ -81,9 +92,6 @@
         <UserRule Name="XAML_RESOURCE" Inspect="True" Prefix="" Suffix="" Style="AaBb" />
       </Naming2>
     </Xaml>
-    <XML>
-      <FormatSettings />
-    </XML>
     <GenerateMemberBody />
     <Naming2>
       <EventHandlerPatternLong>$object$_On$event$</EventHandlerPatternLong>
@@ -105,18 +113,7 @@
       <PredefinedRule Inspect="True" Prefix="" Suffix="" Style="AaBb" ElementKind="EnumMember" />
       <PredefinedRule Inspect="True" Prefix="" Suffix="" Style="AaBb" ElementKind="Other" />
       <UserRule Inspect="True" Prefix="" Suffix="" Style="Aa_bb" StaticnessKind="Static, Instance" AccessRight="Public" Description="BDD Style">
-        <ElementKinds>
-          <Kind Name="Machine.Specifications_Behavior" />
-          <Kind Name="Machine.Specifications_Context" />
-          <Kind Name="Machine.Specifications_ContextBase" />
-          <Kind Name="Machine.Specifications_Specification" />
-          <Kind Name="Machine.Specifications_SupportingField" />
-          <Kind Name="Machine.Specifications_Field" />
-          <Kind Name="Machine.Specifications_Constant" />
-          <Kind Name="Machine.Specifications_Local" />
-          <Kind Name="xunit.bddextension.observation" />
-          <Kind Name="xunit.bddextension.concern" />
-        </ElementKinds>
+        <ElementKinds />
       </UserRule>
     </Naming2>
   </CodeStyleSettings>

@@ -1,5 +1,4 @@
 using System.Data.Entity;
-using System.Data.Entity.Database;
 using System.Transactions;
 
 namespace SpeakerNet.Data

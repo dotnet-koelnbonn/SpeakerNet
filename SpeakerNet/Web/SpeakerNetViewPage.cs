@@ -5,6 +5,14 @@ using SpeakerNet.Settings;
 
 namespace SpeakerNet.Web
 {
+    public sealed class SpeakerNetViewPage : WebViewPage
+    {
+        public override void Execute()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
     public abstract class SpeakerNetViewPage<TModel> : WebViewPage<TModel>
     {
         private ISiteSettings siteSettings;

@@ -22,6 +22,9 @@ namespace SpeakerNet.Infrastructure.Registration
 
         protected override object DoGetInstance(Type serviceType, string key)
         {
+            if (string.IsNullOrWhiteSpace(key)) {
+                return container.GetInstance(serviceType);
+            }
             return container.GetInstance(serviceType, key);
         }
     }

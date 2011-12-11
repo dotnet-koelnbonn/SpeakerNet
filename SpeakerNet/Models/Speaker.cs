@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
-using System.Data.Metadata.Edm;
-using System.Data.Entity.Database;
 
 namespace SpeakerNet.Models
 {

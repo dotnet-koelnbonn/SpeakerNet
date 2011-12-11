@@ -1,5 +1,6 @@
 using System;
-using System.Data.Entity.Database;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using SpeakerNet.Data;
 using SpeakerNet.Infrastructure.Bootstrap;
 
@@ -9,8 +10,8 @@ namespace SpeakerNet.Initialize
     {
         public void Execute()
         {
-            DbDatabase.DefaultConnectionFactory = new SqlCeConnectionFactory("System.Data.SqlServerCe.4.0");
-            DbDatabase.SetInitializer(new SpeaketNetDatabaseInitializer());
+            Database.DefaultConnectionFactory = new SqlCeConnectionFactory("System.Data.SqlServerCe.4.0");
+            Database.SetInitializer(new SpeaketNetDatabaseInitializer());
         }
     }
 }

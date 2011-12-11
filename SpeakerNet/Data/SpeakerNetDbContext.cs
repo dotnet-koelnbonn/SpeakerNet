@@ -18,7 +18,7 @@ namespace SpeakerNet.Data
             return string.Format("Data Source={0}", filename);
         }
 
-        protected override void OnModelCreating(System.Data.Entity.ModelConfiguration.ModelBuilder modelBuilder)
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.ComplexType<Address>();
             modelBuilder.ComplexType<Contact>();
