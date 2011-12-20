@@ -7,12 +7,13 @@ namespace SpeakerNet.Data
 {
     public class SpeakerNetDbContext : DbContext
     {
-        public SpeakerNetDbContext() : base(CreateConnectionString())
+        public SpeakerNetDbContext()
+            : base(CreateConnectionString())
         {
             Configuration.LazyLoadingEnabled = true;
         }
 
-        private static string CreateConnectionString()
+        static string CreateConnectionString()
         {
             var filename = HttpContext.Current.Server.MapPath("~/App_Data/SpeakerNet.sdf");
             return string.Format("Data Source={0}", filename);
@@ -22,6 +23,21 @@ namespace SpeakerNet.Data
         {
             modelBuilder.ComplexType<Address>();
             modelBuilder.ComplexType<Contact>();
+            modelBuilder.Entity<Session>().HasRequired(e => e.Speaker).WithMany().Map(e => e.MapKey("SpeakerId"));
+            modelBuilder.Entity<Session>().HasRequired(e => e.Event).WithMany().Map(e => e.MapKey("EventId"));
+            modelBuilder.Entity<SpeakerPicture>().HasRequired(e => e.Speaker).WithMany().Map(e => e.MapKey("SpeakerId"));
+
+
+            modelBuilder.Entity<Speaker>().Property(e => e.Address.Street).HasColumnName("Street");
+            modelBuilder.Entity<Speaker>().Property(e => e.Address.ZipCode).HasColumnName("ZipCode");
+            modelBuilder.Entity<Speaker>().Property(e => e.Address.City).HasColumnName("City");
+            modelBuilder.Entity<Speaker>().Property(e => e.Address.Country).HasColumnName("Country");
+
+            modelBuilder.Entity<Speaker>().Property(e => e.Contact.EMail).HasColumnName("EMail");
+            modelBuilder.Entity<Speaker>().Property(e => e.Contact.Fax).HasColumnName("Fax");
+            modelBuilder.Entity<Speaker>().Property(e => e.Contact.Phone).HasColumnName("Phone");
+            modelBuilder.Entity<Speaker>().Property(e => e.Contact.Homepage).HasColumnName("Homepage");
+
             base.OnModelCreating(modelBuilder);
         }
 
