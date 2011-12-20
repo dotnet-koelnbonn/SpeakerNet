@@ -10,11 +10,13 @@ namespace SpeakerNet.Controllers
 {
     public class SpeakerController : SpeakerNetController
     {
-        private readonly ISpeakerService _speakerService;
+        readonly ISpeakerService _speakerService;
+        readonly ISendMailService mailService;
 
-        public SpeakerController(ISpeakerService speakerService)
+        public SpeakerController(ISpeakerService speakerService, ISendMailService mailService)
         {
             this._speakerService = speakerService;
+            this.mailService = mailService;
         }
 
         public ActionResult Help(Guid id)
@@ -50,6 +52,40 @@ namespace SpeakerNet.Controllers
         {
             return View(new CreateSpeakerModel());
         }
+
+        [AdminOnly]
+        public ActionResult SendMail(Guid id)
+        {
+            return View(_speakerService.GetSpeaker(id).MapFrom<Speaker, SpeakerEditModel>());
+        }
+
+        [AdminOnly]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SendMail(Guid id, string subject, string body)
+        {
+            if (string.IsNullOrWhiteSpace(subject))
+                ModelState.AddModelError("subject", "Betreff muss vorhanden sein");
+            if (string.IsNullOrWhiteSpace(body))
+                ModelState.AddModelError("body", "Text muss vorhanden sein");
+
+            var speaker = _speakerService.GetSpeaker(id);
+
+            if (string.IsNullOrWhiteSpace(speaker.Contact.EMail)) {
+                ModelState.AddModelError("", "Für den Sprecher ist keine Mail hinterlegt");
+            }
+
+            if (ModelState.IsValid) {
+                try {
+                    mailService.SendMail(speaker.Contact.EMail, subject, body);
+                    return RedirectToAction("Details", new {id});
+                } catch (Exception e) {
+                    ModelState.AddModelError("", string.Format("{0}: {1} ", e.GetType().Name, e.Message));
+                }
+            }
+            return View(_speakerService.GetSpeaker(id).MapFrom<Speaker, SpeakerEditModel>());
+        }
+
 
         [AdminOnly]
         [HttpPost]

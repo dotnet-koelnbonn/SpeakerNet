@@ -388,3 +388,12 @@ div.col-right
     float: left;
     padding: 5px;
     }    
+
+.sendmail input {
+    width: 57em;
+}
+
+.sendmail textarea {
+    width: 57em;
+    height: 22em;
+}

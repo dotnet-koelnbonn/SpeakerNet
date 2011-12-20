@@ -1,0 +1,42 @@
+﻿@model SpeakerEditModel
+
+@{
+    ViewBag.Title = T("Navigation_Speakers");
+}
+@section navigation {
+    <ul class="menu">
+        <li>@Html.ActionLink("Details", "Details", new{Model.Id})</li>
+        <li>@Html.EditSpeaker(@T("Edit"), Model)</li>
+        <li>@Html.ActionLink(T("Speaker_SessionList"), "List", "SpeakerSession", new { speakerId = Model.Id }, null)</li>
+        <li>@Html.ActionLink(T("Speaker_Help"), "Help", new { Model.Id })</li>
+    </ul>
+}
+<h2>Sprecher-EMail für @T("Speaker_Details_Title", @Model.FirstName, @Model.LastName)</h2>
+@Html.ValidationSummary()
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+
+    <div class="editor-label"><label for="Subject">Betreff</label></div>
+<div class="editor-field sendmail">    @Html.TextBox("Subject", "Deine Sprecherbewerbung für die dotnet Cologne 2012")</div>
+    <div class="editor-label"><label for="Body">Text</label></div>
+    <div class="editor-field  sendmail">
+    @Html.TextArea("Body", string.Format(@"Hallo {0},
+
+hier ist der Link auf Deine persönliche SpeakerNet-Seite:
+
+https://dotnet-cologne.de{1}
+
+Auf der SpeakerNet-Seite kannst Du Deinen/Deine Vortragsvorschlag/-vorschläge dann genauer beschreiben.
+
+Dieser Link gilt nur für Dich persönlich. Gib ihn bitte nicht an Dritte weiter. Solltest Du jemanden kennen, der als Sprecher für die dotnet Cologne interessant sein könnte, verweise ihn oder sie auf die Seite http://dotnet-cologne.de/CallForPapers.ashx
+
+Viele Grüße
+
+Melanie, Stefan, Roland, Albert
+", Model.FirstName, Url.Action("Details", "Speaker", new { Model.Id })),40,90,null)
+</div>
+
+<button type="submit">E-Mail absenden</button>                                                                                    
+}
+
+

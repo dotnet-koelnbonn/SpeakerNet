@@ -147,9 +147,11 @@
     <Compile Include="Services\EventService.cs" />
     <Compile Include="Services\IEventService.cs" />
     <Compile Include="Services\IPictureUploadService.cs" />
+    <Compile Include="Services\ISendMailService.cs" />
     <Compile Include="Services\ISpeakerPictureService.cs" />
     <Compile Include="Services\ISpeakerSessionService.cs" />
     <Compile Include="Services\PictureUploadService.cs" />
+    <Compile Include="Services\SendMailService.cs" />
     <Compile Include="Services\SpeakerPictureService.cs" />
     <Compile Include="Services\SpeakerSessionService.cs" />
     <Compile Include="Settings\AppSettings.cs" />
@@ -259,6 +261,7 @@
     <Content Include="Views\Speaker\Help.cshtml" />
     <Content Include="Views\PictureUpload\Show.cshtml" />
     <Content Include="Views\PictureUpload\Upload.cshtml" />
+    <Content Include="Views\Speaker\SendMail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">

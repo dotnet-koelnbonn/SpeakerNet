@@ -27,6 +27,7 @@ namespace SpeakerNet.Models
         public virtual Speaker Speaker { get; set; }
 
         [Required]
+       
         public virtual Event Event { get; set; }
 
         public static Session Create(string name, string @abstract, int level, int duration)

@@ -42,5 +42,9 @@
         <li>@Html.EditSpeaker(@T("Edit"), Model)</li>
         <li>@Html.ActionLink(T("Speaker_SessionList"), "List", "SpeakerSession", new { speakerId = Model.Id }, null)</li>
         <li>@Html.ActionLink(T("Speaker_Help"), "Help", new { Model.Id })</li>
+        @if (User.Identity.IsAuthenticated) {
+        <li>@Html.ActionLink("SendMail", "SendMail", new { Model.Id })</li>
+            
+        }
     </ul>
 }

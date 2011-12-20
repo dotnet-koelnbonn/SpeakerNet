@@ -1,4 +1,5 @@
 using System.Drawing;
+using Machine.Specifications;
 using SpeakerNet.Services;
 using Xunit;
 

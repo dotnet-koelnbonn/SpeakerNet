@@ -43,7 +43,7 @@ namespace SpeakerNet.Services
 
         public Speaker GetSpeaker(Guid speakerId)
         {
-            return _repository.Entities.Where(e => e.Id == speakerId).Single();
+            return _repository.Entities.Single(e => e.Id == speakerId);
         }
 
         public void UpdateSpeaker(Guid speakerId, SpeakerEditModel model)
