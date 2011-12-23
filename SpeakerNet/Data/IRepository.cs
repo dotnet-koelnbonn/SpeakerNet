@@ -10,5 +10,6 @@ namespace SpeakerNet.Data
         void Add(T entity);
         void Remove(T entity);
         void SaveChanges();
+        IQueryable<T> Include(params string[] paths);
     }
 }

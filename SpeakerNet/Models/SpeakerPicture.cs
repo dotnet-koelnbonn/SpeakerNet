@@ -10,6 +10,7 @@ namespace SpeakerNet.Models
         public Speaker Speaker { get; set; }
 
         [Required]
+        [MaxLength]
         public byte[] Picture { get; set; }
         
         [Required]

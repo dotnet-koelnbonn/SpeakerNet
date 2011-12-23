@@ -8,7 +8,8 @@ using SpeakerNet.ViewModels;
 
 namespace SpeakerNet.Services
 {
-    public class SpeakerSessionService : ISpeakerSessionService
+    public class 
+        SpeakerSessionService : ISpeakerSessionService
     {
         private readonly IRepository<Session> _repository;
         private readonly IRepository<Speaker> _speakerRepository;
@@ -90,7 +91,7 @@ namespace SpeakerNet.Services
 
         private Session GetSession(Guid speakerId, int sessionId)
         {
-            var query = from ss in _repository.Entities
+            var query = from ss in _repository.Include("Speaker","Event")
                         where ss.Id == sessionId && ss.Speaker.Id == speakerId
                         select ss;
             return query.Single();
