@@ -10,12 +10,12 @@ namespace SpeakerNet.Controllers
 {
     public class SpeakerController : SpeakerNetController
     {
-        readonly ISpeakerService _speakerService;
+        readonly ISpeakerService speakerService;
         readonly ISendMailService mailService;
 
         public SpeakerController(ISpeakerService speakerService, ISendMailService mailService)
         {
-            this._speakerService = speakerService;
+            this.speakerService = speakerService;
             this.mailService = mailService;
         }
 
@@ -26,12 +26,12 @@ namespace SpeakerNet.Controllers
 
         public ActionResult Details(Guid id)
         {
-            return View(_speakerService.GetSpeaker(id).MapFrom<Speaker, SpeakerEditModel>());
+            return View(speakerService.GetSpeaker(id).MapFrom<Speaker, SpeakerEditModel>());
         }
 
         public ActionResult Edit(Guid id)
         {
-            return View(_speakerService.GetSpeaker(id).MapFrom<Speaker, SpeakerEditModel>());
+            return View(speakerService.GetSpeaker(id).MapFrom<Speaker, SpeakerEditModel>());
         }
 
         [HttpPost]
@@ -40,7 +40,7 @@ namespace SpeakerNet.Controllers
         public ActionResult EditCommand(Guid id, SpeakerEditModel model)
         {
             if (ModelState.IsValid) {
-                _speakerService.UpdateSpeaker(id, model);
+                speakerService.UpdateSpeaker(id, model);
                 return RedirectToAction("Details", new {id});
             }
             return View(model);
@@ -56,7 +56,7 @@ namespace SpeakerNet.Controllers
         [AdminOnly]
         public ActionResult SendMail(Guid id)
         {
-            return View(_speakerService.GetSpeaker(id).MapFrom<Speaker, SpeakerEditModel>());
+            return View(speakerService.GetSpeaker(id).MapFrom<Speaker, SpeakerEditModel>());
         }
 
         [AdminOnly]
@@ -69,7 +69,7 @@ namespace SpeakerNet.Controllers
             if (string.IsNullOrWhiteSpace(body))
                 ModelState.AddModelError("body", "Text muss vorhanden sein");
 
-            var speaker = _speakerService.GetSpeaker(id);
+            var speaker = speakerService.GetSpeaker(id);
 
             if (string.IsNullOrWhiteSpace(speaker.Contact.EMail)) {
                 ModelState.AddModelError("", "Für den Sprecher ist keine Mail hinterlegt");
@@ -83,7 +83,7 @@ namespace SpeakerNet.Controllers
                     ModelState.AddModelError("", string.Format("{0}: {1} ", e.GetType().Name, e.Message));
                 }
             }
-            return View(_speakerService.GetSpeaker(id).MapFrom<Speaker, SpeakerEditModel>());
+            return View(speakerService.GetSpeaker(id).MapFrom<Speaker, SpeakerEditModel>());
         }
 
 
@@ -93,7 +93,7 @@ namespace SpeakerNet.Controllers
         public ActionResult Create(CreateSpeakerModel model)
         {
             if (ModelState.IsValid) {
-                if (_speakerService.CreateSpeaker(model))
+                if (speakerService.CreateSpeaker(model))
                     return RedirectToAction("List");
             }
             return View();
@@ -102,7 +102,7 @@ namespace SpeakerNet.Controllers
         [AdminOnly]
         public ActionResult List()
         {
-            return View(_speakerService.GetSpeakerList());
+            return View(speakerService.GetSpeakerList());
         }
     }
 }

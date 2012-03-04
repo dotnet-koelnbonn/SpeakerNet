@@ -8,16 +8,10 @@ namespace SpeakerNet.Data
     public class SpeakerNetDbContext : DbContext
     {
         public SpeakerNetDbContext()
-            : base(CreateConnectionString())
         {
             Configuration.LazyLoadingEnabled = false;
         }
 
-        static string CreateConnectionString()
-        {
-            var filename = HttpContext.Current.Server.MapPath("~/App_Data/SpeakerNet.sdf");
-            return string.Format("Data Source={0}", filename);
-        }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
