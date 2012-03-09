@@ -1,9 +1,11 @@
-﻿namespace SpeakerNet.Settings
+﻿using Aperea.Settings;
+
+namespace SpeakerNet.Settings
 {
     public class AuthenticationSettings : IAuthenticationSettings {
-        private readonly IAppSettings settings;
+        private readonly IApplicationSettings settings;
 
-        public AuthenticationSettings(IAppSettings settings)
+        public AuthenticationSettings(IApplicationSettings settings)
         {
             this.settings = settings;
         }

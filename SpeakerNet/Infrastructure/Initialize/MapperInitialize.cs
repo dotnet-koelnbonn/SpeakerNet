@@ -1,15 +1,15 @@
 using System;
 using AutoMapper;
-using SpeakerNet.Infrastructure.Bootstrap;
 using SpeakerNet.Models;
 using SpeakerNet.ViewModels;
 
-namespace SpeakerNet.Initialize
+namespace SpeakerNet.Infrastructure.Initialize
 {
-    public class MapperInitialize : IBootstrapItem
+    public class MapperInitialize : Profile
     {
-        public void Execute()
+        protected override void Configure()
         {
+            base.Configure();
             TwoWayMap<Speaker, SpeakerEditModel>();
             TwoWayMap<Address, AddressModel>();
             TwoWayMap<Contact, ContactModel>();

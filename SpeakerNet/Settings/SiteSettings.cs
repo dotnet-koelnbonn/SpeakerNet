@@ -1,12 +1,18 @@
-﻿namespace SpeakerNet.Settings
+﻿using Aperea.Settings;
+
+namespace SpeakerNet.Settings
 {
     public class SiteSettings : ISiteSettings
     {
-        private readonly IAppSettings settings;
+        private readonly IApplicationSettings settings;
 
-        public SiteSettings(IAppSettings settings)
+        public SiteSettings(IApplicationSettings settings)
         {
             this.settings = settings;
+        }
+
+        public SiteSettings():this(new ApplicationSettings())
+        {
         }
 
         public string SiteName

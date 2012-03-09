@@ -15,21 +15,16 @@ namespace SpeakerNet.Web
 
     public abstract class SpeakerNetViewPage<TModel> : WebViewPage<TModel>
     {
-        private ISiteSettings siteSettings;
+        ISiteSettings siteSettings;
 
-        public ISiteSettings SiteSettings
+        protected ISiteSettings SiteSettings
         {
             get
             {
                 if (siteSettings == null)
-                    siteSettings = new SiteSettings(new AppSettings());
+                    siteSettings = new SiteSettings();
                 return siteSettings;
             }
-        }
-
-        public override System.Web.WebPages.HelperResult RenderPage(string path, params object[] data)
-        {
-            return base.RenderPage(Context.GetLayoutPath(path), data);
         }
 
         protected string T(string resourceName, params object[] args)

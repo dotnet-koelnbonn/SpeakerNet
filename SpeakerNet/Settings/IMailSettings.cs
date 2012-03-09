@@ -1,4 +1,6 @@
-﻿namespace SpeakerNet.Settings
+﻿using Aperea.Settings;
+
+namespace SpeakerNet.Settings
 {
     public interface IMailSettings
     {
@@ -8,9 +10,9 @@
 
     public class MailSettings : IMailSettings
     {
-        private readonly IAppSettings settings;
+        private readonly IApplicationSettings settings;
 
-        public MailSettings(IAppSettings settings)
+        public MailSettings(IApplicationSettings settings)
         {
             this.settings = settings;
         }

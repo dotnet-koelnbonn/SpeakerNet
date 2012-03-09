@@ -4,21 +4,20 @@ using SpeakerNet.Data;
 
 namespace SpeakerNet.Infrastructure.Mvc
 {
-    public class DatabaseContextActionInvoker : IActionInvoker
+    public class DatabaseContextActionInvoker : ControllerActionInvoker
     {
-        private readonly IDatabaseContext databaseContext;
-        private readonly IActionInvoker actionInvoker;
+        readonly IDatabaseContext databaseContext;
 
-        public DatabaseContextActionInvoker(IDatabaseContext databaseContext, IActionInvoker actionInvoker)
+        public DatabaseContextActionInvoker()
         {
-            this.databaseContext = databaseContext;
-            this.actionInvoker = actionInvoker;
+            databaseContext = (IDatabaseContext) DependencyResolver.Current.GetService(typeof (IDatabaseContext));
         }
 
-        public bool InvokeAction(ControllerContext controllerContext, string actionName)
+        protected override ActionResult InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor,
+                                                           System.Collections.Generic.IDictionary<string, object> parameters)
         {
-            using (databaseContext){
-               return actionInvoker.InvokeAction(controllerContext, actionName);
+            using (databaseContext) {
+                return base.InvokeActionMethod(controllerContext, actionDescriptor, parameters);
             }
         }
     }

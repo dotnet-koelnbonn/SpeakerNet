@@ -1,27 +1,24 @@
+using System;
 using SpeakerNet.Data;
-using SpeakerNet.Infrastructure.Bootstrap;
-using SpeakerNet.ModelBinder;
 using StructureMap;
 using StructureMap.Configuration.DSL;
 using StructureMap.Pipeline;
 
-namespace SpeakerNet.Initialize
+namespace SpeakerNet.Infrastructure.Initialize
 {
-    public class ContainerRegistry : Registry
+    public class ApplicationRegistry : Registry
     {
-        public ContainerRegistry()
+        public ApplicationRegistry()
         {
             Scan(x=> 
             {
                 x.AssembliesFromApplicationBaseDirectory();
-                x.ConnectImplementationsToTypesClosing(typeof (IModelBinder<>));
                 x.AddAllTypesOf(typeof (IRepository<>));
-                x.AddAllTypesOf<IBootstrapItem>();
             });
 
             For<IDatabaseContext>()
                 .LifecycleIs(Lifecycles.GetLifecycle(InstanceScope.Hybrid))
-                .Use<EntityFrameworkDatabaseContext>();
+                .Use<DatabaseContext>();
         }
     }
 }

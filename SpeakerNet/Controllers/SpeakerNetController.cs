@@ -1,5 +1,4 @@
 using System.Web.Mvc;
-using SpeakerNet.Data;
 using SpeakerNet.Infrastructure.Mvc;
 using SpeakerNet.Properties;
 
@@ -9,9 +8,7 @@ namespace SpeakerNet.Controllers
     {
         protected override IActionInvoker CreateActionInvoker()
         {
-            var databaseContext = (IDatabaseContext) DependencyResolver.Current.GetService(typeof (IDatabaseContext));
-            return new DatabaseContextActionInvoker(databaseContext,
-                                                    new StructureMapControllerActionInvoker());
+            return new DatabaseContextActionInvoker();
         }
 
         protected string T(string resourceName, params object[] args)

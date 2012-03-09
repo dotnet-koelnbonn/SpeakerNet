@@ -17,9 +17,16 @@ namespace SpeakerNet.Data
         {
             modelBuilder.ComplexType<Address>();
             modelBuilder.ComplexType<Contact>();
-            modelBuilder.Entity<Session>().HasRequired(e => e.Speaker).WithMany().Map(e => e.MapKey("SpeakerId"));
-            modelBuilder.Entity<Session>().HasRequired(e => e.Event).WithMany().Map(e => e.MapKey("EventId"));
-            modelBuilder.Entity<SpeakerPicture>().HasRequired(e => e.Speaker).WithMany().Map(e => e.MapKey("SpeakerId"));
+            modelBuilder.Entity<Session>()
+                .HasRequired(e => e.Speaker)
+                .WithMany().Map(e => e.MapKey("SpeakerId"));
+            modelBuilder.Entity<Session>()
+                .HasRequired(e => e.Event)
+                .WithMany().Map(e => e.MapKey("EventId"));
+            modelBuilder.Entity<SpeakerPicture>()
+                .HasRequired(e => e.Speaker)
+                .WithMany()
+                .Map(e => e.MapKey("SpeakerId"));
 
 
             modelBuilder.Entity<Speaker>().Property(e => e.Address.Street).HasColumnName("Street");

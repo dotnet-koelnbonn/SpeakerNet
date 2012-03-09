@@ -1,6 +1,6 @@
 ﻿using System;
-using SpeakerNet.Infrastructure.Bootstrap;
-using SpeakerNet.Infrastructure.Registration;
+using Aperea.Infrastructure.Bootstrap;
+using Aperea.Infrastructure.IoC;
 
 namespace SpeakerNet
 {
@@ -12,9 +12,7 @@ namespace SpeakerNet
             HibernatingRhinos.Profiler.Appender.EntityFramework.EntityFrameworkProfiler.Initialize();
 #endif
             RegisterStructureMap.Execute();
-            Bootstrapper.Start()
-                .FromServiceLocator()
-                .Execute();
+            Bootstrapper.Start();
         }
     }
 }
