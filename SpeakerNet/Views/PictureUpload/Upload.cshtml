@@ -8,6 +8,7 @@
 <h3>Für @Model.SpeakerName</h3>
 @using (Html.BeginForm("Upload","PictureUpload",new { Model.SpeakerId}, FormMethod.Post,new { enctype = "multipart/form-data" }))
 {
+    @Html.AntiForgeryToken()
     <input type="file" name="Picture" />
     <input type="submit" value="Hochladen" />
 }
