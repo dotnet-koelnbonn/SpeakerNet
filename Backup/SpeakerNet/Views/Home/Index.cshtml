@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = @T("Navigation_Home");
+}
+
+<h2>@T("Home_Welcome")</h2>
+
+<ul>
+<li>@Html.ActionLink(T("Navigation_Events"), "Index", "Event")</li>
+<li>@Html.ActionLink(T("Navigation_Speakers"), "List", "Speaker")</li>
+</ul>

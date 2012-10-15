@@ -1,0 +1,20 @@
+﻿@model IEnumerable<SpeakerListModel>
+@{
+    ViewBag.Title = T("Navigation_Speakers");
+}
+@{
+    var grid = new WebGrid(Model,canPage:false);
+    var columns = grid.Columns(
+        grid.Column("Id", "", o => Html.ShowSpeakerLinks((SpeakerListModel)o.Value)),
+        grid.Column("Fullname", typeof(SpeakerListModel).GetDisplayName("Fullname")),
+        grid.Column("SessionCount", typeof(SpeakerListModel).GetDisplayName("SessionCount"))
+        );
+        
+}
+<h2>@T("Speaker_SpeakerList")</h2>
+@grid.GetHtml(columns: columns)
+@section navigation {
+    <ul class="menu">
+        <li>@Html.CreateSpeaker(T("Speaker_CreateNewSpeaker"))</li>
+    </ul>
+}

@@ -10,14 +10,9 @@ namespace SpeakerNet.Infrastructure.Initialize
     {
         public ApplicationRegistry()
         {
-            Scan(x=> 
-            {
-                x.AssembliesFromApplicationBaseDirectory();
-                x.AddAllTypesOf(typeof (IRepository<>));
-            });
-
+            For(typeof (IRepository<>)).HybridHttpOrThreadLocalScoped().Use(typeof (Repository<>));
             For<IDatabaseContext>()
-                .LifecycleIs(Lifecycles.GetLifecycle(InstanceScope.Hybrid))
+                .HybridHttpOrThreadLocalScoped()
                 .Use<DatabaseContext>();
         }
     }

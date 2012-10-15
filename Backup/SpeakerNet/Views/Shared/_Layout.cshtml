@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+@{
+    var jquery = Url.Content("~/Scripts/jquery-1.7.1.min.js");
+    var ajaxUnob = Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js");
+    var validate = Url.Content("~/Scripts/jquery.validate.min.js");
+    var validateUnob = Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js");
+}
+<html>
+<head>
+    <meta name="robots" content="noindex,nofollow,noodp,noydir" />
+    <title>@ViewBag.Title - @SiteSettings.SiteName</title>
+    <script src="@Url.Content("~/Scripts/head.min.js")" type="text/javascript"></script>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        head.js("@jquery)", 
+            function() {
+                head.js("@ajaxUnob")
+                    .js("@validate", "@validateUnob");
+                @RenderSection("scriptFiles", false)
+                });
+        head.ready(function() {
+            @RenderSection("scriptOnReady", false)
+        });
+    </script>
+</head>
+<body>
+    <div class="page">
+        <div id="header">
+            <div id="title">
+                <h1>@SiteSettings.SiteName</h1>
+            </div>
+            <div id="logindisplay">
+                @Html.Partial("_LogOnPartial")
+            </div>
+            <div id="menucontainer">
+                <ul class="menu">
+                    <li>@Html.ActionLink(T("Navigation_Home"), "Index", "Home")</li>
+                    <li>@Html.ActionLink(T("Navigation_Imprint"), "About", "Home")</li>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink(T("Navigation_Speakers"), "List", "Speaker")</li>
+                        <li>@Html.ActionLink(T("Navigation_Events"), "Index", "Event")</li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <div id="main">
+            <div id="navigation">
+                    @RenderSection("navigation", required: false)
+            </div>
+            @RenderBody()
+            <div id="footer">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+﻿@model DisplaySessionModel
+@{
+    ViewBag.Title = @T("Session_Suggestion");
+}
+<h2>@T("Session_Suggestion")</h2>
+<fieldset>
+    @Html.DisplayForModel()
+</fieldset>
+@if (Model.ShowSessionSelection)
+{
+    using (Html.BeginForm("ToogleSelected", "SpeakerSession", new { speakerId = Model.SpeakerId, id = Model.Id }))
+    {
+         @Html.AntiForgeryToken()
+    var text = "Session " + (Model.Selected ? "abwählen" : "wählen");
+         <button type="submit">@text</button>
+    }
+}
+@section navigation {
+    <ul class="menu">
+        <li>@Html.ActionLink(T("Edit"), "EditSession", new { Model.SpeakerId, Model.Id })</li>
+        <li>@Html.ActionLink("Sessionliste", "List", new { Model.SpeakerId })</li>
+        <li>@Html.ActionLink("Sprecherdaten", "Details", "Speaker", new { id = Model.SpeakerId }, null)</li>
+    </ul>
+}

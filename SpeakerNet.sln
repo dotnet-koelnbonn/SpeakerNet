@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeakerNet", "SpeakerNet\SpeakerNet.csproj", "{6EAA7A69-20ED-46CA-8993-0D38C9FBAE7D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeakerWeb.Tests", "SpeakerWeb.Tests\SpeakerWeb.Tests.csproj", "{C9027461-211C-47CC-9A86-ACB4830257A3}"

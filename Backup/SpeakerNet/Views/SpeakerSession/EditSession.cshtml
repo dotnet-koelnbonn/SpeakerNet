@@ -1,0 +1,62 @@
+﻿@model EditSessionModel
+@{
+    ViewBag.Title = @T("Navigation_Sessions");
+}
+<h2>@Model.Name von @Model.SpeakerFullName
+</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken();
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Abstract)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Abstract)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Level)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.Level, Model.LevelSelectList)
+            @Html.ValidationMessageFor(model => model.Level)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Duration)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.Duration, Model.DurationSelectList)
+            @Html.ValidationMessageFor(model => model.Duration)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EventId)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.EventId, Model.EventSelectList)
+            @Html.ValidationMessageFor(model => model.EventId)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SpeakerFullName)
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(m => m.SpeakerFullName)
+        </div>
+        <p>
+            <input type="submit" value="@T("Save")" />
+        </p>
+    </fieldset>
+}
+@section navigation {
+    <ul class="menu">
+        <li>@Html.ActionLink("Sessionliste", "List", new { Model.SpeakerId })</li>
+        <li>@Html.ActionLink("Sprecherdaten", "Details", "Speaker", new { id = Model.SpeakerId }, null)</li>
+    </ul>
+}

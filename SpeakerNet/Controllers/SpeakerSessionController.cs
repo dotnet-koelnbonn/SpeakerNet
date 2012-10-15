@@ -1,6 +1,7 @@
 using System;
 using System.Web.Mvc;
 using SpeakerNet.FilterAttributes;
+using SpeakerNet.Security;
 using SpeakerNet.Services;
 using SpeakerNet.ViewModels;
 
@@ -69,7 +70,6 @@ namespace SpeakerNet.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [AdminOnly]
         public ActionResult ToogleSelected(Guid speakerId, int id)
         {
             if (ModelState.IsValid)
