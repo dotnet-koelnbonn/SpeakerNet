@@ -1,7 +1,0 @@
-﻿@if(Request.IsAuthenticated) {
-<text>@T("LogOn_Welcome", Context.User.Identity.Name)
-    [ @Html.ActionLink(T("Navigation_LogOff"), "LogOff", "Account") ]</text>
-}
-else {
-    @:[ @Html.ActionLink(T("Navigation_LogOn"), "LogOn", "Account") ]
-}
