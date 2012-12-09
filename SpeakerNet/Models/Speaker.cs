@@ -4,13 +4,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SpeakerNet.Models
 {
-    public class SpeakerTollModel
-    {
-        public string Salutation { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Plz { get; set; }
-    }
     public class Speaker
     {
         protected Speaker()
@@ -47,7 +40,7 @@ namespace SpeakerNet.Models
         public string LastName { get; set; }
 
         [NotMapped]
-        public string FullName
+      public string FullName
         {
             get { return string.Format("{0} {1}", FirstName, LastName); }
         }

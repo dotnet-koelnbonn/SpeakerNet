@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SpeakerNet</RootNamespace>
     <AssemblyName>SpeakerNet</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <FileUpgradeFlags>
@@ -27,6 +27,7 @@
     <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,6 +42,7 @@
     <PublishDatabases>false</PublishDatabases>
     <DesktopBuildPackageLocation>..\deploy\SpeakerNet-Debug.zip</DesktopBuildPackageLocation>
     <DeployIisAppPath>Default Web Site/SpeakerNet</DeployIisAppPath>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -58,6 +60,7 @@
       <Objects>
       </Objects>
     </PublishDatabaseSettings>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Aperea.Bootstrap, Version=0.7.3.68, Culture=neutral, processorArchitecture=MSIL">
@@ -79,19 +82,15 @@
     <Reference Include="ColorCode">
       <HintPath>..\packages\ColorCode.1.0.1\lib\ColorCode.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="HibernatingRhinos.Profiler.Appender.v4.0">
       <HintPath>..\extern\HibernatingRhinos.Profiler.Appender.v4.0.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Program Files\Reference Assemblies\Microsoft\Windows Identity Foundation\v3.5\Microsoft.IdentityModel.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation">
       <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
@@ -103,22 +102,24 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
     </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IdentityModel" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -145,6 +146,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WikiPlex">
       <HintPath>..\packages\WikiPlex.2.0\lib\Net40\WikiPlex.dll</HintPath>
     </Reference>
@@ -152,7 +154,7 @@
   <ItemGroup>
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\MetadataController.cs" />
-    <Compile Include="Controllers\PictureUpload.cs" />
+    <Compile Include="Controllers\PictureUploadController.cs" />
     <Compile Include="Controllers\SpeakerController.cs" />
     <Compile Include="Controllers\SpeakerNetController.cs" />
     <Compile Include="Controllers\SpeakerPictureController.cs" />
@@ -168,7 +170,7 @@
     <Compile Include="Extensions\MappingHelper.cs" />
     <Compile Include="Extensions\MetadataExtensions.cs" />
     <Compile Include="Extensions\SpeakerNavigation.cs" />
-    <Compile Include="FilterAttributes\OnlyAdminAttribute.cs" />
+    <Compile Include="FilterAttributes\AdminOnlyAttribute.cs" />
     <Compile Include="Infrastructure\Initialize\InitializeAntiForgeryToken.cs" />
     <Compile Include="Infrastructure\Mvc\DatabaseContextActionInvoker.cs" />
     <Compile Include="Infrastructure\Initialize\ApplicationRegistry.cs" />
@@ -188,6 +190,7 @@
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\Session.cs" />
     <Compile Include="Models\SpeakerPicture.cs" />
+    <Compile Include="Models\SpeakerTollModel.cs" />
     <Compile Include="Properties\SpeakerNetStrings.de.Designer.cs">
       <DependentUpon>SpeakerNetStrings.de.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -212,6 +215,7 @@
     <Compile Include="Settings\IAuthenticationSettings.cs" />
     <Compile Include="Settings\IMailSettings.cs" />
     <Compile Include="Settings\ISiteSettings.cs" />
+    <Compile Include="Settings\MailSettings.cs" />
     <Compile Include="Settings\SiteSettings.cs" />
     <Compile Include="ViewModels\PictureUploadShowModel.cs" />
     <Compile Include="ViewModels\PictureUploadUploadModel.cs" />
@@ -260,9 +264,9 @@
     <Content Include="Scripts\head.load.min.js" />
     <Content Include="Scripts\head.min.js" />
     <None Include="Properties\PublishProfiles\WebServer.Speakernet.pubxml" />
-    <None Include="Scripts\jquery-1.8.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.8.2.js" />
-    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <None Include="Scripts\jquery-1.8.3.intellisense.js" />
+    <Content Include="Scripts\jquery-1.8.3.js" />
+    <Content Include="Scripts\jquery-1.8.3.min.js" />
     <Content Include="Scripts\jQuery.DataLink.js" />
     <Content Include="Scripts\jQuery.tmpl.js" />
     <Content Include="Scripts\jQuery.tmpl.min.js" />
