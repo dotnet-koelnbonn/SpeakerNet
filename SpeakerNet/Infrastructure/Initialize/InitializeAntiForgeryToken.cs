@@ -8,7 +8,7 @@ namespace SpeakerNet.Infrastructure.Initialize
     {
         public override void Execute()
         {
-            AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
+            AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.Name;
         }
     }
 }
