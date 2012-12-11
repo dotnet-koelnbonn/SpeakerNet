@@ -3,14 +3,15 @@ using AutoMapper;
 using SpeakerNet.Models;
 using SpeakerNet.ViewModels;
 
-namespace SpeakerNet.Infrastructure.Initialize
+namespace SpeakerNet.Infrastructure.Mappings
 {
     public class MapperInitialize : Profile
     {
         protected override void Configure()
         {
             base.Configure();
-            TwoWayMap<Speaker, SpeakerEditModel>();
+
+
             TwoWayMap<Address, AddressModel>();
             TwoWayMap<Contact, ContactModel>();
 
@@ -22,8 +23,7 @@ namespace SpeakerNet.Infrastructure.Initialize
                 .ForMember(c => c.Picture, c => c.Ignore());
 
             Map<Session, SessionListModel>();
-            Map<Speaker, SpeakerSessionListModel>()
-                                .ForMember(d => d.Sessions, c => c.Ignore());
+
 
             Map<Session, SpeakerSessionIndexModel>();
             Map<Session, DisplaySessionModel>()
@@ -39,9 +39,6 @@ namespace SpeakerNet.Infrastructure.Initialize
                                             .ForMember(c => c.Event, c => c.Ignore())
                                             .ForMember(c => c.Selected, c => c.Ignore());
 
-            Mapper.CreateMap<Speaker, SpeakerTollModel>()
-                .ForMember(t => t.Plz, m => m.MapFrom(s => s.Address.ZipCode))
-                .ForMember(t => t.Salutation, m => m.Ignore());
             Mapper.AssertConfigurationIsValid();
         }
 

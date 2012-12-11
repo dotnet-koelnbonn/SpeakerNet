@@ -1,5 +1,7 @@
 using System;
+using System.Linq;
 using System.Web.Mvc;
+using System.Web.Routing;
 using SpeakerNet.Extensions;
 using SpeakerNet.FilterAttributes;
 using SpeakerNet.Models;
@@ -56,19 +58,16 @@ namespace SpeakerNet.Controllers
         [AdminOnly]
         public ActionResult SendMail(Guid id)
         {
-            return View(speakerService.GetSpeaker(id).MapFrom<Speaker, SpeakerEditModel>());
+            var sendMailModel = speakerService.GetSpeaker(id).MapFrom<Speaker, SpeakerSendMailModel>();
+            AddTemplates(sendMailModel);
+            return View(sendMailModel);
         }
 
         [AdminOnly]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SendMail(Guid id, string subject, string body)
+        public ActionResult SendMail(Guid id, SpeakerSendMailModel model)
         {
-            if (string.IsNullOrWhiteSpace(subject))
-                ModelState.AddModelError("subject", "Betreff muss vorhanden sein");
-            if (string.IsNullOrWhiteSpace(body))
-                ModelState.AddModelError("body", "Text muss vorhanden sein");
-
             var speaker = speakerService.GetSpeaker(id);
 
             if (string.IsNullOrWhiteSpace(speaker.Contact.EMail)) {
@@ -77,15 +76,60 @@ namespace SpeakerNet.Controllers
 
             if (ModelState.IsValid) {
                 try {
-                    mailService.SendMail(speaker.Contact.EMail, subject, body);
+                    mailService.SendMail(speaker.Contact.EMail, model.Subject, model.Body);
                     return RedirectToAction("Details", new {id});
-                } catch (Exception e) {
+                }
+                catch (Exception e) {
                     ModelState.AddModelError("", string.Format("{0}: {1} ", e.GetType().Name, e.Message));
                 }
             }
-            return View(speakerService.GetSpeaker(id).MapFrom<Speaker, SpeakerEditModel>());
+            var sendMailModel = speakerService.GetSpeaker(id).MapFrom<Speaker, SpeakerSendMailModel>();
+            AddTemplates(sendMailModel);
+            return View(sendMailModel);
         }
 
+        [HttpPost]
+        public ActionResult GetTemplate(Guid speakerId, Guid templateId)
+        {
+            if (!Request.IsAjaxRequest())
+                return new HttpNotFoundResult();
+
+            var speaker = speakerService.GetSpeaker(speakerId);
+            var template = mailService.GetTemplate(templateId);
+
+            var model = new {
+                speaker.FirstName,
+                speaker.LastName,
+                SpeakerUrl = GetSpeakerUrl(speaker.Id)
+            };
+
+            return Json(new {
+                Subject = template.Subject.NamedFormat(model),
+                Body = template.Body.NamedFormat(model)
+            });
+        }
+
+        string GetSpeakerUrl(Guid speakerId)
+        {
+            
+            return string.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Url.Authority, Url.Action("Details", "Speaker", new { Id = speakerId }));
+        }
+
+        void AddTemplates(SpeakerSendMailModel sendMailModel)
+        {
+            var mailTemplates = mailService.GetMailTemplates();
+            if (mailTemplates.Any()) {
+                var mt = mailTemplates.First();
+                sendMailModel.TemplateList = new SelectList(mailTemplates, "Id", "Description");
+                var model = new {
+                    sendMailModel.FirstName,
+                    sendMailModel.LastName,
+                    SpeakerUrl = GetSpeakerUrl(sendMailModel.Id)
+                };
+                sendMailModel.Subject = mt.Subject.NamedFormat(model);
+                sendMailModel.Body = mt.Body.NamedFormat(model);
+            }
+        }
 
         [AdminOnly]
         [HttpPost]

@@ -65,7 +65,7 @@ foreach (ModelProperty property in properties) {
     if (!property.IsPrimaryKey) {
 #>
         <th>
-			@typeof(<#=mvcHost.ViewDataTypeName#>).GetDisplayName(""<#=property.Name#>")
+			@typeof(<#=mvcHost.ViewDataTypeName#>).GetDisplayName("<#=property.Name#>")
         </th>
 <#
     }

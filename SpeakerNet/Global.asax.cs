@@ -13,6 +13,7 @@ namespace SpeakerNet
 #endif
             RegisterStructureMap.Execute();
             Bootstrapper.Start();
+            AutoMapper.Mapper.AssertConfigurationIsValid();
         }
     }
 }

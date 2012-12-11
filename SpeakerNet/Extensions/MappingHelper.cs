@@ -11,8 +11,10 @@ namespace SpeakerNet.Extensions
             return Mapper.Map<IEnumerable<TSource>, IEnumerable<TDestination>>(source);
         }
 
-        public static TDestination MapFrom<TSource, TDestination>(this TSource source)
+        public static TDestination MapFrom<TSource, TDestination>(this TSource source) where TSource : class 
         {
+            if (source==null)
+                return default(TDestination);
             return Mapper.Map<TSource, TDestination>(source);
         }
 

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
-using SpeakerNet.ViewModels.Validation;
+using SpeakerNet.FilterAttributes;
 
 namespace SpeakerNet.ViewModels
 {

@@ -223,6 +223,15 @@ namespace SpeakerNet.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mail Templates.
+        /// </summary>
+        public static string Navigation_MailTemplates {
+            get {
+                return ResourceManager.GetString("Navigation_MailTemplates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sessions.
         /// </summary>
         public static string Navigation_Sessions {

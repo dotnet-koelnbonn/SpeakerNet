@@ -60,6 +60,9 @@
     </PublishDatabaseSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="Aperea.Bootstrap, Version=0.7.3.68, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Aperea.Bootstrap.0.7.3.68\lib\net40\Aperea.Bootstrap.dll</HintPath>
@@ -124,8 +127,9 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Optimization">
-      <HintPath>..\packages\Microsoft.Web.Optimization.1.0.0-beta\lib\net40\System.Web.Optimization.dll</HintPath>
+    <Reference Include="System.Web.Optimization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -145,14 +149,32 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+    </Reference>
     <Reference Include="WikiPlex">
       <HintPath>..\packages\WikiPlex.2.0\lib\Net40\WikiPlex.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\FormatterExtensions.cs" />
+    <Compile Include="Infrastructure\Initialize\InitializeBundles.cs" />
+    <Compile Include="Infrastructure\Mappings\MailTemplateProfile.cs" />
+    <Compile Include="Infrastructure\Mappings\SpeakerProfile.cs" />
+    <Compile Include="Services\Formatter.cs" />
+    <Compile Include="Services\IFormatter.cs" />
+    <Compile Include="Services\MailTemplateService.cs" />
+    <Compile Include="Settings\MailSettings.cs" />
+    <Compile Include="ViewModels\MailTemplate\CreateMailTemplateModel.cs" />
+    <Compile Include="ViewModels\MailTemplate\DeleteMailTemplateModel.cs" />
+    <Compile Include="ViewModels\MailTemplate\DetailsMailTemplateModel.cs" />
+    <Compile Include="ViewModels\MailTemplate\EditMailTemplateModel.cs" />
     <Compile Include="Controllers\EventController.cs" />
+    <Compile Include="Services\IMailTemplateService.cs" />
+    <Compile Include="ViewModels\MailTemplate\ListMailTemplateModel.cs" />
+    <Compile Include="Controllers\MailTemplateController.cs" />
     <Compile Include="Controllers\MetadataController.cs" />
-    <Compile Include="Controllers\PictureUpload.cs" />
+    <Compile Include="Controllers\PictureUploadController.cs" />
     <Compile Include="Controllers\SpeakerController.cs" />
     <Compile Include="Controllers\SpeakerNetController.cs" />
     <Compile Include="Controllers\SpeakerPictureController.cs" />
@@ -168,13 +190,13 @@
     <Compile Include="Extensions\MappingHelper.cs" />
     <Compile Include="Extensions\MetadataExtensions.cs" />
     <Compile Include="Extensions\SpeakerNavigation.cs" />
-    <Compile Include="FilterAttributes\OnlyAdminAttribute.cs" />
+    <Compile Include="FilterAttributes\AdminOnlyAttribute.cs" />
     <Compile Include="Infrastructure\Initialize\InitializeAntiForgeryToken.cs" />
     <Compile Include="Infrastructure\Mvc\DatabaseContextActionInvoker.cs" />
     <Compile Include="Infrastructure\Initialize\ApplicationRegistry.cs" />
     <Compile Include="Infrastructure\Initialize\DatabaseInitialize.cs" />
     <Compile Include="Infrastructure\Initialize\InitializeMvcRoutes.cs" />
-    <Compile Include="Infrastructure\Initialize\MapperInitialize.cs" />
+    <Compile Include="Infrastructure\Mappings\MapperInitialize.cs" />
     <Compile Include="Infrastructure\Initialize\RegisterGlobalFilters.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -183,9 +205,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Initialize\ViewEnginesInitialize.cs" />
+    <Compile Include="Migrations\201212101850339_InitialMigration.cs" />
+    <Compile Include="Migrations\201212101850339_InitialMigration.Designer.cs">
+      <DependentUpon>201212101850339_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\MailTemplate.cs" />
     <Compile Include="Models\Session.cs" />
     <Compile Include="Models\SpeakerPicture.cs" />
     <Compile Include="Properties\SpeakerNetStrings.de.Designer.cs">
@@ -246,29 +274,29 @@
     <Compile Include="ViewModels\Account\LogOnModel.cs" />
     <Compile Include="ViewModels\Account\RegisterModel.cs" />
     <Compile Include="Models\Speaker.cs" />
-    <Compile Include="ViewModels\Validation\ValidatePasswordLengthAttribute.cs" />
+    <Compile Include="FilterAttributes\ValidatePasswordLengthAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Authorization\MembershipService.cs" />
     <Compile Include="Services\ISpeakerService.cs" />
     <Compile Include="Services\SpeakerService.cs" />
+    <Compile Include="ViewModels\Speaker\SpeakerSendMailModel.cs" />
     <Compile Include="Web\SpeakerNetViewPage.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Site.css">
+      <DependentUpon>Site.less</DependentUpon>
+    </Content>
+    <Content Include="Content\Site.min.css">
+      <DependentUpon>Site.less</DependentUpon>
+    </Content>
     <Content Include="Global.asax" />
+    <Content Include="js\SpeakerSendMail.js" />
     <Content Include="robots.txt" />
-    <Content Include="Scripts\head.js" />
-    <Content Include="Scripts\head.load.min.js" />
-    <Content Include="Scripts\head.min.js" />
     <None Include="Properties\PublishProfiles\Profile.pubxml" />
     <None Include="Properties\PublishProfiles\WebServer.Speakernet.pubxml" />
-    <None Include="Scripts\jquery-1.8.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.8.2.js" />
-    <Content Include="Scripts\jquery-1.8.2.min.js" />
-    <Content Include="Scripts\jQuery.DataLink.js" />
-    <Content Include="Scripts\jQuery.tmpl.js" />
-    <Content Include="Scripts\jQuery.tmpl.min.js" />
-    <Content Include="Scripts\jquery.tmplPlus.js" />
-    <Content Include="Scripts\jquery.tmplPlus.min.js" />
+    <None Include="Scripts\jquery-1.8.3.intellisense.js" />
+    <Content Include="Scripts\jquery-1.8.3.js" />
+    <Content Include="Scripts\jquery-1.8.3.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -282,7 +310,7 @@
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Content\Site.css" />
+    <None Include="Content\Site.less" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -296,6 +324,10 @@
     <Content Include="Views\Web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Views\MailTemplate\Index.cshtml" />
+    <Content Include="Views\MailTemplate\Create.cshtml" />
+    <Content Include="Views\MailTemplate\Edit.cshtml" />
+    <Content Include="Views\MailTemplate\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="CodeTemplates\AddController\Controller.tt" />
@@ -322,6 +354,9 @@
     <Content Include="Views\Speaker\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201212101850339_InitialMigration.resx">
+      <DependentUpon>201212101850339_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\SpeakerNetStrings.de.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>SpeakerNetStrings.de.Designer.cs</LastGenOutput>

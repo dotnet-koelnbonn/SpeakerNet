@@ -270,4 +270,7 @@
   <data name="Session_Selected" xml:space="preserve">
     <value>Selected</value>
   </data>
+  <data name="Navigation_MailTemplates" xml:space="preserve">
+    <value>Mail Templates</value>
+  </data>
 </root>

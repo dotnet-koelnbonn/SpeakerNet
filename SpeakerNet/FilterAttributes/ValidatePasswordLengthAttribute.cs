@@ -5,7 +5,7 @@ using System.Globalization;
 using System.Web.Mvc;
 using System.Web.Security;
 
-namespace SpeakerNet.ViewModels.Validation
+namespace SpeakerNet.FilterAttributes
 {
 
     #region Models

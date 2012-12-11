@@ -46,5 +46,6 @@ namespace SpeakerNet.Data
         public DbSet<Session> Sessions { get; set; }
         public DbSet<Speaker> Speakers { get; set; }
         public DbSet<Event> Events { get; set; }
+        public DbSet<MailTemplate> MailTemplates { get; set; }
     }
 }
