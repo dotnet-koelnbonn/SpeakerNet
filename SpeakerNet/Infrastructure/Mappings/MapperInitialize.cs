@@ -29,25 +29,25 @@ namespace SpeakerNet.Infrastructure.Mappings
             Map<Session, DisplaySessionModel>()
                 .ForMember(c => c.ShowSessionSelection, c => c.Ignore());
 
-                        Map<Session, EditSessionModel>()
-                                            .ForMember(c => c.EventSelectList, c => c.Ignore())
-                                            .ForMember(c => c.LevelSelectList, c => c.Ignore())
-                                            .ForMember(c => c.DurationSelectList, c => c.Ignore());
+            Map<Session, EditSessionModel>()
+                .ForMember(c => c.EventSelectList, c => c.Ignore())
+                .ForMember(c => c.LevelSelectList, c => c.Ignore())
+                .ForMember(c => c.DurationSelectList, c => c.Ignore());
 
-                        Map<EditSessionModel, Session>()
-                                            .ForMember(c => c.Speaker, c => c.Ignore())
-                                            .ForMember(c => c.Event, c => c.Ignore())
-                                            .ForMember(c => c.Selected, c => c.Ignore());
+            Map<EditSessionModel, Session>()
+                .ForMember(c => c.Speaker, c => c.Ignore())
+                .ForMember(c => c.Event, c => c.Ignore())
+                .ForMember(c => c.Selected, c => c.Ignore());
 
             Mapper.AssertConfigurationIsValid();
         }
 
-        private IMappingExpression<T, T1> Map<T, T1>()
+        IMappingExpression<T, T1> Map<T, T1>()
         {
             return Mapper.CreateMap<T, T1>();
         }
 
-        private void TwoWayMap<T, T1>()
+        void TwoWayMap<T, T1>()
         {
             Mapper.CreateMap<T, T1>();
             Mapper.CreateMap<T1, T>();
