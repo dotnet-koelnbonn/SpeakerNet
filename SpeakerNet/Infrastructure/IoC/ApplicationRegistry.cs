@@ -1,10 +1,8 @@
 using System;
 using SpeakerNet.Data;
-using StructureMap;
 using StructureMap.Configuration.DSL;
-using StructureMap.Pipeline;
 
-namespace SpeakerNet.Infrastructure.Initialize
+namespace SpeakerNet.Infrastructure.IoC
 {
     public class ApplicationRegistry : Registry
     {

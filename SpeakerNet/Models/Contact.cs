@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using SpeakerNet.Attributes;
 
 namespace SpeakerNet.Models
 {

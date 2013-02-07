@@ -78,7 +78,7 @@
     </Reference>
     <Reference Include="AutoMapper, Version=2.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\AutoMapper.2.2.1-ci9000\lib\net40\AutoMapper.dll</HintPath>
+      <HintPath>..\packages\AutoMapper.2.2.1-ci9001\lib\net40\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="ColorCode">
       <HintPath>..\packages\ColorCode.1.0.1\lib\ColorCode.dll</HintPath>
@@ -159,14 +159,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\SessionVotingController.cs" />
     <Compile Include="Extensions\FormatterExtensions.cs" />
+    <Compile Include="FilterAttributes\ReleaseAndDisposeAllHttpScopedObjectsFilter.cs" />
     <Compile Include="Infrastructure\Initialize\InitializeBundles.cs" />
     <Compile Include="Infrastructure\Mappings\MailTemplateProfile.cs" />
     <Compile Include="Infrastructure\Mappings\SpeakerProfile.cs" />
+    <Compile Include="Migrations\201302071708052_Votes.cs" />
+    <Compile Include="Migrations\201302071708052_Votes.Designer.cs">
+      <DependentUpon>201302071708052_Votes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Vote.cs" />
+    <Compile Include="Models\WebUser.cs" />
     <Compile Include="Services\Formatter.cs" />
     <Compile Include="Services\IFormatter.cs" />
+    <Compile Include="Services\ISessionVotingService.cs" />
     <Compile Include="Services\MailTemplateService.cs" />
     <Compile Include="Settings\MailSettings.cs" />
+    <Compile Include="ViewModels\ListSessionVotingModel.cs" />
     <Compile Include="ViewModels\MailTemplate\CreateMailTemplateModel.cs" />
     <Compile Include="ViewModels\MailTemplate\DeleteMailTemplateModel.cs" />
     <Compile Include="ViewModels\MailTemplate\DetailsMailTemplateModel.cs" />
@@ -195,7 +205,7 @@
     <Compile Include="FilterAttributes\AdminOnlyAttribute.cs" />
     <Compile Include="Infrastructure\Initialize\InitializeAntiForgeryToken.cs" />
     <Compile Include="Infrastructure\Mvc\DatabaseContextActionInvoker.cs" />
-    <Compile Include="Infrastructure\Initialize\ApplicationRegistry.cs" />
+    <Compile Include="Infrastructure\IoC\ApplicationRegistry.cs" />
     <Compile Include="Infrastructure\Initialize\DatabaseInitialize.cs" />
     <Compile Include="Infrastructure\Initialize\InitializeMvcRoutes.cs" />
     <Compile Include="Infrastructure\Mappings\MapperInitialize.cs" />
@@ -211,7 +221,7 @@
     <Compile Include="Migrations\201212101850339_InitialMigration.Designer.cs">
       <DependentUpon>201212101850339_InitialMigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\Event.cs" />
@@ -296,9 +306,10 @@
     <Content Include="robots.txt" />
     <None Include="Properties\PublishProfiles\Profile.pubxml" />
     <None Include="Properties\PublishProfiles\WebServer.Speakernet.pubxml" />
-    <None Include="Scripts\jquery-1.8.3.intellisense.js" />
-    <Content Include="Scripts\jquery-1.8.3.js" />
-    <Content Include="Scripts\jquery-1.8.3.min.js" />
+    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -330,6 +341,7 @@
     <Content Include="Views\MailTemplate\Create.cshtml" />
     <Content Include="Views\MailTemplate\Edit.cshtml" />
     <Content Include="Views\MailTemplate\Details.cshtml" />
+    <Content Include="Views\SessionVoting\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="CodeTemplates\AddController\Controller.tt" />
@@ -358,6 +370,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201212101850339_InitialMigration.resx">
       <DependentUpon>201212101850339_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201302071708052_Votes.resx">
+      <DependentUpon>201302071708052_Votes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\SpeakerNetStrings.de.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

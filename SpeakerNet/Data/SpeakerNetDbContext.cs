@@ -1,6 +1,5 @@
 using System;
 using System.Data.Entity;
-using System.Web;
 using SpeakerNet.Models;
 
 namespace SpeakerNet.Data
@@ -39,11 +38,19 @@ namespace SpeakerNet.Data
             modelBuilder.Entity<Speaker>().Property(e => e.Contact.Phone).HasColumnName("Phone");
             modelBuilder.Entity<Speaker>().Property(e => e.Contact.Homepage).HasColumnName("Homepage");
 
+            modelBuilder.Entity<Vote>()
+                        .HasKey(v => new {
+                            v.SessionId,
+                            v.WebUserId
+                        });
+
             base.OnModelCreating(modelBuilder);
         }
 
         public DbSet<SpeakerPicture> SpeakerPictures { get; set; }
         public DbSet<Session> Sessions { get; set; }
+        public DbSet<Vote> Votes{ get; set; }
+        public DbSet<WebUser> WebUsers { get; set; }
         public DbSet<Speaker> Speakers { get; set; }
         public DbSet<Event> Events { get; set; }
         public DbSet<MailTemplate> MailTemplates { get; set; }

@@ -1,15 +1,14 @@
+using System;
+using System.Data.Entity.Migrations;
+
 namespace SpeakerNet.Migrations
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
-
-    internal sealed class Configuration : DbMigrationsConfiguration<SpeakerNet.Data.SpeakerNetDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Data.SpeakerNetDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
+            AutomaticMigrationDataLossAllowed = false;
         }
 
         protected override void Seed(SpeakerNet.Data.SpeakerNetDbContext context)

@@ -23,6 +23,9 @@ namespace SpeakerNet.Data
 
         public IQueryable<T> Include(params string[] paths)
         {
+            if (paths.Length == 0)
+                return context.DbContext.Set<T>();
+
             var query = context.DbContext.Set<T>().Include(paths.First());
             foreach (var path in paths.Skip(1)) {
                 query = query.Include(path);
@@ -54,7 +57,7 @@ namespace SpeakerNet.Data
                         sb.AppendLine();
                     }
                 }
-                if (sb.Length>0) {
+                if (sb.Length > 0) {
                     throw new ValidationException(sb.ToString());
                 }
             }

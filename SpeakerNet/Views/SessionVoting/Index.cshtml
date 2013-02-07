@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ListSessionVotingModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+
+<table>
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(c => c.SessionName);
+        </th>
+        <th>
+            @Html.DisplayNameFor(c => c.WebUserName);
+        </th>
+        <th>
+            @Html.DisplayNameFor(c => c.Points);
+        </th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.SessionName
+            </td>
+            <td>
+                @item.Points
+            </td>
+            <td>
+                @item.WebUserName
+            </td>
+        </tr>
+    }
+</table>

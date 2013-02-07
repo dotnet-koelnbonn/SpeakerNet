@@ -1,6 +1,8 @@
 using System.Web.Mvc;
+using Microsoft.Practices.ServiceLocation;
 using SpeakerNet.Infrastructure.Mvc;
 using SpeakerNet.Properties;
+using StructureMap;
 
 namespace SpeakerNet.Controllers
 {

@@ -24,8 +24,15 @@ namespace SpeakerNet.Infrastructure.Initialize
                 .Include(
                     "~/Scripts/jquery-{version}.js",
                     "~/Scripts/jquery.validate.js",
-                    "~/Scripts/jquery.validate.js",
-                    "~/Scripts/jquery.unobstrusive.js"
+                    "~/Scripts/jquery.validate.unobstrusive.js"
+                );
+            bundles.Add(scripts);
+
+            scripts = new ScriptBundle("~/resources/angular")
+                .Include(
+                    "~/Scripts/angular.js",
+                    "~/Scripts/i18n/angular-locale_de-de.js",
+                    "~/Scripts/i18n/angular-locale_de.js"
                 );
             bundles.Add(scripts);
         }
