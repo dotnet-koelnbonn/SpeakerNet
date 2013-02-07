@@ -4,6 +4,15 @@ namespace SpeakerNet.Models
 {
     public class WebUser
     {
+        private WebUser()
+        {
+            
+        }
+        public WebUser(string name)
+        {
+            Name = name;
+        }
+
         [Key]
         public int Id { get; private set; }
 

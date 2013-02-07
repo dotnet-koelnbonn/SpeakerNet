@@ -18,13 +18,13 @@ var SendMail = (function ($) {
     };
 
 
-    return function (speaker, url) {
+    return function (speakerId, url) {
 
         $(function () {
             $("#Template").on("change", onTemplateChange);
         });
         
-        speakerId = speaker;
+        speakerId = speakerId;
         postUrl = url;
     };
 })(jQuery);

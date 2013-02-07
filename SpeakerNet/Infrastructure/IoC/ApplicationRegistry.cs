@@ -1,5 +1,6 @@
 using System;
 using SpeakerNet.Data;
+using SpeakerNet.Services;
 using StructureMap.Configuration.DSL;
 
 namespace SpeakerNet.Infrastructure.IoC
@@ -12,6 +13,8 @@ namespace SpeakerNet.Infrastructure.IoC
             For<IDatabaseContext>()
                 .HybridHttpOrThreadLocalScoped()
                 .Use<DatabaseContext>();
+            For<ICurrentWebUser>()
+                .HybridHttpOrThreadLocalScoped();
         }
     }
 }

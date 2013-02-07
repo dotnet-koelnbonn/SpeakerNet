@@ -273,4 +273,7 @@
   <data name="Navigation_MailTemplates" xml:space="preserve">
     <value>Mail Templates</value>
   </data>
+  <data name="Navigation_SessionVoting" xml:space="preserve">
+    <value>Session Voting</value>
+  </data>
 </root>

@@ -5,34 +5,52 @@
 }
 
 <h2>Index</h2>
+<section data-ng-app="" data-ng-cloack="">
+    <div data-ng-controller="VotingCtrl">
+        <div>
+            Suche: <input data-ng-model="query"/> 
+            Sortierung: <select data-ng-model="orderProperty">
+                            <option value="SessionName">Session</option>                                                                   
+                            <option value="WebUserName">Name</option>                                                                   
+                            <option value="SessionDuration">Dauer</option>                                                                   
+                            <option value="Point">Punkte</option>                                                                   
+                        </select>
+        </div>
+        <table>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(c => c.SessionName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(c => c.WebUserName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(c => c.SessionDuration)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(c => c.Points)
+                </th>
+            </tr>
+            <tr data-ng-repeat="session in sessions | filter:query | orderBy:orderProperty">
+                <td>
+                    {{session.SessionName}}
+                </td>
+                <td>
+                    {{session.WebUserName}}
+                </td>
+                <td>
+                    {{session.SessionDuration}}
+                </td>
+                <td>
+                    {{session.Point}}
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
 
-
-
-<table>
-    <tr>
-        <th></th>
-        <th>
-            @Html.DisplayNameFor(c => c.SessionName);
-        </th>
-        <th>
-            @Html.DisplayNameFor(c => c.WebUserName);
-        </th>
-        <th>
-            @Html.DisplayNameFor(c => c.Points);
-        </th>
-    </tr>
-
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @item.SessionName
-            </td>
-            <td>
-                @item.Points
-            </td>
-            <td>
-                @item.WebUserName
-            </td>
-        </tr>
-    }
-</table>
+@section scripts 
+{
+    @Scripts.Render("~/resources/angular")
+    <script type="text/javascript" src="~/js/SessionVoting.js"> </script>
+}
