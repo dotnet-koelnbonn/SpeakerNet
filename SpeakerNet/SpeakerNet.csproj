@@ -309,10 +309,26 @@
       <DependentUpon>Site.less</DependentUpon>
     </Content>
     <Content Include="Global.asax" />
+    <Content Include="js\angular\angular-resource.d.ts" />
+    <Content Include="js\angular\angular.d.ts" />
+    <Content Include="js\jquery\jquery.d.ts" />
     <Content Include="js\SessionVoting.js" />
-    <Content Include="js\SessionVotingServices.js" />
+    <TypeScriptCompile Include="js\SessionVotingServices.ts" />
+    <Content Include="js\SessionVotingServices.js">
+      <DependentUpon>SessionVotingServices.ts</DependentUpon>
+    </Content>
     <Content Include="js\SpeakerSendMail.js" />
+    <TypeScriptCompile Include="js\VotingController.ts" />
+    <Content Include="js\VotingController.js">
+      <DependentUpon>VotingController.ts</DependentUpon>
+    </Content>
     <Content Include="robots.txt" />
+    <Content Include="js\VotingController.js.map">
+      <DependentUpon>VotingController.ts</DependentUpon>
+    </Content>
+    <Content Include="js\SessionVotingServices.js.map">
+      <DependentUpon>SessionVotingServices.ts</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\Profile.pubxml" />
     <None Include="Properties\PublishProfiles\WebServer.Speakernet.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
