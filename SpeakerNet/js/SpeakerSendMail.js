@@ -17,7 +17,6 @@ var SendMail = (function ($) {
         $.post(postUrl, data, onGetTemplateData, "json");
     };
 
-
     return function (speakerId, url) {
 
         $(function () {

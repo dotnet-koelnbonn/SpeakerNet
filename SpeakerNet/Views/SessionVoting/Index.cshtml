@@ -4,47 +4,57 @@
     ViewBag.Title = "Index";
 }
 
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+}
+
 <h2>Index</h2>
-<section data-ng-app="" data-ng-cloack="">
+<section data-ng-app="SpeakerNet.Voting" class="ng-cloak" ng-cloak>
     <div data-ng-controller="VotingCtrl">
         <div>
             Suche: <input data-ng-model="query"/> 
             Sortierung: <select data-ng-model="orderProperty">
-                            <option value="SessionName">Session</option>                                                                   
-                            <option value="WebUserName">Name</option>                                                                   
-                            <option value="SessionDuration">Dauer</option>                                                                   
+                            <option value="Name">Session</option>                                                                   
+                            <option value="SpeakerName">Name</option>                                                                   
+                            <option value="Duration">Dauer</option>                                                                   
                             <option value="Point">Punkte</option>                                                                   
                         </select>
         </div>
         <table>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(c => c.SessionName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(c => c.WebUserName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(c => c.SessionDuration)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(c => c.Points)
-                </th>
-            </tr>
-            <tr data-ng-repeat="session in sessions | filter:query | orderBy:orderProperty">
-                <td>
-                    {{session.SessionName}}
-                </td>
-                <td>
-                    {{session.WebUserName}}
-                </td>
-                <td>
-                    {{session.SessionDuration}}
-                </td>
-                <td>
-                    {{session.Point}}
-                </td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(c => c.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(c => c.SpeakerName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(c => c.Duration)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(c => c.Points)
+                    </th>
+                </tr>
+            </thead> 
+            <tbody>
+                <tr data-ng-repeat="session in sessions | filter:query | orderBy:orderProperty">
+                    <td data-ng-click="showSessionDetails(session)" class="showHand">
+                        <div><b>{{session.Name}}</b></div>
+                        <div data-ng-show="session.ShowAbstract" class="popup"><p data-ng-bind-html-unsafe="session.Abstract"></p>
+                        </div>
+                    </td>
+                    <td>
+                        {{session.SpeakerName}}
+                    </td>
+                    <td>
+                        {{session.Duration}}
+                    </td>
+                    <td>
+                        {{session.Point}}
+                    </td>
+                </tr>
+            </tbody>
         </table>
     </div>
 </section>
@@ -52,5 +62,6 @@
 @section scripts 
 {
     @Scripts.Render("~/resources/angular")
+    <script type="text/javascript" src="~/js/SessionVotingServices.js"> </script>
     <script type="text/javascript" src="~/js/SessionVoting.js"> </script>
 }

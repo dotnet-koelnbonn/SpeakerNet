@@ -166,6 +166,7 @@
     <Compile Include="FilterAttributes\ValidateAntiForgeryTokenFilter.cs" />
     <Compile Include="Infrastructure\Initialize\InitializeBundles.cs" />
     <Compile Include="Infrastructure\Mappings\MailTemplateProfile.cs" />
+    <Compile Include="Infrastructure\Mappings\SessionProfile.cs" />
     <Compile Include="Infrastructure\Mappings\SpeakerProfile.cs" />
     <Compile Include="Migrations\201302071708052_Votes.cs" />
     <Compile Include="Migrations\201302071708052_Votes.Designer.cs">
@@ -260,6 +261,7 @@
     <Compile Include="Settings\SiteSettings.cs" />
     <Compile Include="ViewModels\PictureUploadShowModel.cs" />
     <Compile Include="ViewModels\PictureUploadUploadModel.cs" />
+    <Compile Include="ViewModels\SessionVotingDetailModel.cs" />
     <Compile Include="ViewModels\Speaker\SpeakerHelpModel.cs" />
     <Compile Include="ViewModels\SpeakerSession\CreateSessionModel.cs" />
     <Compile Include="ViewModels\SpeakerSession\DisplaySessionModel.cs" />
@@ -308,6 +310,7 @@
     </Content>
     <Content Include="Global.asax" />
     <Content Include="js\SessionVoting.js" />
+    <Content Include="js\SessionVotingServices.js" />
     <Content Include="js\SpeakerSendMail.js" />
     <Content Include="robots.txt" />
     <None Include="Properties\PublishProfiles\Profile.pubxml" />

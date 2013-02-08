@@ -1,4 +1,4 @@
-body {
+﻿body {
   background-color: #ff8800;
   font-size: 1.0em;
   font-family: Calibri, Verdana, Helvetica, Sans-Serif;
@@ -294,4 +294,22 @@ div.col-right {
 .sendmail textarea {
   width: 57em;
   height: 22em;
+}
+.highlight {
+  background-color: #ffb366;
+}
+[ng\:cloak],
+[ng-cloak],
+.ng-cloak {
+  display: none;
+}
+.popup {
+  position: absolute;
+  border: 1px solid black;
+  z-index: 100;
+  width: 60%;
+  background-color: #eee;
+}
+.showHand {
+  cursor: pointer;
 }

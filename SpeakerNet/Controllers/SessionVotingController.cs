@@ -21,7 +21,18 @@ namespace SpeakerNet.Controllers
 
         public ActionResult Index()
         {
-            return View(service.GetListSessionVotingModel());
+            return View();
         }
+
+        [OutputCache(Duration = 60)]
+        public ActionResult Sessions()
+        {
+            return Json(service.GetListSessionVotingModel(),JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult Session(int id)
+        {
+            return Json(service.GetSessionDetailModel(id), JsonRequestBehavior.AllowGet);
+        }
+
     }
 }

@@ -31,6 +31,7 @@ namespace SpeakerNet.Infrastructure.Initialize
             scripts = new ScriptBundle("~/resources/angular")
                 .Include(
                     "~/Scripts/angular.js",
+                    "~/Scripts/angular-resource.js",
                     "~/Scripts/i18n/angular-locale_de-de.js",
                     "~/Scripts/i18n/angular-locale_de.js"
                 );
