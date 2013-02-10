@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using Aperea.Infrastructure.Mappings;
+using Microsoft.AspNet.SignalR;
 using SpeakerNet.Data;
+using SpeakerNet.Hubs;
 using SpeakerNet.Models;
 using SpeakerNet.Settings;
 using SpeakerNet.ViewModels;
@@ -58,12 +60,13 @@ namespace SpeakerNet.Services
                 voteRepository.Add(vote);
                 voteRepository.SaveChanges();
             }
+            UpdateSessionResult(id);
             return Votes(user.Id);
         }
 
         int CountVotes(int userId)
         {
-            var query  = voteRepository.Entities.Where(v => v.WebUserId == userId).ToList();
+            var query = voteRepository.Entities.Where(v => v.WebUserId == userId).ToList();
             return query.Sum(v => v.Points);
         }
 
@@ -85,28 +88,58 @@ namespace SpeakerNet.Services
             return Votes(user.Id);
         }
 
-        public IEnumerable<ListSessionVotingModel> GetSessionVotesSummary()
+        void UpdateSessionResult(int sessionId)
         {
             var query = from v in voteRepository.Entities
-                        where v.Points>0
-                        group v by v.Session into s
+                        where v.Points > 0 && v.SessionId == sessionId
+                        group v by v.Session
+                        into s
                         select new ListSessionVotingModel() {
                             Id = s.Key.Id,
                             Name = s.Key.Name,
                             SpeakerFirstName = s.Key.Speaker.FirstName,
                             SpeakerLastName = s.Key.Speaker.LastName,
                             Duration = s.Key.Duration,
-                            Points = s.Sum(v=>v.Points)
+                            Points = s.Sum(v => v.Points)
                         };
-            return query.ToArray().OrderByDescending(v=>v.Points);
+            var result = query.SingleOrDefault();
+            if (result == null) {
+                result = new ListSessionVotingModel {
+                    Id = sessionId,
+                    Points = 0
+                };
+            }
+            var context = GlobalHost.ConnectionManager.GetHubContext<VotingResultHub>();
+            context.Clients.All.updateSession(new
+            {
+                Sessions =new[]{result},
+                Voters = GetSessionVoters()
+            });
+        }
+
+        public IEnumerable<ListSessionVotingModel> GetSessionVotesSummary()
+        {
+            var query = from v in voteRepository.Entities
+                        where v.Points > 0
+                        group v by v.Session
+                        into s
+                        select new ListSessionVotingModel() {
+                            Id = s.Key.Id,
+                            Name = s.Key.Name,
+                            SpeakerFirstName = s.Key.Speaker.FirstName,
+                            SpeakerLastName = s.Key.Speaker.LastName,
+                            Duration = s.Key.Duration,
+                            Points = s.Sum(v => v.Points)
+                        };
+            return query.ToArray().OrderByDescending(v => v.Points);
         }
 
         public IEnumerable<SessionVoters> GetSessionVoters()
         {
             var query = from v in voteRepository.Entities
-                        group v by v.WebUser into s
-                        select new SessionVoters()
-                        {
+                        group v by v.WebUser
+                        into s
+                        select new SessionVoters() {
                             Name = s.Key.Name,
                             Points = s.Sum(v => v.Points)
                         };

@@ -21,6 +21,7 @@ namespace SpeakerNet.Infrastructure.Initialize
 
         static void RegisterRoutes(RouteCollection routes)
         {
+            routes.MapHubs();
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.IgnoreRoute("images/{*pathInfo}");
 
