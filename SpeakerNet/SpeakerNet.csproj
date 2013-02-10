@@ -312,13 +312,20 @@
     <Content Include="js\angular\angular-resource.d.ts" />
     <Content Include="js\angular\angular.d.ts" />
     <Content Include="js\jquery\jquery.d.ts" />
-    <Content Include="js\SessionVoting.js" />
     <TypeScriptCompile Include="js\SessionVotingServices.ts" />
+    <Content Include="js\SessionVoting.js">
+      <DependentUpon>SessionVoting.ts</DependentUpon>
+    </Content>
+    <Content Include="js\SessionVoting.ts" />
     <Content Include="js\SessionVotingServices.js">
       <DependentUpon>SessionVotingServices.ts</DependentUpon>
     </Content>
     <Content Include="js\SpeakerSendMail.js" />
     <TypeScriptCompile Include="js\VotingController.ts" />
+    <Content Include="js\Transformations.js">
+      <DependentUpon>Transformations.ts</DependentUpon>
+    </Content>
+    <Content Include="js\Transformations.ts" />
     <Content Include="js\VotingController.js">
       <DependentUpon>VotingController.ts</DependentUpon>
     </Content>
@@ -328,6 +335,12 @@
     </Content>
     <Content Include="js\SessionVotingServices.js.map">
       <DependentUpon>SessionVotingServices.ts</DependentUpon>
+    </Content>
+    <Content Include="js\SessionVoting.js.map">
+      <DependentUpon>SessionVoting.ts</DependentUpon>
+    </Content>
+    <Content Include="js\Transformations.js.map">
+      <DependentUpon>Transformations.ts</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\Profile.pubxml" />
     <None Include="Properties\PublishProfiles\WebServer.Speakernet.pubxml" />

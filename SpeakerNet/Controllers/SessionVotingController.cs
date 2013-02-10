@@ -27,11 +27,12 @@ namespace SpeakerNet.Controllers
         [OutputCache(Duration = 60)]
         public ActionResult Sessions()
         {
-            return Json(service.GetListSessionVotingModel(),JsonRequestBehavior.AllowGet);
+            return Json(service.GetListSessionVotingModel());
         }
-        public ActionResult Session(int id)
+
+        public ActionResult Vote(int id, int points)
         {
-            return Json(service.GetSessionDetailModel(id), JsonRequestBehavior.AllowGet);
+            return Json(service.Vote(id, points));
         }
 
     }

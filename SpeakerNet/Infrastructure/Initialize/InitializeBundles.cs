@@ -36,6 +36,13 @@ namespace SpeakerNet.Infrastructure.Initialize
                     "~/Scripts/i18n/angular-locale_de.js"
                 );
             bundles.Add(scripts);
+            scripts = new ScriptBundle("~/resources/sessionvoting")
+                .Include(
+                    "~/js/Transformations.js",
+                    "~/js/VotingController.js",
+                    "~/js/SessionVotingServices.js",
+                    "~/js/SessionVoting.js"
+                );
         }
     }
 }

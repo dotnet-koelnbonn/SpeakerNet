@@ -8,24 +8,38 @@ module SpeakerNet {
         Id: number;
         Name: string;
         Abstract: string;
-        ShowAbstract: bool;
         Duration: number;
         Points: number;
+
+        ShowAbstract: bool;
+        ShowVoting: bool;
     }
 
     export interface ISessionsService {
         query(data): ISessionVoteModel[];
     }
 
+    export interface IVotingServiceData {
+        id: number;
+        points: number;
+    }
+    export interface IVoteResult {
+        SessionId: number;
+        Points: number;
+    }
+
+    export interface IVotingService {
+        vote(data: IVotingServiceData, params: IVotingServiceData): IVoteResult[];
+    }
     angular.module("SpeakerNet.VotingServices", ['ngResource'])
         .factory('Sessions', ($resource) => {
             return $resource('SessionVoting/Sessions', {}, {
                 query: { method: 'POST', params: {}, isArray: true }
             });
         })
-        .factory("Vote", ($resource) => {
-            return $resource('SessionVoting/vote/:id', {}, {
-                vote: { method: 'POST', params: { id: 0, points: 0 }, isArray: true }
+        .factory("VotingService", ($resource) => {
+            return $resource('SessionVoting/vote/:id', { id : 0, points: 0}, {
+                vote: { method: 'POST', params: { id: 0 }, isArray: true }
             });
         });
 }

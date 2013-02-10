@@ -4,21 +4,24 @@
     ViewBag.Title = "Index";
 }
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
 }
 
 <h2>Index</h2>
 <section data-ng-app="SpeakerNet.Voting" class="ng-cloak" ng-cloak>
-    <div data-ng-controller="VotingCtrl">
+    <div data-ng-controller="Voting">
         <div>
-            Suche: <input data-ng-model="query"/> 
-            Sortierung: <select data-ng-model="orderProperty">
-                            <option value="Name">Session</option>                                                                   
-                            <option value="SpeakerName">Name</option>                                                                   
-                            <option value="Duration">Dauer</option>                                                                   
-                            <option value="Point">Punkte</option>                                                                   
-                        </select>
+            Suche:
+            <input data-ng-model="query" />
+            Sortierung:
+            <select data-ng-model="orderProperty">
+                <option value="Name">Session</option>
+                <option value="SpeakerName">Name</option>
+                <option value="Duration">Dauer</option>
+                <option value="Point">Punkte</option>
+            </select>
         </div>
         <table>
             <thead>
@@ -36,22 +39,25 @@
                         @Html.DisplayNameFor(c => c.Points)
                     </th>
                 </tr>
-            </thead> 
+            </thead>
             <tbody>
                 <tr data-ng-repeat="session in sessions | filter:query | orderBy:orderProperty">
                     <td data-ng-click="showSessionDetails(session)" class="showHand">
                         <div><b>{{session.Name}}</b></div>
-                        <div data-ng-show="session.ShowAbstract" class="popup"><p data-ng-bind-html-unsafe="session.Abstract"></p>
+                        <div data-ng-show="session.ShowAbstract" class="popup">
+                            <p data-ng-bind-html-unsafe="session.Abstract"></p>
                         </div>
                     </td>
-                    <td>
-                        {{session.SpeakerName}}
-                    </td>
-                    <td>
-                        {{session.Duration}}
-                    </td>
-                    <td>
-                        {{session.Point}}
+                    <td>{{session.SpeakerName}}</td>
+                    <td>{{session.Duration}}</td>
+                    <td data-ng-mouseenter="showVoting(session)">
+                        <div>{{session.Points}}</div>
+                        <div class="voting popup" data-ng-show="session.ShowVoting" data-ng-mouseleave="hideVoting(session)">
+                            <a data-ng-click="vote(session, 0)">0</a>
+                            <a data-ng-click="vote(session, 1)">1</a>
+                            <a data-ng-click="vote(session, 2)">2</a>
+                            <a data-ng-click="vote(session, 3)">3</a>
+                        </div>
                     </td>
                 </tr>
             </tbody>
@@ -62,6 +68,7 @@
 @section scripts 
 {
     @Scripts.Render("~/resources/angular")
+    <script src="~/js/Transformations.js"></script>
     <script src="~/js/VotingController.js"></script>
     <script type="text/javascript" src="~/js/SessionVotingServices.js"> </script>
     <script type="text/javascript" src="~/js/SessionVoting.js"> </script>

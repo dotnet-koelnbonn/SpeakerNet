@@ -12,14 +12,15 @@ var SpeakerNet;
                 isArray: true
             }
         });
-    }).factory("Vote", function ($resource) {
+    }).factory("VotingService", function ($resource) {
         return $resource('SessionVoting/vote/:id', {
+            id: 0,
+            points: 0
         }, {
             vote: {
                 method: 'POST',
                 params: {
-                    id: 0,
-                    points: 0
+                    id: 0
                 },
                 isArray: true
             }
