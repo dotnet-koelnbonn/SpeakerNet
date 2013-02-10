@@ -10,7 +10,7 @@ namespace SpeakerNet.Models
         }
         public WebUser(string name)
         {
-            Name = name;
+            Name = name.Trim();
         }
 
         [Key]

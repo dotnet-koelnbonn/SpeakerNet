@@ -3,11 +3,11 @@ using Aperea.Settings;
 
 namespace SpeakerNet.Settings
 {
-    public class VotingSessions : IVotingSessions
+    public class VotingSettings : IVotingSettings
     {
         readonly IApplicationSettings settings;
 
-        public VotingSessions(IApplicationSettings settings)
+        public VotingSettings(IApplicationSettings settings)
         {
             this.settings = settings;
         }

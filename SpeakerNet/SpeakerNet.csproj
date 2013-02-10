@@ -179,9 +179,9 @@
     <Compile Include="Services\IFormatter.cs" />
     <Compile Include="Services\ISessionVotingService.cs" />
     <Compile Include="Services\MailTemplateService.cs" />
-    <Compile Include="Settings\IVotingSessions.cs" />
+    <Compile Include="Settings\IVotingSettings.cs" />
     <Compile Include="Settings\MailSettings.cs" />
-    <Compile Include="Settings\VotingSessions.cs" />
+    <Compile Include="Settings\VotingSettings.cs" />
     <Compile Include="ViewModels\ListSessionVotingModel.cs" />
     <Compile Include="ViewModels\MailTemplate\CreateMailTemplateModel.cs" />
     <Compile Include="ViewModels\MailTemplate\DeleteMailTemplateModel.cs" />

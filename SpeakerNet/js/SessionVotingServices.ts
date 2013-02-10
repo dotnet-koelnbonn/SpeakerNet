@@ -1,6 +1,6 @@
 /// <reference path="angular/angular-resource.d.ts" />
 /// <reference path="angular/angular.d.ts" />
-
+'use strict';
 
 module SpeakerNet {
 
@@ -16,7 +16,7 @@ module SpeakerNet {
     }
 
     export interface ISessionsService {
-        query(data): ISessionVoteModel[];
+        query(data, callback: any): ISessionVoteModel[];
     }
 
     export interface IVotingServiceData {
@@ -29,7 +29,8 @@ module SpeakerNet {
     }
 
     export interface IVotingService {
-        vote(data: IVotingServiceData, params: IVotingServiceData): IVoteResult[];
+        vote(data: IVotingServiceData, callback:any): IVoteResult[];
+        votes(data, callback:any): ng.IPromise;
     }
     angular.module("SpeakerNet.VotingServices", ['ngResource'])
         .factory('Sessions', ($resource) => {
@@ -38,8 +39,9 @@ module SpeakerNet {
             });
         })
         .factory("VotingService", ($resource) => {
-            return $resource('SessionVoting/vote/:id', { id : 0, points: 0}, {
-                vote: { method: 'POST', params: { id: 0 }, isArray: true }
+            return $resource('SessionVoting/vote/:id', { id : 0}, {
+                vote: { method: 'POST', params: { id: 0 }, isArray: true },
+                votes: { method: 'POST', params: { id : 0 }, isArray: true }
             });
         });
 }

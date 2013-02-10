@@ -366,17 +366,21 @@ div.col-right {
 .voting {
     &.popup {
         width: auto;
+		margin-left: -7em;
         height: 2em;
         padding: 0.2em;
         border: none;
-    background-color: none;
+        background-color: transparent;
     }
-
+	&.current {
+        background-color: #FFCC80;
+	}
     a {
         width: 1em;
         height: 1em;
+		font-weight: bold;
         padding: 3px 6px 3px 6px;
-        background-color: white;
+        background-color: #FFCC80;
         border: 1px solid gray;
         cursor: pointer;
         text-decoration: none;

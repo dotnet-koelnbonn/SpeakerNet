@@ -1,5 +1,5 @@
 ﻿/// <reference path="angular/angular.d.ts" />
-
+'use strict';
 module SpeakerNet.Transformations {
     export function AddAntiForgeryTokenToRequest(data, getHeaders) {
         if (angular.isString(data)) {

@@ -22,9 +22,9 @@ namespace SpeakerNet.Services
 
         static WebUser GetCurrentUser(IRepository<WebUser> repository, HttpContextBase httpContext)
         {
-            var user = repository.Entities.Single(u => u.Name == httpContext.User.Identity.Name);
-            if (user != null) {
-                user = new WebUser(user.Name);
+            var user = repository.Entities.SingleOrDefault(u => u.Name == httpContext.User.Identity.Name.Trim());
+            if (user == null) {
+                user = new WebUser(httpContext.User.Identity.Name.Trim());
                 repository.Add(user);
                 repository.SaveChanges();
             }

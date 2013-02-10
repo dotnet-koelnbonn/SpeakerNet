@@ -30,10 +30,16 @@ namespace SpeakerNet.Controllers
             return Json(service.GetListSessionVotingModel());
         }
 
-        public ActionResult Vote(int id, int points)
+        public ActionResult Votes()
         {
-            return Json(service.Vote(id, points));
+            return Json(service.Votes());
         }
 
+        public ActionResult Vote(int id, int points = 0)
+        {
+            if (id == 0)
+                return Votes();
+            return Json(service.Vote(id, points));
+        }
     }
 }
