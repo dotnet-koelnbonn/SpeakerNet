@@ -34,12 +34,23 @@ namespace SpeakerNet.Controllers
         {
             return Json(service.Votes());
         }
-
         public ActionResult Vote(int id, int points = 0)
         {
             if (id == 0)
                 return Votes();
             return Json(service.Vote(id, points));
+        }
+        public ActionResult Results()
+        {
+            return View();
+        }
+
+        public ActionResult VotingResults()
+        {
+            return Json(new {
+                Sessions = service.GetSessionVotesSummary(),
+                Voters = service.GetSessionVoters()
+            });
         }
     }
 }

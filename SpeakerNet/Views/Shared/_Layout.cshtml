@@ -1,4 +1,7 @@
 ﻿<!DOCTYPE html>
+@{
+    var rootUrl = @Url.Content("~/");
+}
 <html>
 <head>
     <meta name="robots" content="noindex,nofollow,noodp,noydir" />
@@ -6,7 +9,7 @@
        <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
     @Styles.Render("~/resources/styles")
 </head>
-<body>
+<body data-app-root="@rootUrl">
     <div class="page">
         <div id="header">
             <div id="title">

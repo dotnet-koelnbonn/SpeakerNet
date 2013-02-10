@@ -40,9 +40,11 @@ namespace SpeakerNet.Infrastructure.Initialize
                 .Include(
                     "~/js/Transformations.js",
                     "~/js/VotingController.js",
+                    "~/js/ResultController.js",
                     "~/js/SessionVotingServices.js",
                     "~/js/SessionVoting.js"
                 );
+            bundles.Add(scripts);
         }
     }
 }

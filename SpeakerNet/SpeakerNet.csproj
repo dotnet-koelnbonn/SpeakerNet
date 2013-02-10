@@ -179,6 +179,7 @@
     <Compile Include="Services\IFormatter.cs" />
     <Compile Include="Services\ISessionVotingService.cs" />
     <Compile Include="Services\MailTemplateService.cs" />
+    <Compile Include="Services\SessionVotingService.cs" />
     <Compile Include="Settings\IVotingSettings.cs" />
     <Compile Include="Settings\MailSettings.cs" />
     <Compile Include="Settings\VotingSettings.cs" />
@@ -312,6 +313,11 @@
     <Content Include="js\angular\angular-resource.d.ts" />
     <Content Include="js\angular\angular.d.ts" />
     <Content Include="js\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="js\ResultController.ts" />
+    <Content Include="js\ResultController.js">
+      <DependentUpon>ResultController.ts</DependentUpon>
+    </Content>
+    <Content Include="Views\SessionVoting\Results.cshtml" />
     <TypeScriptCompile Include="js\SessionVotingServices.ts" />
     <Content Include="js\SessionVoting.js">
       <DependentUpon>SessionVoting.ts</DependentUpon>
@@ -341,6 +347,9 @@
     </Content>
     <Content Include="js\Transformations.js.map">
       <DependentUpon>Transformations.ts</DependentUpon>
+    </Content>
+    <Content Include="js\ResultController.js.map">
+      <DependentUpon>ResultController.ts</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\Profile.pubxml" />
     <None Include="Properties\PublishProfiles\WebServer.Speakernet.pubxml" />

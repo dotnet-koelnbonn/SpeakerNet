@@ -5,6 +5,6 @@ var SpeakerNet;
         'SpeakerNet.VotingServices'
     ]).config(function ($httpProvider) {
         $httpProvider.defaults.transformRequest.push(SpeakerNet.Transformations.AddAntiForgeryTokenToRequest);
-    }).controller("Voting", SpeakerNet.VotingController);
+    }).controller("Voting", SpeakerNet.VotingController).controller("Result", SpeakerNet.ResultController);
 })(SpeakerNet || (SpeakerNet = {}));
 //@ sourceMappingURL=SessionVoting.js.map

@@ -16,7 +16,7 @@ module SpeakerNet {
     }
 
     export interface ISessionsService {
-        query(data, callback: any): ISessionVoteModel[];
+        query(data, callback: (sessions :  ISessionVoteModel[])=>void): ISessionVoteModel[];
     }
 
     export interface IVotingServiceData {
@@ -28,20 +28,41 @@ module SpeakerNet {
         Points: number;
     }
 
-    export interface IVotingService {
-        vote(params: IVotingServiceData, data :IVotingServiceData, callback:any): IVoteResult[];
-        votes(data, callback:any): ng.IPromise;
+    export interface ISessionVoterModel {
+        Name: string;
+        Points: number;
     }
+
+    export interface IResultService {
+        query(data, callback: (results: IResultModel) => void );
+    }
+    export interface IResultModel {
+        Sessions: ISessionVoteModel[];
+        Voters: ISessionVoterModel[];
+    }
+    export interface IVotingService {
+        vote(params: IVotingServiceData, data: IVotingServiceData, callback: any): IVoteResult[];
+        votes(data, callback: any): ng.IPromise;
+    }
+
+    var appRoot = $("body").data("appRoot");
+
     angular.module("SpeakerNet.VotingServices", ['ngResource'])
         .factory('Sessions', ($resource) => {
-            return $resource('SessionVoting/Sessions', {}, {
+            return $resource(appRoot+ 'SessionVoting/Sessions', {}, {
                 query: { method: 'POST', params: {}, isArray: true }
             });
         })
         .factory("VotingService", ($resource) => {
-            return $resource('SessionVoting/vote/:id', { id : 0}, {
+            return $resource(appRoot+'SessionVoting/vote/:id', { id: 0 }, {
                 vote: { method: 'POST', params: { id: 0 }, isArray: true },
-                votes: { method: 'POST', params: { id : 0 }, isArray: true }
+                votes: { method: 'POST', params: { id: 0 }, isArray: true }
             });
-        });
+        })
+        .factory('ResultService', ($resource) => {
+            return $resource(appRoot+'SessionVoting/VotingResults', {}, {
+                query: { method: 'POST', params: {} }
+            });
+        })
+
 }

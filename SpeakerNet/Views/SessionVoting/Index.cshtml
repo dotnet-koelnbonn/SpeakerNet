@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<ListSessionVotingModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Session Voting";
 }
 
 @using (Html.BeginForm())
@@ -9,7 +9,7 @@
     @Html.AntiForgeryToken()
 }
 
-<h2>Index</h2>
+<h2>Abstimmung</h2>
 <section data-ng-app="SpeakerNet.Voting" class="ng-cloak" ng-cloak>
     <div data-ng-controller="Voting">
         <div>
@@ -23,7 +23,7 @@
                 <option value="Point">Punkte</option>
             </select>
         Vergebene Punkte: {{currentPoints}}</div>
-       <table>
+        <table>
             <thead>
                 <tr>
                     <th>
@@ -44,7 +44,7 @@
                 <tr data-ng-repeat="session in sessions | filter:query | orderBy:orderProperty">
                     <td data-ng-click="showSessionDetails(session)" class="showHand">
                         <div><b>{{session.Name}}</b></div>
-                        <div data-ng-show="session.ShowAbstract" class="popup">
+                        <div data-ng-show="session.ShowAbstract" class="popup" data-ng-mouseleave="session.ShowAbstract=false">
                             <p data-ng-bind-html-unsafe="session.Abstract"></p>
                         </div>
                     </td>
@@ -62,14 +62,12 @@
                 </tr>
             </tbody>
         </table>
+        @Html.ActionLink("Abstimmungs Ergebnisse","Results")
     </div>
 </section>
 
 @section scripts 
 {
     @Scripts.Render("~/resources/angular")
-    <script src="~/js/Transformations.js"></script>
-    <script src="~/js/VotingController.js"></script>
-    <script type="text/javascript" src="~/js/SessionVotingServices.js"> </script>
-    <script type="text/javascript" src="~/js/SessionVoting.js"> </script>
+    @Scripts.Render("~/resources/sessionvoting")
 }

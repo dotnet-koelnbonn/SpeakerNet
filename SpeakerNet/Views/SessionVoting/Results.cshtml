@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ListSessionVotingModel>
+
+@{
+    ViewBag.Title = "Voting Result";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+}
+
+<h2>Abstimmungs Ergebnis</h2>
+<section data-ng-app="SpeakerNet.Voting" class="ng-cloak" ng-cloak>
+    <div data-ng-controller="Result">
+        <table>
+            <thead>
+                <tr>
+                    <th>Position
+                    </th>
+                    <th>Titel
+                    </th>
+                    <th>Sprecher
+                    </th>
+                    <th>Dauer
+                    </th>
+                    <th>Punkte
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="session in sessions | orderBy: Points">
+                    <td>{{$index+1}}</td>
+                    <td><b>{{session.Name}}</b></td>
+                    <td>{{session.SpeakerFirstName}} {{session.SpeakerLastName}}</td>
+                    <td>{{session.Duration}}</td>
+                    <td ><div>{{session.Points}}</div></td>
+                </tr>
+            </tbody>
+        </table>
+        @Html.ActionLink("Zur Abstimmung", "Index")
+        <h2>Vergebene Punkte</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Punkte</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="voter in voters">
+                    <td>{{voter.Name}}</td>
+                    <td>{{voter.Points}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+@section scripts 
+{
+    @Scripts.Render("~/resources/angular")
+    @Scripts.Render("~/resources/sessionvoting")
+}
