@@ -20,8 +20,8 @@ module SpeakerNet {
     }
 
     export interface IVotingServiceData {
-        id: number;
-        points: number;
+        id?: number;
+        points?: number;
     }
     export interface IVoteResult {
         SessionId: number;
@@ -29,7 +29,7 @@ module SpeakerNet {
     }
 
     export interface IVotingService {
-        vote(data: IVotingServiceData, callback:any): IVoteResult[];
+        vote(params: IVotingServiceData, data :IVotingServiceData, callback:any): IVoteResult[];
         votes(data, callback:any): ng.IPromise;
     }
     angular.module("SpeakerNet.VotingServices", ['ngResource'])

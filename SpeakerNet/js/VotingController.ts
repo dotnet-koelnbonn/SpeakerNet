@@ -20,7 +20,7 @@ module SpeakerNet {
         constructor(public $scope: IVotingControllerScope, Sessions: ISessionsService, public VotingService: IVotingService) {
             $scope.maxPoints = 45;
             $scope.currentPoints = 0;
-            $scope.orderProperty = "SpeakerName";
+            $scope.orderProperty = "SpeakerLastName";
             $scope.sessions = Sessions.query(null, (result) =>
             {
                 this.createSessionIndex(result);
@@ -59,11 +59,12 @@ module SpeakerNet {
             }
             session.ShowVoting = true;
         }
+
         hideVoting(session: ISessionVoteModel, e: JQueryEventObject) {
             session.ShowVoting = false;
         }
         vote(session: ISessionVoteModel, points: number, e: JQueryEventObject) {
-            this.VotingService.vote({ id: session.Id, points : points } , result => {
+            this.VotingService.vote({ id: session.Id }, { points : points } , result => {
                 session.ShowVoting = false;
                 if (result.length == 0) {
                 } else {

@@ -42,7 +42,7 @@ namespace SpeakerNet.Services
 
         public IEnumerable<ListSessionVotingModel> GetListSessionVotingModel()
         {
-            return sessionRepository.Include("Speaker").MapTo<IEnumerable<ListSessionVotingModel>>();
+            return sessionRepository.Entities.Project().ToArray<ListSessionVotingModel>();
         }
 
         public SessionVotingDetailModel GetSessionDetailModel(int id)
@@ -76,7 +76,8 @@ namespace SpeakerNet.Services
 
         int CountVotes(int userId)
         {
-            return voteRepository.Entities.Where(v => v.WebUserId == userId).Sum(v => v.Points);
+            var query  = voteRepository.Entities.Where(v => v.WebUserId == userId).ToList();
+            return query.Sum(v => v.Points);
         }
 
         IEnumerable<VoteResult> Votes(int userId)

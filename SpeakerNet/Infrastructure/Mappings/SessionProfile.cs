@@ -12,8 +12,7 @@ namespace SpeakerNet.Infrastructure.Mappings
         {
             CreateMap<Session, ListSessionVotingModel>()
                 .ForMember(d => d.Abstract, c => c.AddFormatter<WikiFormatter>())
-                .ForMember(d => d.Points, c => c.Ignore())
-                .ForMember(d => d.SpeakerName, c => c.MapFrom(s => s.Speaker.FullName));
+                .ForMember(d => d.Points, c => c.Ignore());
 
             CreateMap<Session, SessionVotingDetailModel>()
                 .ForMember(d => d.Abstract, c => c.AddFormatter<WikiFormatter>());

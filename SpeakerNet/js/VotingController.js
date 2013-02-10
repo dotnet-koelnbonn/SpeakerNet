@@ -8,7 +8,7 @@ var SpeakerNet;
             var _this = this;
             $scope.maxPoints = 45;
             $scope.currentPoints = 0;
-            $scope.orderProperty = "SpeakerName";
+            $scope.orderProperty = "SpeakerLastName";
             $scope.sessions = Sessions.query(null, function (result) {
                 _this.createSessionIndex(result);
                 VotingService.votes(null, function (result) {
@@ -60,7 +60,8 @@ var SpeakerNet;
         VotingController.prototype.vote = function (session, points, e) {
             var _this = this;
             this.VotingService.vote({
-                id: session.Id,
+                id: session.Id
+            }, {
                 points: points
             }, function (result) {
                 session.ShowVoting = false;

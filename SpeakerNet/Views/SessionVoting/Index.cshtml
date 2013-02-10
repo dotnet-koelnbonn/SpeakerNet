@@ -18,7 +18,7 @@
             Sortierung:
             <select data-ng-model="orderProperty">
                 <option value="Name">Session</option>
-                <option value="SpeakerName">Name</option>
+                <option value="SpeakerLastName">Name</option>
                 <option value="Duration">Dauer</option>
                 <option value="Point">Punkte</option>
             </select>
@@ -27,16 +27,16 @@
             <thead>
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(c => c.Name)
+                        Titel
                     </th>
                     <th>
-                        @Html.DisplayNameFor(c => c.SpeakerName)
+                        Sprecher
                     </th>
                     <th>
-                        @Html.DisplayNameFor(c => c.Duration)
+                        Dauer
                     </th>
                     <th>
-                        @Html.DisplayNameFor(c => c.Points)
+                        Punkte
                     </th>
                 </tr>
             </thead>
@@ -48,7 +48,7 @@
                             <p data-ng-bind-html-unsafe="session.Abstract"></p>
                         </div>
                     </td>
-                    <td>{{session.SpeakerName}}</td>
+                    <td>{{session.SpeakerFirstName}} {{session.SpeakerLastName}}</td>
                     <td>{{session.Duration}}</td>
                     <td data-ng-mouseenter="showVoting(session)">
                         <div class="voting popup" data-ng-show="session.ShowVoting" data-ng-mouseleave="hideVoting(session)">
