@@ -11,7 +11,6 @@ namespace SpeakerNet.Infrastructure.Mappings
         protected override void Configure()
         {
             CreateMap<Session, ListSessionVotingModel>()
-                .ForMember(d => d.Abstract, c => c.AddFormatter<WikiFormatter>())
                 .ForMember(d => d.Points, c => c.Ignore());
 
             CreateMap<Session, SessionVotingDetailModel>()
@@ -21,11 +20,11 @@ namespace SpeakerNet.Infrastructure.Mappings
 
     public class WikiFormatter : ValueFormatter<string>
     {
-        readonly WikiEngine wiki = new WikiEngine();
+        static readonly WikiEngine _wiki = new WikiEngine();
 
         protected override string FormatValueCore(string value)
         {
-            return wiki.Render(value);
+            return _wiki.Render(value);
         }
     }
 }

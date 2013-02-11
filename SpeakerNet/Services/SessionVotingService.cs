@@ -31,7 +31,12 @@ namespace SpeakerNet.Services
 
         public IEnumerable<ListSessionVotingModel> GetListSessionVotingModel()
         {
-            return sessionRepository.Entities.Project().ToArray<ListSessionVotingModel>();
+            var engine = new WikiPlex.WikiEngine();
+            var models =  sessionRepository.Entities.Project().ToArray<ListSessionVotingModel>();
+            foreach (var model in models) {
+                model.Abstract = engine.Render(model.Abstract);
+            }
+            return models;
         }
 
         public SessionVotingDetailModel GetSessionDetailModel(int id)
@@ -97,6 +102,7 @@ namespace SpeakerNet.Services
                         select new ListSessionVotingModel() {
                             Id = s.Key.Id,
                             Name = s.Key.Name,
+                            SpeakerId = s.Key.Speaker.Id,
                             SpeakerFirstName = s.Key.Speaker.FirstName,
                             SpeakerLastName = s.Key.Speaker.LastName,
                             Duration = s.Key.Duration,
@@ -126,6 +132,7 @@ namespace SpeakerNet.Services
                         select new ListSessionVotingModel() {
                             Id = s.Key.Id,
                             Name = s.Key.Name,
+                            SpeakerId = s.Key.Speaker.Id,
                             SpeakerFirstName = s.Key.Speaker.FirstName,
                             SpeakerLastName = s.Key.Speaker.LastName,
                             Duration = s.Key.Duration,
