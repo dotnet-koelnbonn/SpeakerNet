@@ -32,6 +32,7 @@ namespace SpeakerNet.Infrastructure.Initialize
                 .Include(
                     "~/Scripts/angular.js",
                     "~/Scripts/angular-resource.js",
+                    "~/Scripts/angular-sanitize.js",
                     "~/Scripts/i18n/angular-locale_de-de.js",
                     "~/Scripts/i18n/angular-locale_de.js",
                     "~/Scripts/jquery.signalR-1.*"

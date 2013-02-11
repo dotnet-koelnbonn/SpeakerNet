@@ -46,7 +46,7 @@
                     <td data-ng-click="showSessionDetails(session)" class="showHand">
                         <div><b>{{session.Name}}</b></div>
                         <div data-ng-show="session.ShowAbstract" class="popup abstract" data-ng-mouseleave="session.ShowAbstract=false">
-                            <p data-ng-bind-html-unsafe="session.Abstract"></p>
+                            <p data-ng-bind-html="session.Abstract"></p>
                             <div><span>{{session.Level}}</span>{{session.SpeakerCompanyName}}</div>
                         </div>
                     </td>

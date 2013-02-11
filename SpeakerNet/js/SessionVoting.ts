@@ -5,8 +5,13 @@
 
 'use strict';
 module SpeakerNet {
-    
-    angular.module('SpeakerNet.Voting', ['SpeakerNet.VotingServices'])
+
+    angular.module('SpeakerNet.Voting',
+        [
+            'SpeakerNet.VotingServices',
+            'ngResource',
+            'ngSanitize'
+        ])
         .config(function ($httpProvider) {
             $httpProvider.defaults.transformRequest.push(Transformations.AddAntiForgeryTokenToRequest);
         })
