@@ -31,12 +31,7 @@ namespace SpeakerNet.Services
 
         public IEnumerable<ListSessionVotingModel> GetListSessionVotingModel()
         {
-            var engine = new WikiPlex.WikiEngine();
-            var models =  sessionRepository.Entities.Project().ToArray<ListSessionVotingModel>();
-            foreach (var model in models) {
-                model.Abstract = engine.Render(model.Abstract);
-            }
-            return models;
+            return sessionRepository.Entities.Project().ToArray<ListSessionVotingModel>();
         }
 
         public SessionVotingDetailModel GetSessionDetailModel(int id)
