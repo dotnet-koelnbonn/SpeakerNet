@@ -1,5 +1,7 @@
-﻿using System.Web.Optimization;
+﻿using System;
+using System.Web.Optimization;
 using Aperea.Infrastructure.Bootstrap;
+using SpeakerNet.Web.Optimization;
 
 namespace SpeakerNet.Infrastructure.Initialize
 {
@@ -38,7 +40,7 @@ namespace SpeakerNet.Infrastructure.Initialize
                     "~/Scripts/jquery.signalR-1.*"
                 );
             bundles.Add(scripts);
-            scripts = new ScriptBundle("~/resources/sessionvoting")
+            scripts = new ScriptBundleWithoutRename("~/resources/sessionvoting")
                 .Include(
                     "~/js/Transformations.js",
                     "~/js/VotingController.js",
