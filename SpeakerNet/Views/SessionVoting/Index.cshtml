@@ -18,14 +18,14 @@
             Sortierung:
             <select data-ng-model="orderProperty">
                 <option value="Name">Session</option>
-                <option value="SpeakerLastName">Name</option>
+                <option value="SpeakerLastName">Sprecher</option>
                 <option value="Duration">Dauer</option>
-                <option value="Point">Punkte</option>
+                <option value="Points">Punkte</option>
             </select>
         Vergebene Punkte: {{currentPoints}}</div>
         <table>
             <thead>
-                <tr>
+                <tr><th></th>
                     <th>
                         Titel
                     </th>
@@ -42,6 +42,7 @@
             </thead>
             <tbody>
                 <tr data-ng-repeat="session in sessions | filter:query | orderBy:orderProperty">
+                     <td>{{$index+1}}</td>
                     <td data-ng-click="showSessionDetails(session)" class="showHand">
                         <div><b>{{session.Name}}</b></div>
                         <div data-ng-show="session.ShowAbstract" class="popup abstract" data-ng-mouseleave="session.ShowAbstract=false">
