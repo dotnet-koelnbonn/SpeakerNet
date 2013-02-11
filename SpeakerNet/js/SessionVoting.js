@@ -9,4 +9,3 @@ var SpeakerNet;
         $httpProvider.defaults.transformRequest.push(SpeakerNet.Transformations.AddAntiForgeryTokenToRequest);
     }).controller("Voting", SpeakerNet.VotingController).controller("Result", SpeakerNet.ResultController);
 })(SpeakerNet || (SpeakerNet = {}));
-//@ sourceMappingURL=SessionVoting.js.map

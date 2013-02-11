@@ -62,4 +62,3 @@ var SpeakerNet;
     })();
     SpeakerNet.ResultController = ResultController;    
 })(SpeakerNet || (SpeakerNet = {}));
-//@ sourceMappingURL=ResultController.js.map

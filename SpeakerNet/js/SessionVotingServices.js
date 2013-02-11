@@ -44,4 +44,3 @@ var SpeakerNet;
         });
     });
 })(SpeakerNet || (SpeakerNet = {}));
-//@ sourceMappingURL=SessionVotingServices.js.map

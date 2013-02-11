@@ -85,4 +85,3 @@ var SpeakerNet;
     })();
     SpeakerNet.VotingController = VotingController;    
 })(SpeakerNet || (SpeakerNet = {}));
-//@ sourceMappingURL=VotingController.js.map

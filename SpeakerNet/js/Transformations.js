@@ -21,4 +21,3 @@ var SpeakerNet;
     })(SpeakerNet.Transformations || (SpeakerNet.Transformations = {}));
     var Transformations = SpeakerNet.Transformations;
 })(SpeakerNet || (SpeakerNet = {}));
-//@ sourceMappingURL=Transformations.js.map
