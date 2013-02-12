@@ -16,7 +16,7 @@ interface HubConnection {
 }
 module SpeakerNet {
 
-    export interface IResultControllerScope {
+    export interface IResultControllerScope extends ng.IScope {
         maxPoints: number;
         currentPoints: number;
         sessions: ISessionVoteModel[];
@@ -31,25 +31,25 @@ module SpeakerNet {
             $.connection.hub.start();
             this.loadAllResults();
         }
-        loadAllResults() {
+        private loadAllResults() {
             this.ResultService.query(null, (result) => {
                 this.$scope.sessions = result.Sessions;
                 this.$scope.voters = result.Voters;
             });
         }
-        updateSessions(result: IResultModel) {
-            this.loadAllResults();
-            return;
-            // Uptimize to update only needed
-            this.$scope.voters = result.Voters;
-            var session = result.Sessions[0];
-            if (session.Points == 0) {
-                this.removeSession(session.Id);
-            } else {
-                this.updateSession(session);
-            }
+        private updateSessions(result: IResultModel) {
+            this.$scope.$apply((scope: IResultControllerScope) =>
+            {
+                scope.voters = result.Voters;
+                var session = result.Sessions[0];
+                if (session.Points == 0) {
+                    this.removeSession(session.Id);
+                } else {
+                    this.updateSession(session);
+                }
+            });
         }
-        findSessionIndex(sessionId): number {
+        private findSessionIndex(sessionId): number {
             for (var i = 0; i < this.$scope.sessions.length; i++) {
                 if (this.$scope.sessions[i].Id === sessionId) {
                     return i
@@ -57,18 +57,19 @@ module SpeakerNet {
             }
             return -1;
         }
-        findSession(sessionId: number) {
+        private findSession(sessionId: number) {
             var i = this.findSessionIndex(sessionId);
             if (i < 0)
                 return null;
             return this.$scope.sessions[i];
         }
 
-        removeSession(sessionId: number) {
+        private removeSession(sessionId: number) {
             var i = this.findSessionIndex(sessionId);
-            this.$scope.sessions = this.$scope.sessions.splice(i);
+            this.$scope.sessions.splice(i,1);
         }
-        updateSession(session: ISessionVoteModel) {
+
+        private updateSession(session: ISessionVoteModel) {
             var currentSession = this.findSession(session.Id);
             if (currentSession != null) {
                 currentSession.Points = session.Points;

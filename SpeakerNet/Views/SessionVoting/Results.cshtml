@@ -28,7 +28,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr data-ng-repeat="session in sessions | orderBy: Points">
+                <tr data-ng-repeat="session in sessions | orderBy: '-Points'">
                     <td>{{$index+1}}</td>
                     <td><a href="@Url.Action("Details","SpeakerSession")/{{session.SpeakerId}}/{{session.Id}}"><b>{{session.Name}}</b></a></td>
                     <td><a href="@Url.Action("Details","Speaker")/{{session.SpeakerId}}">{{session.SpeakerFirstName}} {{session.SpeakerLastName}}</a></td>

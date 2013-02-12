@@ -21,15 +21,16 @@ var SpeakerNet;
             });
         };
         ResultController.prototype.updateSessions = function (result) {
-            this.loadAllResults();
-            return;
-            this.$scope.voters = result.Voters;
-            var session = result.Sessions[0];
-            if(session.Points == 0) {
-                this.removeSession(session.Id);
-            } else {
-                this.updateSession(session);
-            }
+            var _this = this;
+            this.$scope.$apply(function (scope) {
+                scope.voters = result.Voters;
+                var session = result.Sessions[0];
+                if(session.Points == 0) {
+                    _this.removeSession(session.Id);
+                } else {
+                    _this.updateSession(session);
+                }
+            });
         };
         ResultController.prototype.findSessionIndex = function (sessionId) {
             for(var i = 0; i < this.$scope.sessions.length; i++) {
@@ -48,7 +49,7 @@ var SpeakerNet;
         };
         ResultController.prototype.removeSession = function (sessionId) {
             var i = this.findSessionIndex(sessionId);
-            this.$scope.sessions = this.$scope.sessions.splice(i);
+            this.$scope.sessions.splice(i, 1);
         };
         ResultController.prototype.updateSession = function (session) {
             var currentSession = this.findSession(session.Id);
