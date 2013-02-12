@@ -47,6 +47,9 @@ module SpeakerNet {
                 } else {
                     this.updateSession(session);
                 }
+                if (scope.sessions.length != result.SessionCount) {
+                    this.loadAllResults();
+                }
             });
         }
         private findSessionIndex(sessionId): number {
@@ -74,7 +77,7 @@ module SpeakerNet {
             if (currentSession != null) {
                 currentSession.Points = session.Points;
             } else {
-                this.loadAllResults();
+                this.$scope.sessions.push(session);
             }
         }
     }
