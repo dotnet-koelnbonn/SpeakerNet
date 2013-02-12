@@ -5,11 +5,9 @@ var SpeakerNet;
         function AddAntiForgeryTokenToRequest(data, getHeaders) {
             if(angular.isString(data)) {
                 data = JSON.parse(data);
-            } else {
-                if(data == null || !data) {
-                    data = {
-                    };
-                }
+            } else if(data == null || !data) {
+                data = {
+                };
             }
             var newData = {
                 __RequestVerificationToken: $("input[name=__RequestVerificationToken]").val()

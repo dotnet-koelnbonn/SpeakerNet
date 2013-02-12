@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Net.Mail;
-using SpeakerNet.Data;
+using Aperea.Data;
 using SpeakerNet.Models;
 using SpeakerNet.Settings;
 using System.Linq;

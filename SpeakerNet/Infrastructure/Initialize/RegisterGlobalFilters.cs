@@ -15,7 +15,6 @@ namespace SpeakerNet.Infrastructure.Initialize
         void Register(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
-            filters.Add(new ReleaseAndDisposeAllHttpScopedObjectsFilter());
         }
     }
 }

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Aperea.Data;
 using Aperea.Infrastructure.Mappings;
 using Microsoft.AspNet.SignalR;
-using SpeakerNet.Data;
 using SpeakerNet.Hubs;
 using SpeakerNet.Models;
 using SpeakerNet.Settings;

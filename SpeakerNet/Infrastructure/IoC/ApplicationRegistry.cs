@@ -1,5 +1,5 @@
 using System;
-using SpeakerNet.Data;
+using Aperea.Data;
 using SpeakerNet.Services;
 using StructureMap.Configuration.DSL;
 
