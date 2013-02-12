@@ -38,6 +38,7 @@ module SpeakerNet {
     }
     export interface IResultModel {
         Sessions: ISessionVoteModel[];
+        SessionCount: number;
         Voters: ISessionVoterModel[];
     }
     export interface IVotingService {
