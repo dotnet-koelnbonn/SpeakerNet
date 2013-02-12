@@ -49,6 +49,7 @@ module SpeakerNet {
                 }
                 if (scope.sessions.length != result.SessionCount) {
                     this.loadAllResults();
+//                    this.loadAllResults();
                 }
             });
         }
