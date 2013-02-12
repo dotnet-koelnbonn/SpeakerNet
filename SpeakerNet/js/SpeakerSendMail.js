@@ -1,6 +1,6 @@
 ﻿
 var SendMail = (function ($) {
-    var speakerId;
+    var _speakerId;
     var postUrl;
     
     var onGetTemplateData = function(data) {
@@ -12,7 +12,7 @@ var SendMail = (function ($) {
         var data = {
             '__RequestVerificationToken': $('input[name=__RequestVerificationToken]').val(),
             templateId: $(this).val(),
-            speakerId: speakerId     
+            speakerId: _speakerId     
         };
         $.post(postUrl, data, onGetTemplateData, "json");
     };
@@ -23,7 +23,7 @@ var SendMail = (function ($) {
             $("#Template").on("change", onTemplateChange);
         });
         
-        speakerId = speakerId;
+        _speakerId = speakerId;
         postUrl = url;
     };
 })(jQuery);
