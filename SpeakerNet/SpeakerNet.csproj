@@ -28,6 +28,7 @@
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
     <TargetFrameworkProfile />
+    <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -340,14 +341,10 @@
       <DependentUpon>Site.less</DependentUpon>
     </Content>
     <Content Include="Global.asax" />
-    <Content Include="js\angular\angular-resource.d.ts" />
-    <Content Include="js\angular\angular.d.ts" />
-    <Content Include="js\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="js\ResultController.ts" />
     <Content Include="js\ResultController.js">
       <DependentUpon>ResultController.ts</DependentUpon>
     </Content>
-    <Content Include="js\signalr\signalr.d.ts" />
     <Content Include="Scripts\jquery.signalR-1.0.0-rc2.js" />
     <Content Include="Scripts\jquery.signalR-1.0.0-rc2.min.js" />
     <Content Include="Views\SessionVoting\Results.cshtml" />
@@ -714,5 +711,4 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-
 </Project>
