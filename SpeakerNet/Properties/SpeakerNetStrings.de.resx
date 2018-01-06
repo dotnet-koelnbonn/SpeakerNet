@@ -259,7 +259,7 @@
     <value>Bearbeiten von {0} {1}</value>
   </data>
   <data name="SessionCommunity_1_Minutes" xml:space="preserve">
-    <value>Community-Lunch-Session {0} Min.</value>
+    <value>Lightning Talk {0} Min.</value>
   </data>
   <data name="SpeakerSession_List" xml:space="preserve">
     <value>Sessionvorschläge von {0} {1}</value>

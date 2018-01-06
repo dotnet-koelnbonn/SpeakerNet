@@ -90,7 +90,7 @@ namespace SpeakerNet.Controllers
                 }, "Value", "Text");
             model.DurationSelectList = new SelectList(new[] {
                 new SelectListItem {Value = "20", Text = T("SessionCommunity_1_Minutes", 20)},
-                new SelectListItem {Value = "45", Text = T("Session_1_Minutes", 45)},
+//                new SelectListItem {Value = "45", Text = T("Session_1_Minutes", 45)},
                 new SelectListItem {Value = "60", Text = T("Session_1_Minutes", 60)}
             }, "Value", "Text");
             model.EventSelectList = new SelectList(service.GetEventList(), "Id", "Name");
