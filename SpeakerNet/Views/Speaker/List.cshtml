@@ -14,7 +14,8 @@
 <h2>@T("Speaker_SpeakerList")</h2>
 @grid.GetHtml(columns: columns)
 @section navigation {
-    <ul class="menu">
-        <li>@Html.CreateSpeaker(T("Speaker_CreateNewSpeaker"))</li>
-    </ul>
+<ul class="menu">
+    <li>@Html.CreateSpeaker(T("Speaker_CreateNewSpeaker"))</li>
+    <li>@Html.SendMailAll(T("Speakers_SendMailAll"))</li>
+</ul>
 }

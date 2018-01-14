@@ -52,5 +52,11 @@ namespace SpeakerNet.Services
             model.MapTo(speaker);
             repository.SaveChanges();
         }
+
+        /// <inheritdoc />
+        public IEnumerable<Speaker> GetAllSpeakers()
+        {
+            return repository.Entities.ToArray();
+        }
     }
 }

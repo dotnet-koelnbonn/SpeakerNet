@@ -4,7 +4,7 @@ using System.Web.Mvc;
 
 namespace SpeakerNet.ViewModels
 {
-    public class SpeakerSendMailModel
+    public class SpeakerSendMailModel : SpeakerSendMailAllModel
     {
         public Guid Id { get; set; }
 
@@ -20,6 +20,5 @@ namespace SpeakerNet.ViewModels
         [Required]
         public string Body { get; set; }
 
-        public SelectList TemplateList { get; set; }
     }
 }

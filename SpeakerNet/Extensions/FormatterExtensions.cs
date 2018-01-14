@@ -9,6 +9,6 @@ namespace SpeakerNet.Extensions
          public static string NamedFormat(this string format, object source)
          {
              return _formatter.Format(format, source);
-         }
+         }      
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using SpeakerNet.Extensions;
 using SpeakerNet.FilterAttributes;
@@ -63,6 +64,27 @@ namespace SpeakerNet.Controllers
         }
 
         [AdminOnly]
+        public ActionResult SendMailAll()
+        {
+            var model = new SpeakerSendMailAllModel();
+            AddTemplates(model);
+            return View(model);
+        }
+
+        [AdminOnly]
+        [HttpPost]
+        public ActionResult SendMailAll(SpeakerSendMailAllModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                mailService.SendMailToAll(model.TemplateId, Request, Url);
+                return RedirectToAction("List");
+            }
+            AddTemplates(model);
+            return View(model);
+        }
+
+        [AdminOnly]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult SendMail(Guid id, SpeakerSendMailModel model)
@@ -88,6 +110,7 @@ namespace SpeakerNet.Controllers
         }
 
         [HttpPost]
+        [AdminOnly]
         public ActionResult GetTemplate(Guid speakerId, Guid templateId)
         {
             if (!Request.IsAjaxRequest())
@@ -99,7 +122,7 @@ namespace SpeakerNet.Controllers
             var model = new {
                 speaker.FirstName,
                 speaker.LastName,
-                SpeakerUrl = GetSpeakerUrl(speaker.Id)
+                SpeakerUrl = mailService.GetSpeakerUrl(speaker.Id, Request, Url)
             };
 
             return Json(new {
@@ -108,10 +131,14 @@ namespace SpeakerNet.Controllers
             });
         }
 
-        string GetSpeakerUrl(Guid speakerId)
+        void AddTemplates(SpeakerSendMailAllModel sendMailModel)
         {
-            
-            return string.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Url.Authority, Url.Action("Details", "Speaker", new { Id = speakerId }));
+            var mailTemplates = mailService.GetMailTemplates();
+            sendMailModel.TemplateList = new SelectList(mailTemplates, "Id", "Description");
+            if (mailTemplates.Any())
+            {
+                sendMailModel.TemplateId = mailTemplates.First().Id;
+            }
         }
 
         void AddTemplates(SpeakerSendMailModel sendMailModel)
@@ -123,7 +150,7 @@ namespace SpeakerNet.Controllers
                 var model = new {
                     sendMailModel.FirstName,
                     sendMailModel.LastName,
-                    SpeakerUrl = GetSpeakerUrl(sendMailModel.Id)
+                    SpeakerUrl = mailService.GetSpeakerUrl(sendMailModel.Id, Request, Url)
                 };
                 sendMailModel.Subject = mt.Subject.NamedFormat(model);
                 sendMailModel.Body = mt.Body.NamedFormat(model);

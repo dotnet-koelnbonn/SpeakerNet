@@ -2,6 +2,9 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+  </PropertyGroup>
+  <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>
@@ -329,6 +332,7 @@
     <Compile Include="Services\Authorization\MembershipService.cs" />
     <Compile Include="Services\ISpeakerService.cs" />
     <Compile Include="Services\SpeakerService.cs" />
+    <Compile Include="ViewModels\Speaker\SpeakerSendMailAllModel.cs" />
     <Compile Include="ViewModels\Speaker\SpeakerSendMailModel.cs" />
     <Compile Include="Web\Optimization\JsMinifyWithRename.cs" />
     <Compile Include="Web\Optimization\ScriptBundleWithoutRename.cs" />
@@ -342,6 +346,7 @@
       <DependentUpon>Site.less</DependentUpon>
     </Content>
     <Content Include="Global.asax" />
+    <Content Include="Views\Speaker\SendMailAll.cshtml" />
     <TypeScriptCompile Include="js\ResultController.ts" />
     <Content Include="js\ResultController.js">
       <DependentUpon>ResultController.ts</DependentUpon>

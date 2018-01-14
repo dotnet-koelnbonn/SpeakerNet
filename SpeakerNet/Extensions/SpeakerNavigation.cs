@@ -16,6 +16,10 @@ namespace SpeakerNet.Extensions
             }, null);
         }
 
+        public static IHtmlString SendMailAll(this HtmlHelper htmlHelper, string caption)
+        {
+            return htmlHelper.ActionLink(caption, "SendMailAll", "Speaker");
+        }
         public static IHtmlString CreateSpeaker(this HtmlHelper htmlHelper, string caption)
         {
             return htmlHelper.ActionLink(caption, "Create", "Speaker");

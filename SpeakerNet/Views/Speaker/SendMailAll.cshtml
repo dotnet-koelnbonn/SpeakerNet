@@ -1,0 +1,25 @@
+﻿@model SpeakerSendMailAllModel
+
+@{
+    ViewBag.Title = T("Navigation_Speakers");
+}
+
+@section navigation {
+    <ul class="menu">
+        <li>@Html.ActionLink(T("Speakers"), "List")</li>
+    </ul>
+}
+
+<h2>Sprecher-EMail an alle Spreacher in der Datenbank</h2>
+@Html.ValidationSummary()
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="editor-label">@Html.LabelFor(m => m.TemplateId, "Vorlage wählen")</div>
+    <div class="editor-field sendmail">
+        @Html.DropDownListFor(m => m.TemplateId, Model.TemplateList)</div>
+
+
+    <button type="submit">E-Mail absenden</button>
+}
+

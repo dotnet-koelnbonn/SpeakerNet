@@ -13,7 +13,8 @@ namespace SpeakerNet.Infrastructure.Mappings
             CreateMap<Speaker, SpeakerSendMailModel>()
                 .ForMember(d => d.Body, c => c.Ignore())
                 .ForMember(d => d.Subject, c => c.Ignore())
-                .ForMember(d => d.TemplateList, c => c.Ignore());
+                .ForMember(d => d.TemplateList, c => c.Ignore())
+                .ForMember(d => d.TemplateId, c => c.Ignore());
 
             CreateMap<Speaker, SpeakerEditModel>();
             CreateMap<SpeakerEditModel, Speaker>();
